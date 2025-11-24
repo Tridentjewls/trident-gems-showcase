@@ -10,17 +10,17 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="gradient-header py-8 px-4 relative overflow-hidden">
+    <footer className="py-8 px-4 relative overflow-hidden">
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover -z-10"
+        className="absolute inset-0 w-full h-full object-cover"
       >
         <source src="https://cdn.pixabay.com/video/2023/09/25/181573-868349613_large.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary opacity-90"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-secondary/60 to-primary/60"></div>
       <nav className="relative container mx-auto">
         <ul className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16">
           {navItems.map((item) => (
