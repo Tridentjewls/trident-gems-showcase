@@ -36,8 +36,11 @@ const Index = () => {
           </div>
         </div>
 
-        <JewelryCarousel />
       </main>
+
+      <section className="relative bg-white py-12">
+        <JewelryCarousel />
+      </section>
 
       <Footer />
     </div>
