@@ -1,19 +1,32 @@
+import { useEffect, useState } from "react";
 import jewelry1 from "@/assets/jewelry-1.jpg";
 import jewelry2 from "@/assets/jewelry-2.jpg";
 import jewelry3 from "@/assets/jewelry-3.jpg";
 
 const JewelryCarousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const images = [jewelry1, jewelry2, jewelry3];
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
-    <div className="w-full">
-      <div className="grid grid-cols-1 md:grid-cols-3">
+    <div className="w-full overflow-hidden">
+      <div
+        className="flex transition-transform duration-700 ease-in-out"
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
         {images.map((image, index) => (
-          <div key={index} className="w-full">
+          <div key={index} className="min-w-full">
             <img
               src={image}
               alt={`Luxury jewelry piece ${index + 1}`}
-              className="w-full h-96 object-cover hover:scale-105 transition-transform duration-500"
+              className="w-full h-96 object-cover"
             />
           </div>
         ))}
