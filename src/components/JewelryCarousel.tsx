@@ -16,7 +16,7 @@ const JewelryCarousel = () => {
   }, [images.length]);
 
   return (
-    <div className="w-full h-full overflow-hidden">
+    <div className="w-full h-[70vh] overflow-hidden">
       <div
         className="flex h-full transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
