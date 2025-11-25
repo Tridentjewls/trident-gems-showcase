@@ -144,7 +144,7 @@ const About = () => {
                   playsInline
                   className="w-full h-full object-contain"
                 >
-                  <source src="/videos/rotating-jewelry.mp4" type="video/mp4" />
+                  <source src="/videos/bg-trident.mp4" type="video/mp4" />
                   <div className="flex items-center justify-center h-full text-foreground/60">
                     <p>Your browser does not support the video tag.</p>
                   </div>
