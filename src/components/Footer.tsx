@@ -27,12 +27,13 @@ const Footer = () => {
             <li key={item.label}>
               <Link
                 to={item.path}
-                className="text-primary-foreground hover:text-accent transition-colors duration-300 group"
+                className="relative text-primary-foreground transition-all duration-300 group px-4 py-2 block"
               >
-                <span className="text-sm md:text-base font-medium tracking-wider">
+                <span className="absolute inset-0 border-2 border-transparent group-hover:border-accent rounded-lg transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(var(--accent),0.5)]"></span>
+                <span className="relative text-sm md:text-base font-medium tracking-wider group-hover:text-accent transition-colors duration-300">
                   {item.label}
                 </span>
-                <span className="text-xs ml-1 text-primary-foreground/70 group-hover:text-accent/70">
+                <span className="relative text-xs ml-1 text-primary-foreground/70 group-hover:text-accent/70 transition-colors duration-300">
                   {item.range}
                 </span>
               </Link>

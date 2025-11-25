@@ -4,19 +4,13 @@ import JewelryCarousel from "@/components/JewelryCarousel";
 import VideoBackground from "@/components/VideoBackground";
 import jewelryRing from "@/assets/jewelry-ring.png";
 const Index = () => {
-  return <div className="h-screen flex flex-col">
+  return <div className="h-screen flex flex-col overflow-hidden">
       <Header />
       
-      <main className="flex-1 relative overflow-auto">
+      <main className="flex-1 relative overflow-hidden">
         <VideoBackground />
         
-        <div className="relative z-10 container mx-auto px-4 py-8">
-          <div className="max-w-4xl mx-auto">
-            
-          </div>
-        </div>
-
-        <section className="relative bg-white">
+        <section className="absolute inset-0 z-10 bg-white">
           <JewelryCarousel />
         </section>
       </main>
