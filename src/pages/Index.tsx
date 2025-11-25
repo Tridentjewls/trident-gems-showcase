@@ -45,12 +45,12 @@ const Index = () => {
       <main className="flex-1 relative">
         <VideoBackground />
         
-        <section className="relative z-10 bg-white py-16">
+        <section className="relative z-10 bg-white">
           <JewelryCarousel />
         </section>
 
         {/* Three Boxes Section with Video Background */}
-        <section className="relative overflow-hidden">
+        <section className="relative overflow-hidden min-h-screen flex items-center">
           <video
             autoPlay
             loop
@@ -62,35 +62,35 @@ const Index = () => {
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
           
-          <div className="relative z-10 container mx-auto px-4 py-20">
-            <div className="max-w-6xl mx-auto space-y-16">
+          <div className="relative z-10 container mx-auto px-4 py-12">
+            <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-6 lg:gap-8">
               
               {/* Box 1: Role of CAD */}
               <div
                 ref={el => boxRefs.current[0] = el}
-                className={`bg-background/95 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-luxury border border-border/20 transition-all duration-1000 ${
+                className={`bg-background/95 backdrop-blur-sm rounded-xl p-6 shadow-luxury border border-border/20 transition-all duration-1000 ${
                   visibleBoxes[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
               >
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 gradient-primary bg-clip-text text-transparent">
-                  Role of CAD in Jewelry Industry
+                <h2 className="text-2xl font-bold text-foreground mb-4 gradient-primary bg-clip-text text-transparent">
+                  Role of CAD
                 </h2>
-                <div className="space-y-4 text-foreground/80 leading-relaxed">
-                  <p className="text-lg">
-                    Computer-Aided Design (CAD) has revolutionized the jewelry industry by transforming traditional craftsmanship into a perfect blend of art and technology.
+                <div className="space-y-3 text-foreground/80 leading-relaxed text-sm">
+                  <p>
+                    CAD revolutionizes jewelry design by blending traditional craftsmanship with cutting-edge technology.
                   </p>
-                  <ul className="space-y-3 list-disc list-inside ml-4">
-                    <li className="text-base">
-                      <strong className="text-foreground">Precision Design:</strong> CAD enables designers to create intricate patterns and complex geometries with mathematical accuracy that would be impossible to achieve by hand.
+                  <ul className="space-y-2 list-disc list-inside">
+                    <li>
+                      <strong className="text-foreground">Precision:</strong> Create intricate patterns with mathematical accuracy
                     </li>
-                    <li className="text-base">
-                      <strong className="text-foreground">Rapid Prototyping:</strong> Designers can quickly iterate multiple design variations, allowing clients to visualize and approve pieces before production begins.
+                    <li>
+                      <strong className="text-foreground">Prototyping:</strong> Quickly iterate design variations
                     </li>
-                    <li className="text-base">
-                      <strong className="text-foreground">Cost Efficiency:</strong> Virtual modeling reduces material waste and allows for accurate cost estimation before manufacturing.
+                    <li>
+                      <strong className="text-foreground">Efficiency:</strong> Reduce material waste and costs
                     </li>
-                    <li className="text-base">
-                      <strong className="text-foreground">Customization:</strong> CAD makes personalized jewelry more accessible, enabling unique pieces tailored to individual preferences.
+                    <li>
+                      <strong className="text-foreground">Custom:</strong> Personalized pieces tailored to preferences
                     </li>
                   </ul>
                 </div>
@@ -99,54 +99,49 @@ const Index = () => {
               {/* Box 2: Why CAD is Essential */}
               <div
                 ref={el => boxRefs.current[1] = el}
-                className={`bg-background/95 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-luxury border border-border/20 transition-all duration-1000 delay-200 ${
+                className={`bg-background/95 backdrop-blur-sm rounded-xl p-6 shadow-luxury border border-border/20 transition-all duration-1000 delay-300 ${
                   visibleBoxes[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
               >
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 gradient-primary bg-clip-text text-transparent">
-                  Why CAD is Essential in Jewelry
+                <h2 className="text-2xl font-bold text-foreground mb-4 gradient-primary bg-clip-text text-transparent">
+                  Why CAD is Essential
                 </h2>
-                <div className="space-y-4 text-foreground/80 leading-relaxed">
-                  <p className="text-lg">
-                    In today's competitive jewelry market, CAD technology is no longer optional—it's essential for staying relevant and competitive.
+                <div className="space-y-3 text-foreground/80 leading-relaxed text-sm">
+                  <p>
+                    CAD technology is essential for staying competitive in modern jewelry markets.
                   </p>
-                  <div className="grid md:grid-cols-2 gap-6 mt-6">
-                    <div className="space-y-3">
-                      <h3 className="text-xl font-semibold text-foreground">Technical Advantages</h3>
-                      <ul className="space-y-2 list-disc list-inside">
-                        <li>Perfect symmetry and proportion</li>
-                        <li>Accurate stone setting calculations</li>
-                        <li>3D printing compatibility</li>
-                        <li>Digital archives of all designs</li>
+                  <div className="space-y-3">
+                    <div className="space-y-2">
+                      <h3 className="text-base font-semibold text-foreground">Technical</h3>
+                      <ul className="space-y-1 list-disc list-inside text-xs">
+                        <li>Perfect symmetry</li>
+                        <li>Stone calculations</li>
+                        <li>3D printing ready</li>
                       </ul>
                     </div>
-                    <div className="space-y-3">
-                      <h3 className="text-xl font-semibold text-foreground">Business Benefits</h3>
-                      <ul className="space-y-2 list-disc list-inside">
-                        <li>Faster time-to-market</li>
-                        <li>Enhanced client communication</li>
-                        <li>Reduced production errors</li>
-                        <li>Global collaboration capability</li>
+                    <div className="space-y-2">
+                      <h3 className="text-base font-semibold text-foreground">Business</h3>
+                      <ul className="space-y-1 list-disc list-inside text-xs">
+                        <li>Faster delivery</li>
+                        <li>Better communication</li>
+                        <li>Reduced errors</li>
                       </ul>
                     </div>
                   </div>
-                  <p className="text-lg mt-6">
-                    CAD empowers jewelers to push creative boundaries while maintaining the highest standards of craftsmanship and precision.
-                  </p>
                 </div>
               </div>
 
               {/* Box 3: Rotating Jewelry Video */}
               <div
                 ref={el => boxRefs.current[2] = el}
-                className={`bg-background/95 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-luxury border border-border/20 transition-all duration-1000 delay-400 ${
+                className={`bg-background/95 backdrop-blur-sm rounded-xl p-6 shadow-luxury border border-border/20 transition-all duration-1000 delay-600 ${
                   visibleBoxes[2] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
               >
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center gradient-primary bg-clip-text text-transparent">
-                  Experience CAD Excellence
+                <h2 className="text-2xl font-bold text-foreground mb-4 text-center gradient-primary bg-clip-text text-transparent">
+                  CAD Excellence
                 </h2>
-                <div className="aspect-video rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                <div className="aspect-video rounded-lg overflow-hidden shadow-lg bg-black/30">
                   <video
                     autoPlay
                     loop
@@ -154,11 +149,11 @@ const Index = () => {
                     playsInline
                     className="w-full h-full object-cover"
                   >
-                    <source src="/videos/bg-trident.mp4" type="video/mp4" />
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
                   </video>
                 </div>
-                <p className="text-center text-foreground/70 mt-6 text-lg">
-                  Watch how CAD technology brings intricate jewelry designs to life with stunning precision and detail.
+                <p className="text-center text-foreground/70 mt-3 text-xs">
+                  CAD technology brings designs to life with precision
                 </p>
               </div>
 
