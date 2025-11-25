@@ -16,17 +16,17 @@ const JewelryCarousel = () => {
   }, [images.length]);
 
   return (
-    <div className="w-full overflow-hidden">
+    <div className="w-full h-full overflow-hidden">
       <div
-        className="flex transition-transform duration-700 ease-in-out"
+        className="flex h-full transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((image, index) => (
-          <div key={index} className="min-w-full">
+          <div key={index} className="min-w-full h-full">
             <img
               src={image}
               alt={`Luxury jewelry piece ${index + 1}`}
-              className="w-full h-96 object-cover"
+              className="w-full h-full object-cover"
             />
           </div>
         ))}
