@@ -157,43 +157,43 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Jewelry Gallery Section */}
-        <section className="relative overflow-hidden min-h-screen py-20 bg-background">
-          <div className="container mx-auto px-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-center text-foreground mb-16">
-              Our Exquisite Collection
-            </h2>
-            <div className="max-w-6xl mx-auto space-y-12">
-              {[
-                { img: jewelryRing1, alt: "Diamond Engagement Ring" },
-                { img: jewelryNecklace1, alt: "Emerald Gold Necklace" },
-                { img: jewelryBracelet1, alt: "Sapphire Diamond Bracelet" },
-                { img: jewelryEarrings1, alt: "Ruby Drop Earrings" },
-                { img: jewelryTiara1, alt: "Pearl Diamond Tiara" }
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  ref={el => imageRefs.current[index] = el}
-                  className={`transition-all duration-1000 ${
-                    visibleImages[index] 
-                      ? 'opacity-100 translate-x-0' 
-                      : index % 2 === 0 
-                        ? 'opacity-0 -translate-x-20' 
-                        : 'opacity-0 translate-x-20'
-                  }`}
-                  style={{ transitionDelay: `${index * 200}ms` }}
-                >
-                  <div className="rounded-2xl overflow-hidden shadow-luxury border border-border/20 bg-card">
-                    <img 
-                      src={item.img} 
-                      alt={item.alt}
-                      className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
+        {/* Jewelry Gallery Section with Sticky Slides */}
+        <section className="relative overflow-hidden">
+          <video autoPlay loop muted playsInline className="fixed inset-0 w-full h-full object-cover -z-10">
+            <source src="/videos/bg-trident.mp4" type="video/mp4" />
+          </video>
+          <div className="fixed inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40 -z-10"></div>
+          
+          {[
+            { img: jewelryRing1, alt: "Diamond Engagement Ring" },
+            { img: jewelryNecklace1, alt: "Emerald Gold Necklace" },
+            { img: jewelryBracelet1, alt: "Sapphire Diamond Bracelet" },
+            { img: jewelryEarrings1, alt: "Ruby Drop Earrings" },
+            { img: jewelryTiara1, alt: "Pearl Diamond Tiara" }
+          ].map((item, index) => (
+            <div
+              key={index}
+              ref={el => imageRefs.current[index] = el}
+              className="h-screen flex items-center justify-center sticky top-0"
+            >
+              <div 
+                className={`transition-all duration-1000 ${
+                  visibleImages[index] 
+                    ? 'opacity-100 scale-100' 
+                    : 'opacity-0 scale-95'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <div className="rounded-2xl overflow-hidden shadow-luxury border border-border/20 bg-background/95 backdrop-blur-sm p-4">
+                  <img 
+                    src={item.img} 
+                    alt={item.alt}
+                    className="w-[50vw] h-[50vh] object-cover hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
+          ))}
         </section>
       </main>
     </div>;
