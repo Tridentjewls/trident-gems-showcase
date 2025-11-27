@@ -4,9 +4,16 @@ import Footer from "@/components/Footer";
 import JewelryCarousel from "@/components/JewelryCarousel";
 import VideoBackground from "@/components/VideoBackground";
 import jewelryRing from "@/assets/jewelry-ring.png";
+import jewelryRing1 from "@/assets/jewelry-ring-1.jpg";
+import jewelryNecklace1 from "@/assets/jewelry-necklace-1.jpg";
+import jewelryBracelet1 from "@/assets/jewelry-bracelet-1.jpg";
+import jewelryEarrings1 from "@/assets/jewelry-earrings-1.jpg";
+import jewelryTiara1 from "@/assets/jewelry-tiara-1.jpg";
 const Index = () => {
   const [visibleBoxes, setVisibleBoxes] = useState<boolean[]>([false, false, false]);
+  const [visibleImages, setVisibleImages] = useState<boolean[]>([false, false, false, false, false]);
   const boxRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
   useEffect(() => {
     const observers = boxRefs.current.map((ref, index) => {
       if (!ref) return null;
@@ -24,9 +31,32 @@ const Index = () => {
       observer.observe(ref);
       return observer;
     });
+    
+    const imageObservers = imageRefs.current.map((ref, index) => {
+      if (!ref) return null;
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          setVisibleImages(prev => {
+            const newState = [...prev];
+            newState[index] = true;
+            return newState;
+          });
+        }
+      }, {
+        threshold: 0.2
+      });
+      observer.observe(ref);
+      return observer;
+    });
+    
     return () => {
       observers.forEach((observer, index) => {
         if (observer && boxRefs.current[index]) {
+          observer.disconnect();
+        }
+      });
+      imageObservers.forEach((observer, index) => {
+        if (observer && imageRefs.current[index]) {
           observer.disconnect();
         }
       });
@@ -123,6 +153,45 @@ const Index = () => {
                 
               </div>
 
+            </div>
+          </div>
+        </section>
+
+        {/* Jewelry Gallery Section */}
+        <section className="relative overflow-hidden min-h-screen py-20 bg-background">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-center text-foreground mb-16">
+              Our Exquisite Collection
+            </h2>
+            <div className="max-w-6xl mx-auto space-y-12">
+              {[
+                { img: jewelryRing1, alt: "Diamond Engagement Ring" },
+                { img: jewelryNecklace1, alt: "Emerald Gold Necklace" },
+                { img: jewelryBracelet1, alt: "Sapphire Diamond Bracelet" },
+                { img: jewelryEarrings1, alt: "Ruby Drop Earrings" },
+                { img: jewelryTiara1, alt: "Pearl Diamond Tiara" }
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  ref={el => imageRefs.current[index] = el}
+                  className={`transition-all duration-1000 ${
+                    visibleImages[index] 
+                      ? 'opacity-100 translate-x-0' 
+                      : index % 2 === 0 
+                        ? 'opacity-0 -translate-x-20' 
+                        : 'opacity-0 translate-x-20'
+                  }`}
+                  style={{ transitionDelay: `${index * 200}ms` }}
+                >
+                  <div className="rounded-2xl overflow-hidden shadow-luxury border border-border/20 bg-card">
+                    <img 
+                      src={item.img} 
+                      alt={item.alt}
+                      className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
