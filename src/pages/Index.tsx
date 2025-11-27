@@ -42,6 +42,11 @@ const Index = () => {
           <JewelryCarousel />
         </section>
 
+        {/* Footer - Fixed to first page */}
+        <div className="relative z-20">
+          <Footer />
+        </div>
+
         {/* Three Boxes Section with Video Background */}
         <section className="relative overflow-hidden min-h-screen flex items-center">
           <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
@@ -119,8 +124,6 @@ const Index = () => {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>;
 };
 export default Index;
