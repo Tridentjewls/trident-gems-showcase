@@ -157,12 +157,19 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Jewelry Gallery Section with Sticky Slides */}
+        {/* Jewelry Gallery Section with Sticky Stacking */}
         <section className="relative overflow-hidden">
           <video autoPlay loop muted playsInline className="fixed inset-0 w-full h-full object-cover -z-10">
             <source src="/videos/bg-trident.mp4" type="video/mp4" />
           </video>
           <div className="fixed inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40 -z-10"></div>
+          
+          {/* Heading */}
+          <div className="h-screen flex items-center justify-center sticky top-0 z-10">
+            <h2 className="text-5xl md:text-7xl font-bold text-background drop-shadow-2xl">
+              Exotic Collection
+            </h2>
+          </div>
           
           {[
             { img: jewelryRing1, alt: "Diamond Engagement Ring" },
@@ -188,7 +195,7 @@ const Index = () => {
                   <img 
                     src={item.img} 
                     alt={item.alt}
-                    className="w-[50vw] h-[50vh] object-cover hover:scale-105 transition-transform duration-500"
+                    className="w-[70vw] h-[70vh] object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>
