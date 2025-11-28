@@ -157,15 +157,15 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Jewelry Gallery Section with Elegant Scroll Animation */}
-        <section className="relative overflow-hidden">
+        {/* Jewelry Gallery Section with Horizontal Scroll */}
+        <section className="relative overflow-hidden min-h-screen flex flex-col">
           <video autoPlay loop muted playsInline className="fixed inset-0 w-full h-full object-cover -z-10">
             <source src="/videos/bg-trident.mp4" type="video/mp4" />
           </video>
           <div className="fixed inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40 -z-10"></div>
           
           {/* Compact Header */}
-          <div className="py-16 flex items-center justify-center">
+          <div className="py-12 flex items-center justify-center">
             <div className="text-center space-y-2">
               <h2 className="text-4xl md:text-6xl font-bold text-background drop-shadow-2xl tracking-wider">
                 Exotic Collection
@@ -174,46 +174,43 @@ const Index = () => {
             </div>
           </div>
           
-          {/* Jewelry Images with Staggered Reveal Animation */}
-          <div className="space-y-32 pb-32">
-            {[
-              { img: jewelryRing1, alt: "Diamond Engagement Ring" },
-              { img: jewelryNecklace1, alt: "Emerald Gold Necklace" },
-              { img: jewelryBracelet1, alt: "Sapphire Diamond Bracelet" },
-              { img: jewelryEarrings1, alt: "Ruby Drop Earrings" },
-              { img: jewelryTiara1, alt: "Pearl Diamond Tiara" }
-            ].map((item, index) => (
-              <div
-                key={index}
-                ref={el => imageRefs.current[index] = el}
-                className="flex items-center justify-center px-4"
-              >
-                <div 
-                  className={`transition-all duration-1000 ease-out ${
-                    visibleImages[index] 
-                      ? 'opacity-100 scale-100 translate-y-0 blur-0' 
-                      : 'opacity-0 scale-90 translate-y-20 blur-sm'
-                  }`}
-                  style={{ 
-                    transitionDelay: `${index * 150}ms`,
-                    transform: visibleImages[index] 
-                      ? `rotate(${index % 2 === 0 ? '0deg' : '0deg'})` 
-                      : `rotate(${index % 2 === 0 ? '-2deg' : '2deg'})`
-                  }}
+          {/* Horizontal Scroll Container */}
+          <div className="flex-1 flex items-center overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory scrollbar-hide pb-12">
+            <div className="flex gap-8 px-8 min-w-min">
+              {[
+                { img: jewelryRing1, alt: "Diamond Engagement Ring" },
+                { img: jewelryNecklace1, alt: "Emerald Gold Necklace" },
+                { img: jewelryBracelet1, alt: "Sapphire Diamond Bracelet" },
+                { img: jewelryEarrings1, alt: "Ruby Drop Earrings" },
+                { img: jewelryTiara1, alt: "Pearl Diamond Tiara" }
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  ref={el => imageRefs.current[index] = el}
+                  className="snap-center flex-shrink-0"
                 >
-                  <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-primary rounded-2xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
-                    <div className="relative rounded-2xl overflow-hidden shadow-luxury border border-border/20 bg-background/95 backdrop-blur-sm p-6">
-                      <img 
-                        src={item.img} 
-                        alt={item.alt}
-                        className="w-[70vw] h-[70vh] object-cover group-hover:scale-110 transition-transform duration-700 ease-out rounded-lg"
-                      />
+                  <div 
+                    className={`transition-all duration-1000 ease-out ${
+                      visibleImages[index] 
+                        ? 'opacity-100 scale-100 blur-0' 
+                        : 'opacity-0 scale-95 blur-sm'
+                    }`}
+                    style={{ transitionDelay: `${index * 150}ms` }}
+                  >
+                    <div className="relative group">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-primary rounded-2xl blur-xl opacity-30 group-hover:opacity-70 transition-opacity duration-500"></div>
+                      <div className="relative rounded-2xl overflow-hidden shadow-luxury border border-border/20 bg-background/95 backdrop-blur-sm p-6">
+                        <img 
+                          src={item.img} 
+                          alt={item.alt}
+                          className="w-[70vw] h-[70vh] object-cover group-hover:scale-105 transition-transform duration-700 ease-out rounded-lg"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
       </main>
