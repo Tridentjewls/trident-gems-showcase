@@ -9,11 +9,17 @@ import jewelryNecklace1 from "@/assets/jewelry-necklace-1.jpg";
 import jewelryBracelet1 from "@/assets/jewelry-bracelet-1.jpg";
 import jewelryEarrings1 from "@/assets/jewelry-earrings-1.jpg";
 import jewelryTiara1 from "@/assets/jewelry-tiara-1.jpg";
+import stepSketch from "@/assets/step-sketch.jpg";
+import stepCad from "@/assets/step-cad.jpg";
+import stepRendering from "@/assets/step-rendering.jpg";
+import stepStl from "@/assets/step-stl.jpg";
 const Index = () => {
   const [visibleBoxes, setVisibleBoxes] = useState<boolean[]>([false, false, false]);
   const [visibleImages, setVisibleImages] = useState<boolean[]>([false, false, false, false, false]);
+  const [visibleWorkflowBoxes, setVisibleWorkflowBoxes] = useState<boolean[]>([false, false, false, false]);
   const boxRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const workflowRefs = useRef<(HTMLDivElement | null)[]>([]);
   useEffect(() => {
     const observers = boxRefs.current.map((ref, index) => {
       if (!ref) return null;
@@ -49,6 +55,23 @@ const Index = () => {
       return observer;
     });
     
+    const workflowObservers = workflowRefs.current.map((ref, index) => {
+      if (!ref) return null;
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          setVisibleWorkflowBoxes(prev => {
+            const newState = [...prev];
+            newState[index] = true;
+            return newState;
+          });
+        }
+      }, {
+        threshold: 0.2
+      });
+      observer.observe(ref);
+      return observer;
+    });
+    
     return () => {
       observers.forEach((observer, index) => {
         if (observer && boxRefs.current[index]) {
@@ -57,6 +80,11 @@ const Index = () => {
       });
       imageObservers.forEach((observer, index) => {
         if (observer && imageRefs.current[index]) {
+          observer.disconnect();
+        }
+      });
+      workflowObservers.forEach((observer, index) => {
+        if (observer && workflowRefs.current[index]) {
           observer.disconnect();
         }
       });
@@ -207,6 +235,72 @@ const Index = () => {
                         />
                       </div>
                     </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* How We Work Together Section */}
+        <section className="relative overflow-hidden min-h-screen flex items-center">
+          <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
+            <source src="/videos/bg-trident.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
+          
+          <div className="relative z-10 container mx-auto px-4 py-20">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-6xl font-bold text-background drop-shadow-2xl tracking-wider mb-4">
+                How We Will Work Together
+              </h2>
+              <div className="w-32 h-1 bg-background/80 mx-auto rounded-full"></div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+              {[
+                {
+                  title: "1. Manual Sketch or Reference Image",
+                  description: "Share your vision through hand-drawn sketches or reference images. This initial step helps us understand your design concept and preferences.",
+                  img: stepSketch
+                },
+                {
+                  title: "2. CAD Design",
+                  description: "Our expert designers transform your concept into precise 3D CAD models, ensuring every detail is captured with mathematical accuracy.",
+                  img: stepCad
+                },
+                {
+                  title: "3. Rendering for Confirmation",
+                  description: "Review photorealistic renders of your design. We'll refine and adjust until you're completely satisfied with every aspect.",
+                  img: stepRendering
+                },
+                {
+                  title: "4. Final STL File Delivery",
+                  description: "Receive production-ready STL files optimized for 3D printing or manufacturing, ready to bring your jewelry design to life.",
+                  img: stepStl
+                }
+              ].map((step, index) => (
+                <div
+                  key={index}
+                  ref={el => workflowRefs.current[index] = el}
+                  className={`bg-background/95 backdrop-blur-sm rounded-xl overflow-hidden shadow-luxury border border-border/20 transition-all duration-1000 ${
+                    visibleWorkflowBoxes[index] 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-20'
+                  }`}
+                  style={{ transitionDelay: `${index * 200}ms` }}
+                >
+                  <div className="relative h-64 overflow-hidden">
+                    <img 
+                      src={step.img} 
+                      alt={step.title}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent"></div>
+                  </div>
+                  <div className="p-6 space-y-3">
+                    <h3 className="text-xl font-bold text-foreground">{step.title}</h3>
+                    <p className="text-foreground/80 leading-relaxed text-sm">{step.description}</p>
                   </div>
                 </div>
               ))}
