@@ -18,10 +18,12 @@ const Index = () => {
   const [visibleImages, setVisibleImages] = useState<boolean[]>([false, false, false, false, false]);
   const [visibleWorkflowBoxes, setVisibleWorkflowBoxes] = useState<boolean[]>([false, false, false, false]);
   const [visibleWhyUsBoxes, setVisibleWhyUsBoxes] = useState<boolean[]>([false, false, false, false, false, false]);
+  const [visibleReviews, setVisibleReviews] = useState<boolean[]>([false, false, false]);
   const boxRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
   const workflowRefs = useRef<(HTMLDivElement | null)[]>([]);
   const whyUsRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const reviewRefs = useRef<(HTMLDivElement | null)[]>([]);
   useEffect(() => {
     const observers = boxRefs.current.map((ref, index) => {
       if (!ref) return null;
@@ -90,6 +92,23 @@ const Index = () => {
       observer.observe(ref);
       return observer;
     });
+
+    const reviewObservers = reviewRefs.current.map((ref, index) => {
+      if (!ref) return null;
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          setVisibleReviews(prev => {
+            const newState = [...prev];
+            newState[index] = true;
+            return newState;
+          });
+        }
+      }, {
+        threshold: 0.2
+      });
+      observer.observe(ref);
+      return observer;
+    });
     
     return () => {
       observers.forEach((observer, index) => {
@@ -109,6 +128,11 @@ const Index = () => {
       });
       whyUsObservers.forEach((observer, index) => {
         if (observer && whyUsRefs.current[index]) {
+          observer.disconnect();
+        }
+      });
+      reviewObservers.forEach((observer, index) => {
+        if (observer && reviewRefs.current[index]) {
           observer.disconnect();
         }
       });
@@ -402,6 +426,72 @@ const Index = () => {
                   <p className="text-foreground/80 leading-relaxed text-sm">
                     {item.description}
                   </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Client Reviews Section */}
+        <section className="relative overflow-hidden min-h-screen flex items-center">
+          <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
+            <source src="/videos/bg-trident.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
+          
+          <div className="relative z-10 container mx-auto px-4 py-20">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-6xl font-bold text-background drop-shadow-2xl tracking-wider mb-4">
+                What Our Clients Say
+              </h2>
+              <div className="w-32 h-1 bg-background/80 mx-auto rounded-full"></div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {[
+                {
+                  name: "Rajesh Kumar",
+                  role: "Jewelry Store Owner",
+                  review: "The CAD designs provided were incredibly detailed and precise. The team delivered our custom engagement ring designs on time, and the quality exceeded our expectations. Highly professional service!",
+                  rating: 5
+                },
+                {
+                  name: "Priya Sharma",
+                  role: "Independent Designer",
+                  review: "Working with this team has been a game-changer for my business. Their advanced CAD technology and creative approach helped me bring my unique designs to life. The rendering quality is exceptional!",
+                  rating: 5
+                },
+                {
+                  name: "Mohammed Ali",
+                  role: "Jewelry Manufacturer",
+                  review: "Excellent transparency throughout the process. We could review every step from sketch to final STL file. Their 100% file guarantee shows their confidence and commitment to quality. Truly trustworthy partners!",
+                  rating: 5
+                }
+              ].map((review, index) => (
+                <div
+                  key={index}
+                  ref={el => reviewRefs.current[index] = el}
+                  className={`bg-background/95 backdrop-blur-sm rounded-xl p-8 shadow-luxury border border-border/20 transition-all duration-1000 hover:scale-105 ${
+                    visibleReviews[index] 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-20'
+                  }`}
+                  style={{ transitionDelay: `${index * 200}ms` }}
+                >
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <svg key={i} className="w-5 h-5 fill-primary" viewBox="0 0 20 20">
+                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="text-foreground/80 leading-relaxed text-sm mb-6 italic">
+                    "{review.review}"
+                  </p>
+                  <div className="border-t border-border/20 pt-4">
+                    <h4 className="font-bold text-foreground text-base">{review.name}</h4>
+                    <p className="text-foreground/60 text-xs mt-1">{review.role}</p>
+                  </div>
                 </div>
               ))}
             </div>
