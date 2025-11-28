@@ -117,4 +117,13 @@ All colors MUST be HSL.
   .shadow-luxury {
     box-shadow: var(--shadow-luxury);
   }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
