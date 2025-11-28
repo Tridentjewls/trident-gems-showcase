@@ -17,9 +17,11 @@ const Index = () => {
   const [visibleBoxes, setVisibleBoxes] = useState<boolean[]>([false, false, false]);
   const [visibleImages, setVisibleImages] = useState<boolean[]>([false, false, false, false, false]);
   const [visibleWorkflowBoxes, setVisibleWorkflowBoxes] = useState<boolean[]>([false, false, false, false]);
+  const [visibleWhyUsBoxes, setVisibleWhyUsBoxes] = useState<boolean[]>([false, false, false, false, false, false]);
   const boxRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
   const workflowRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const whyUsRefs = useRef<(HTMLDivElement | null)[]>([]);
   useEffect(() => {
     const observers = boxRefs.current.map((ref, index) => {
       if (!ref) return null;
@@ -71,6 +73,23 @@ const Index = () => {
       observer.observe(ref);
       return observer;
     });
+
+    const whyUsObservers = whyUsRefs.current.map((ref, index) => {
+      if (!ref) return null;
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          setVisibleWhyUsBoxes(prev => {
+            const newState = [...prev];
+            newState[index] = true;
+            return newState;
+          });
+        }
+      }, {
+        threshold: 0.2
+      });
+      observer.observe(ref);
+      return observer;
+    });
     
     return () => {
       observers.forEach((observer, index) => {
@@ -85,6 +104,11 @@ const Index = () => {
       });
       workflowObservers.forEach((observer, index) => {
         if (observer && workflowRefs.current[index]) {
+          observer.disconnect();
+        }
+      });
+      whyUsObservers.forEach((observer, index) => {
+        if (observer && whyUsRefs.current[index]) {
           observer.disconnect();
         }
       });
@@ -302,6 +326,82 @@ const Index = () => {
                     <h3 className="text-xl font-bold text-foreground">{step.title}</h3>
                     <p className="text-foreground/80 leading-relaxed text-sm">{step.description}</p>
                   </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Why Work With Us Section */}
+        <section className="relative overflow-hidden min-h-screen flex items-center">
+          <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
+            <source src="/videos/bg-trident.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
+          
+          <div className="relative z-10 container mx-auto px-4 py-20">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-6xl font-bold text-background drop-shadow-2xl tracking-wider mb-4">
+                Why Work With Us?
+              </h2>
+              <div className="w-32 h-1 bg-background/80 mx-auto rounded-full"></div>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+              {[
+                {
+                  number: "01",
+                  title: "Experience & Creativity",
+                  description: "We combine experience and innovation to create jewelry designs that are unique and attractive. Every design shows perfection, elegance, and originality."
+                },
+                {
+                  number: "02",
+                  title: "Client-Focused Approach",
+                  description: "Your satisfaction is our top priority. We carefully listen to your needs and provide personalized solutions tailored just for you."
+                },
+                {
+                  number: "03",
+                  title: "Advanced Technology",
+                  description: "From CAD modeling to realistic rendering, we use the latest technology at every step to ensure accuracy and perfection in every detail."
+                },
+                {
+                  number: "04",
+                  title: "Transparency & Trust",
+                  description: "No hidden surprises with us. You can see your design through sketches, CAD, and renders before final production begins."
+                },
+                {
+                  number: "05",
+                  title: "Quality & Timely Delivery",
+                  description: "We always focus on high-quality output and deliver your projects on time so you can move forward with complete confidence."
+                },
+                {
+                  number: "06",
+                  title: "100% File Guarantee",
+                  description: "We have complete confidence in our work. If there's any problem in the CAD/STL file due to us, we will refund your payment – no questions asked. This is our promise of trust, responsibility, and safety."
+                }
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  ref={el => whyUsRefs.current[index] = el}
+                  className={`group bg-background/95 backdrop-blur-sm rounded-xl p-6 shadow-luxury border border-border/20 transition-all duration-1000 hover:scale-105 ${
+                    visibleWhyUsBoxes[index] 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-20'
+                  }`}
+                  style={{ transitionDelay: `${index * 150}ms` }}
+                >
+                  <div className="relative mb-4">
+                    <div className="text-6xl font-bold text-primary/20 group-hover:text-primary/30 transition-colors duration-300">
+                      {item.number}
+                    </div>
+                    <div className="absolute bottom-0 left-0 w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  <p className="text-foreground/80 leading-relaxed text-sm">
+                    {item.description}
+                  </p>
                 </div>
               ))}
             </div>
