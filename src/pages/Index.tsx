@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import JewelryCarousel from "@/components/JewelryCarousel";
-import VideoBackground from "@/components/VideoBackground";
 import jewelryRing from "@/assets/jewelry-ring.png";
 import jewelryRing1 from "@/assets/jewelry-ring-1.jpg";
 import jewelryNecklace1 from "@/assets/jewelry-necklace-1.jpg";
@@ -138,11 +137,15 @@ const Index = () => {
       });
     };
   }, []);
-  return <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col relative">
+      {/* Unified Video Background for Entire Page */}
+      <video autoPlay loop muted playsInline className="fixed inset-0 w-full h-full object-cover -z-10">
+        <source src="/videos/bg-trident.mp4" type="video/mp4" />
+      </video>
+      
       <Header />
       
       <main className="flex-1 relative">
-        <VideoBackground />
         
         <section className="relative z-10 bg-white">
           <JewelryCarousel />
@@ -153,11 +156,8 @@ const Index = () => {
           <Footer />
         </div>
 
-        {/* Three Boxes Section with Video Background */}
+        {/* Three Boxes Section */}
         <section className="relative overflow-hidden min-h-screen flex items-center">
-          <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-            <source src="/videos/bg-trident.mp4" type="video/mp4" />
-          </video>
           <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
           
           <div className="relative z-10 container mx-auto px-4 py-12">
@@ -235,10 +235,7 @@ const Index = () => {
 
         {/* Jewelry Gallery Section with Horizontal Scroll */}
         <section className="relative overflow-hidden min-h-screen flex flex-col">
-          <video autoPlay loop muted playsInline className="fixed inset-0 w-full h-full object-cover -z-10">
-            <source src="/videos/bg-trident.mp4" type="video/mp4" />
-          </video>
-          <div className="fixed inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40 -z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
           
           {/* Compact Header */}
           <div className="py-12 flex items-center justify-center">
@@ -292,9 +289,6 @@ const Index = () => {
 
         {/* How We Work Together Section */}
         <section className="relative overflow-hidden min-h-screen flex items-center">
-          <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-            <source src="/videos/bg-trident.mp4" type="video/mp4" />
-          </video>
           <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
           
           <div className="relative z-10 container mx-auto px-4 py-20">
@@ -358,9 +352,6 @@ const Index = () => {
 
         {/* Why Work With Us Section */}
         <section className="relative overflow-hidden min-h-screen flex items-center">
-          <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-            <source src="/videos/bg-trident.mp4" type="video/mp4" />
-          </video>
           <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
           
           <div className="relative z-10 container mx-auto px-4 py-20">
@@ -434,9 +425,6 @@ const Index = () => {
 
         {/* Client Reviews Section */}
         <section className="relative overflow-hidden min-h-screen flex items-center">
-          <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-            <source src="/videos/bg-trident.mp4" type="video/mp4" />
-          </video>
           <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
           
           <div className="relative z-10 container mx-auto px-4 py-20">
