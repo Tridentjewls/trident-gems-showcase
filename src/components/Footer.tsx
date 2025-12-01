@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, Facebook, Linkedin, Phone, MapPin } from "lucide-react";
+import { Instagram, Facebook, Linkedin, Phone, MapPin, Mail, Twitter, Briefcase, ExternalLink } from "lucide-react";
 import tridentLogo from "@/assets/trident-logo.png";
 
 const Footer = () => {
@@ -20,6 +20,11 @@ const Footer = () => {
     { icon: Instagram, url: "https://www.instagram.com/trident_jewelles?igsh=MTQ5ZG81MmV1aWtoMg==", label: "Instagram" },
     { icon: Facebook, url: "#", label: "Facebook" },
     { icon: Linkedin, url: "#", label: "LinkedIn" },
+    { icon: Twitter, url: "#", label: "X" },
+    { icon: Mail, url: "mailto:contact@tridentjewellery.com", label: "Email" },
+    { icon: Briefcase, url: "#", label: "Fiverr" },
+    { icon: Briefcase, url: "#", label: "Upwork" },
+    { icon: ExternalLink, url: "#", label: "Pinterest" },
   ];
 
   return (
@@ -67,14 +72,14 @@ const Footer = () => {
                 <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Mobile</p>
-                  <p className="text-sm">+1 (555) 123-4567</p>
+                  <p className="text-sm">+91 878-0532068</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="font-medium">Address</p>
-                  <p className="text-sm">123 Jewelry Street<br />Design City, DC 12345</p>
+                  <p className="text-sm">F118, ABC apartment, ABC Circle,<br />Sudama chowk, Surat, Gujarat, 394101</p>
                 </div>
               </div>
             </div>
