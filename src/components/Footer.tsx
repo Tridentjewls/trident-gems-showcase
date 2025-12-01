@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, Facebook, Linkedin, Phone, MapPin, Mail, Twitter, Briefcase, ExternalLink } from "lucide-react";
+import { Instagram, Facebook, Linkedin, Phone, MapPin, Mail } from "lucide-react";
 import tridentLogo from "@/assets/trident-logo.png";
 
 const Footer = () => {
@@ -20,11 +20,7 @@ const Footer = () => {
     { icon: Instagram, url: "https://www.instagram.com/trident_jewelles?igsh=MTQ5ZG81MmV1aWtoMg==", label: "Instagram" },
     { icon: Facebook, url: "#", label: "Facebook" },
     { icon: Linkedin, url: "#", label: "LinkedIn" },
-    { icon: Twitter, url: "#", label: "X" },
     { icon: Mail, url: "mailto:contact@tridentjewellery.com", label: "Email" },
-    { icon: Briefcase, url: "#", label: "Fiverr" },
-    { icon: Briefcase, url: "#", label: "Upwork" },
-    { icon: ExternalLink, url: "#", label: "Pinterest" },
   ];
 
   return (
