@@ -151,11 +151,6 @@ const Index = () => {
           <JewelryCarousel />
         </section>
 
-        {/* Footer - Fixed to first page */}
-        <div className="relative z-20">
-          <Footer />
-        </div>
-
         {/* Three Boxes Section */}
         <section className="relative overflow-hidden min-h-screen flex items-center">
           <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
@@ -486,6 +481,9 @@ const Index = () => {
           </div>
         </section>
       </main>
+
+      {/* Professional Footer - End of Page */}
+      <Footer />
     </div>;
 };
 export default Index;
