@@ -1,7 +1,12 @@
 import tridentLogo from "@/assets/trident-logo.png";
 import { Link } from "react-router-dom";
+import { Menu } from "lucide-react";
+import { useState } from "react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  
   const navItems = [
     { label: "HOME", range: "(1-8)", path: "/" },
     { label: "ABOUT US", range: "(9)", path: "/about" },
@@ -28,6 +33,7 @@ const Header = () => {
         </div>
       </div>
 
+      {/* Desktop Navigation */}
       <nav className="relative hidden md:block animate-fade-in">
         <ul className="flex items-center gap-6 lg:gap-8">
           {navItems.map((item) => (
@@ -48,6 +54,34 @@ const Header = () => {
           ))}
         </ul>
       </nav>
+
+      {/* Mobile Menu */}
+      <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        <SheetTrigger asChild className="md:hidden">
+          <button className="relative text-primary-foreground p-2 hover:text-accent transition-colors">
+            <Menu className="h-6 w-6" />
+          </button>
+        </SheetTrigger>
+        <SheetContent side="right" className="w-[300px] bg-background/95 backdrop-blur-xl border-l border-border/20">
+          <nav className="flex flex-col gap-4 mt-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                to={item.path}
+                onClick={() => setIsOpen(false)}
+                className="relative text-foreground transition-all duration-300 group px-4 py-3 block rounded-lg hover:bg-primary/10"
+              >
+                <span className="text-base font-medium tracking-wider group-hover:text-accent transition-colors duration-300">
+                  {item.label}
+                </span>
+                <span className="text-xs ml-2 text-muted-foreground group-hover:text-accent/70 transition-colors duration-300">
+                  {item.range}
+                </span>
+              </Link>
+            ))}
+          </nav>
+        </SheetContent>
+      </Sheet>
     </header>
   );
 };
