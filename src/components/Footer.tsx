@@ -1,16 +1,29 @@
 import { Link } from "react-router-dom";
+import { Instagram, Facebook, Linkedin, Phone, MapPin } from "lucide-react";
+import tridentLogo from "@/assets/trident-logo.png";
 
 const Footer = () => {
-  const navItems = [
-    { label: "HOME", range: "(1-8)", path: "/" },
-    { label: "ABOUT US", range: "(9)", path: "/about" },
-    { label: "SERVICES", range: "(13-20)", path: "/services" },
-    { label: "OUR CLIENT", range: "(10)", path: "/clients" },
-    { label: "PRICING", range: "(11-12)", path: "/pricing" },
+  const services = [
+    "CAD Designing",
+    "Photo Rendering",
+    "Video Rendering",
+    "Hip Hop Work",
+    "Face Work",
+  ];
+
+  const usefulLinks = [
+    { label: "Terms and Conditions", path: "/terms" },
+    { label: "FAQs", path: "/faqs" },
+  ];
+
+  const socialLinks = [
+    { icon: Instagram, url: "https://www.instagram.com/trident_jewelles?igsh=MTQ5ZG81MmV1aWtoMg==", label: "Instagram" },
+    { icon: Facebook, url: "#", label: "Facebook" },
+    { icon: Linkedin, url: "#", label: "LinkedIn" },
   ];
 
   return (
-    <footer className="py-8 px-4 relative overflow-hidden">
+    <footer className="relative overflow-hidden bg-background border-t border-border/20">
       <video
         autoPlay
         loop
@@ -20,27 +33,99 @@ const Footer = () => {
       >
         <source src="/videos/bg-trident.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-secondary/60 to-primary/60"></div>
-      <nav className="relative container mx-auto">
-        <ul className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16">
-          {navItems.map((item) => (
-            <li key={item.label}>
-              <Link
-                to={item.path}
-                className="relative text-primary-foreground transition-all duration-300 group px-4 py-2 block"
-              >
-                <span className="absolute inset-0 border-2 border-transparent group-hover:border-accent rounded-lg transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(var(--accent),0.5)]"></span>
-                <span className="relative text-sm md:text-base font-medium tracking-wider group-hover:text-accent transition-colors duration-300">
-                  {item.label}
-                </span>
-                <span className="relative text-xs ml-1 text-primary-foreground/70 group-hover:text-accent/70 transition-colors duration-300">
-                  {item.range}
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-secondary/80 to-primary/80"></div>
+      
+      <div className="relative container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          {/* Left Column - Company Info */}
+          <div className="space-y-6">
+            <img 
+              src={tridentLogo} 
+              alt="Trident Logo" 
+              className="h-16 w-auto"
+            />
+            
+            {/* Social Media Icons */}
+            <div className="flex gap-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg"
+                  aria-label={social.label}
+                >
+                  <social.icon className="w-5 h-5 text-primary-foreground" />
+                </a>
+              ))}
+            </div>
+
+            {/* Contact Info */}
+            <div className="space-y-3 text-primary-foreground/90">
+              <div className="flex items-start gap-3">
+                <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">Mobile</p>
+                  <p className="text-sm">+1 (555) 123-4567</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium">Address</p>
+                  <p className="text-sm">123 Jewelry Street<br />Design City, DC 12345</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Center Column - Services */}
+          <div>
+            <h3 className="text-xl font-bold text-primary-foreground mb-6 tracking-wider">
+              SERVICES
+            </h3>
+            <ul className="space-y-3">
+              {services.map((service) => (
+                <li key={service}>
+                  <Link
+                    to="/services"
+                    className="text-primary-foreground/80 hover:text-accent transition-colors duration-300 text-sm"
+                  >
+                    {service}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Right Column - Useful Links */}
+          <div>
+            <h3 className="text-xl font-bold text-primary-foreground mb-6 tracking-wider">
+              USEFUL LINKS
+            </h3>
+            <ul className="space-y-3">
+              {usefulLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.path}
+                    className="text-primary-foreground/80 hover:text-accent transition-colors duration-300 text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="mt-12 pt-8 border-t border-primary-foreground/20 text-center">
+          <p className="text-primary-foreground/70 text-sm">
+            © 2025 Trident Jewellery Design and Rendering. All rights reserved.
+          </p>
+        </div>
+      </div>
     </footer>
   );
 };
