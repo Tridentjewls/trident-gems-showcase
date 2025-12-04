@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { User, Building2 } from "lucide-react";
 
 const About = () => {
-  const [visibleBoxes, setVisibleBoxes] = useState<boolean[]>([false, false, false]);
+  const [visibleBoxes, setVisibleBoxes] = useState<boolean[]>([false, false]);
   const boxRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -53,108 +54,80 @@ const About = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
         
         <div className="relative z-10 container mx-auto px-4 py-20">
-          <div className="max-w-6xl mx-auto space-y-16">
+          <div className="max-w-6xl mx-auto">
             
-            {/* Box 1: Role of CAD */}
-            <div
-              ref={el => boxRefs.current[0] = el}
-              className={`bg-background/95 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-luxury border border-border/20 transition-all duration-1000 ${
-                visibleBoxes[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-              }`}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 gradient-primary bg-clip-text text-transparent">
-                Role of CAD in Jewelry Industry
-              </h2>
-              <div className="space-y-4 text-foreground/80 leading-relaxed">
-                <p className="text-lg">
-                  Computer-Aided Design (CAD) has revolutionized the jewelry industry by transforming traditional craftsmanship into a perfect blend of art and technology.
-                </p>
-                <ul className="space-y-3 list-disc list-inside ml-4">
-                  <li className="text-base">
-                    <strong className="text-foreground">Precision Design:</strong> CAD enables designers to create intricate patterns and complex geometries with mathematical accuracy that would be impossible to achieve by hand.
-                  </li>
-                  <li className="text-base">
-                    <strong className="text-foreground">Rapid Prototyping:</strong> Designers can quickly iterate multiple design variations, allowing clients to visualize and approve pieces before production begins.
-                  </li>
-                  <li className="text-base">
-                    <strong className="text-foreground">Cost Efficiency:</strong> Virtual modeling reduces material waste and allows for accurate cost estimation before manufacturing.
-                  </li>
-                  <li className="text-base">
-                    <strong className="text-foreground">Customization:</strong> CAD makes personalized jewelry more accessible, enabling unique pieces tailored to individual preferences.
-                  </li>
-                </ul>
-              </div>
-            </div>
+            {/* Page Title */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-16 text-foreground">
+              About <span className="gradient-primary bg-clip-text text-transparent">Us</span>
+            </h1>
 
-            {/* Box 2: Why CAD is Essential */}
-            <div
-              ref={el => boxRefs.current[1] = el}
-              className={`bg-background/95 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-luxury border border-border/20 transition-all duration-1000 delay-200 ${
-                visibleBoxes[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-              }`}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 gradient-primary bg-clip-text text-transparent">
-                Why CAD is Essential in Jewelry
-              </h2>
-              <div className="space-y-4 text-foreground/80 leading-relaxed">
-                <p className="text-lg">
-                  In today's competitive jewelry market, CAD technology is no longer optional—it's essential for staying relevant and competitive.
-                </p>
-                <div className="grid md:grid-cols-2 gap-6 mt-6">
-                  <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-foreground">Technical Advantages</h3>
-                    <ul className="space-y-2 list-disc list-inside">
-                      <li>Perfect symmetry and proportion</li>
-                      <li>Accurate stone setting calculations</li>
-                      <li>3D printing compatibility</li>
-                      <li>Digital archives of all designs</li>
-                    </ul>
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+              
+              {/* Box 1: About Pritesh Prajapati - Founder */}
+              <div
+                ref={el => boxRefs.current[0] = el}
+                className={`bg-background/95 backdrop-blur-sm rounded-2xl p-8 shadow-luxury border border-border/20 transition-all duration-1000 ${
+                  visibleBoxes[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+                }`}
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center">
+                    <User className="w-7 h-7 text-primary" />
                   </div>
-                  <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-foreground">Business Benefits</h3>
-                    <ul className="space-y-2 list-disc list-inside">
-                      <li>Faster time-to-market</li>
-                      <li>Enhanced client communication</li>
-                      <li>Reduced production errors</li>
-                      <li>Global collaboration capability</li>
-                    </ul>
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                      Pritesh Prajapati
+                    </h2>
+                    <p className="text-primary font-medium">Founder & Lead Designer</p>
                   </div>
                 </div>
-                <p className="text-lg mt-6">
-                  CAD empowers jewelers to push creative boundaries while maintaining the highest standards of craftsmanship and precision.
-                </p>
+                
+                <div className="space-y-4 text-foreground/80 leading-relaxed">
+                  <p>
+                    With over a decade of experience in jewelry CAD design, Pritesh Prajapati founded Trident Jewellery with a vision to blend traditional craftsmanship with cutting-edge technology.
+                  </p>
+                  <p>
+                    His passion for precision and creativity has helped countless jewelry brands and designers bring their visions to life. Pritesh believes that every piece of jewelry tells a story, and his mission is to help clients craft those stories with perfection.
+                  </p>
+                  <p>
+                    Specializing in intricate CAD designs, 3D modeling, and photorealistic rendering, Pritesh ensures every project meets the highest standards of quality and artistry.
+                  </p>
+                </div>
               </div>
-            </div>
 
-            {/* Box 3: Rotating Jewelry Video */}
-            <div
-              ref={el => boxRefs.current[2] = el}
-              className={`bg-background/95 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-luxury border border-border/20 transition-all duration-1000 delay-400 ${
-                visibleBoxes[2] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-              }`}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-center gradient-primary bg-clip-text text-transparent">
-                Experience CAD Excellence
-              </h2>
-              <div className="aspect-video rounded-xl overflow-hidden shadow-lg bg-black/20">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-contain"
-                >
-                  <source src="/videos/bg-trident.mp4" type="video/mp4" />
-                  <div className="flex items-center justify-center h-full text-foreground/60">
-                    <p>Your browser does not support the video tag.</p>
+              {/* Box 2: About Trident Jewellery Company */}
+              <div
+                ref={el => boxRefs.current[1] = el}
+                className={`bg-background/95 backdrop-blur-sm rounded-2xl p-8 shadow-luxury border border-border/20 transition-all duration-1000 delay-200 ${
+                  visibleBoxes[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+                }`}
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center">
+                    <Building2 className="w-7 h-7 text-primary" />
                   </div>
-                </video>
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                      Trident Jewellery
+                    </h2>
+                    <p className="text-primary font-medium">CAD Design Excellence</p>
+                  </div>
+                </div>
+                
+                <div className="space-y-4 text-foreground/80 leading-relaxed">
+                  <p>
+                    Trident Jewellery is a premier jewelry CAD design studio based in Surat, Gujarat – the diamond capital of the world. We specialize in transforming creative ideas into stunning, production-ready jewelry designs.
+                  </p>
+                  <p>
+                    Our services include custom CAD design, 3D modeling, photorealistic rendering, and STL file preparation for manufacturing. We work with jewelry brands, retailers, and individual designers worldwide.
+                  </p>
+                  <p>
+                    At Trident, we combine advanced technology with artistic expertise to deliver designs that are not only beautiful but also technically precise and ready for production.
+                  </p>
+                </div>
               </div>
-              <p className="text-center text-foreground/70 mt-6 text-lg">
-                Watch how CAD technology brings intricate jewelry designs to life with stunning precision and detail.
-              </p>
-            </div>
 
+            </div>
           </div>
         </div>
       </main>
