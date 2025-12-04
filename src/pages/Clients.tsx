@@ -3,12 +3,30 @@ import Footer from "@/components/Footer";
 
 const Clients = () => {
   const clients = [
-    { name: "Tanishq", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Tanishq_Logo.svg/1200px-Tanishq_Logo.svg.png" },
-    { name: "Kalyan Jewellers", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Kalyan_Jewellers_Logo.svg/1200px-Kalyan_Jewellers_Logo.svg.png" },
-    { name: "Malabar Gold", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Malabar_Gold_%26_Diamonds_logo.svg/1200px-Malabar_Gold_%26_Diamonds_logo.svg.png" },
-    { name: "PC Jeweller", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/e/e6/PC_Jeweller_logo.svg/1200px-PC_Jeweller_logo.svg.png" },
-    { name: "Senco Gold", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Senco_Gold_%26_Diamonds_Logo.png/250px-Senco_Gold_%26_Diamonds_Logo.png" },
-    { name: "Joyalukkas", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Joyalukkas_logo.svg/1200px-Joyalukkas_logo.svg.png" },
+    { 
+      name: "Tanishq", 
+      logo: "https://images.seeklogo.com/logo-png/52/1/tanishq-logo-png_seeklogo-524065.png"
+    },
+    { 
+      name: "Kalyan Jewellers", 
+      logo: "https://images.seeklogo.com/logo-png/23/1/kalyan-jewellers-logo-png_seeklogo-238783.png"
+    },
+    { 
+      name: "Malabar Gold", 
+      logo: "https://images.seeklogo.com/logo-png/31/1/malabar-gold-diamonds-logo-png_seeklogo-319498.png"
+    },
+    { 
+      name: "Joyalukkas", 
+      logo: "https://images.seeklogo.com/logo-png/33/1/joyalukkas-logo-png_seeklogo-336291.png"
+    },
+    { 
+      name: "PC Jeweller", 
+      logo: "https://images.seeklogo.com/logo-png/35/1/pc-jeweller-logo-png_seeklogo-358977.png"
+    },
+    { 
+      name: "Senco Gold", 
+      logo: "https://images.seeklogo.com/logo-png/43/1/senco-gold-diamonds-logo-png_seeklogo-432177.png"
+    },
   ];
 
   // Duplicate for seamless loop
@@ -47,14 +65,14 @@ const Clients = () => {
                   key={`${client.name}-${index}`}
                   className="flex-shrink-0 mx-8 md:mx-12"
                 >
-                  <div className="bg-white/95 rounded-xl px-8 py-6 shadow-luxury hover:scale-105 transition-transform duration-300">
+                  <div className="bg-white rounded-xl px-8 py-6 shadow-luxury hover:scale-105 transition-transform duration-300 min-w-[200px] flex items-center justify-center">
                     <img
                       src={client.logo}
                       alt={`${client.name} logo`}
                       className="h-16 md:h-20 w-auto object-contain"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
+                        target.onerror = null;
                         target.parentElement!.innerHTML = `<span class="text-xl md:text-2xl font-bold text-primary whitespace-nowrap">${client.name}</span>`;
                       }}
                     />
