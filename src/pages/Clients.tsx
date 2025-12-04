@@ -30,42 +30,40 @@ const Clients = () => {
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
         
-        <div className="relative z-10 container mx-auto px-4 py-20">
-          <div className="max-w-4xl mx-auto text-center">
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
-              Our Clients
-            </h1>
-            <p className="text-lg md:text-xl text-white/80 mb-16">
-              Trusted by leading jewelry brands worldwide
-            </p>
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-200px)] py-20">
+          
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white text-center px-4">
+            Our Clients
+          </h1>
+          <p className="text-lg md:text-xl text-white/80 mb-16 text-center px-4">
+            Trusted by leading jewelry brands worldwide
+          </p>
 
-            {/* Scrolling Logos Container */}
-            <div className="relative h-[500px] overflow-hidden rounded-2xl bg-background/20 backdrop-blur-sm border border-border/20">
-              <div className="absolute inset-0 flex flex-col animate-scroll-vertical">
-                {duplicatedClients.map((client, index) => (
-                  <div
-                    key={`${client.name}-${index}`}
-                    className="flex-shrink-0 h-[120px] flex items-center justify-center px-8 py-4"
-                  >
-                    <div className="bg-white/95 rounded-xl px-12 py-6 shadow-luxury hover:scale-105 transition-transform duration-300 w-full max-w-md">
-                      <img
-                        src={client.logo}
-                        alt={`${client.name} logo`}
-                        className="h-12 md:h-16 w-auto mx-auto object-contain"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                          target.parentElement!.innerHTML = `<span class="text-xl md:text-2xl font-bold text-primary">${client.name}</span>`;
-                        }}
-                      />
-                    </div>
+          {/* Horizontal Scrolling Logos */}
+          <div className="w-full overflow-hidden">
+            <div className="flex animate-scroll-horizontal">
+              {duplicatedClients.map((client, index) => (
+                <div
+                  key={`${client.name}-${index}`}
+                  className="flex-shrink-0 mx-8 md:mx-12"
+                >
+                  <div className="bg-white/95 rounded-xl px-8 py-6 shadow-luxury hover:scale-105 transition-transform duration-300">
+                    <img
+                      src={client.logo}
+                      alt={`${client.name} logo`}
+                      className="h-16 md:h-20 w-auto object-contain"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        target.parentElement!.innerHTML = `<span class="text-xl md:text-2xl font-bold text-primary whitespace-nowrap">${client.name}</span>`;
+                      }}
+                    />
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
-
           </div>
+
         </div>
       </main>
 
