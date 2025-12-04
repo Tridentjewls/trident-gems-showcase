@@ -92,6 +92,10 @@ export default {
           "0%": { backgroundPosition: "-1000px 0" },
           "100%": { backgroundPosition: "1000px 0" },
         },
+        "scroll-vertical": {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-50%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -99,6 +103,7 @@ export default {
         "slide-in": "slide-in 0.5s ease-out",
         "fade-in": "fade-in 0.6s ease-out",
         "shimmer": "shimmer 3s linear infinite",
+        "scroll-vertical": "scroll-vertical 15s linear infinite",
       },
     },
   },
