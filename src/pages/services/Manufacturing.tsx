@@ -3,15 +3,22 @@ import Footer from "@/components/Footer";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const images = [
-  "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=800",
-  "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800",
-  "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800",
-  "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800",
-  "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800",
-  "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800",
-  "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800",
-  "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800",
+const sections = [
+  {
+    image: "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=800",
+    title: "Precision Production",
+    description: "Our manufacturing service transforms CAD designs into physical jewelry with exceptional precision. We utilize advanced manufacturing techniques to ensure quality at every step."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800",
+    title: "Quality Materials",
+    description: "We work with premium metals and gemstones to create jewelry that meets the highest standards. Our attention to material quality ensures lasting beauty and durability."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800",
+    title: "End-to-End Service",
+    description: "From design to finished product, we provide comprehensive manufacturing solutions. Our streamlined process ensures timely delivery without compromising quality."
+  },
 ];
 
 const Manufacturing = () => {
@@ -32,18 +39,33 @@ const Manufacturing = () => {
           Back to Services
         </Link>
 
-        <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground text-center mb-12">
+        <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground text-center mb-16">
           Manufacturing
         </h1>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {images.map((img, idx) => (
-            <div key={idx} className="aspect-square overflow-hidden rounded-xl group">
-              <img
-                src={img}
-                alt={`Manufacturing ${idx + 1}`}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
+        <div className="flex flex-col gap-16 md:gap-24">
+          {sections.map((section, idx) => (
+            <div 
+              key={idx} 
+              className={`flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 md:gap-12`}
+            >
+              <div className="w-full md:w-1/2">
+                <div className="aspect-square max-w-md mx-auto overflow-hidden rounded-2xl shadow-2xl">
+                  <img
+                    src={section.image}
+                    alt={section.title}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
+              </div>
+              <div className="w-full md:w-1/2 text-center md:text-left">
+                <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
+                  {section.title}
+                </h2>
+                <p className="text-primary-foreground/80 text-lg leading-relaxed">
+                  {section.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
