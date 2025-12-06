@@ -8,6 +8,13 @@ import About from "./pages/About";
 import Clients from "./pages/Clients";
 import Pricing from "./pages/Pricing";
 import Services from "./pages/Services";
+import CadDesigning from "./pages/services/CadDesigning";
+import Rendering from "./pages/services/Rendering";
+import HiphopWork from "./pages/services/HiphopWork";
+import FaceWork from "./pages/services/FaceWork";
+import ManualDesigning from "./pages/services/ManualDesigning";
+import Manufacturing from "./pages/services/Manufacturing";
+import FileSelling from "./pages/services/FileSelling";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +31,13 @@ const App = () => (
           <Route path="/clients" element={<Clients />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/cad-designing" element={<CadDesigning />} />
+          <Route path="/services/rendering" element={<Rendering />} />
+          <Route path="/services/hiphop-work" element={<HiphopWork />} />
+          <Route path="/services/face-work" element={<FaceWork />} />
+          <Route path="/services/manual-designing" element={<ManualDesigning />} />
+          <Route path="/services/manufacturing" element={<Manufacturing />} />
+          <Route path="/services/file-selling" element={<FileSelling />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
