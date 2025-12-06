@@ -3,15 +3,22 @@ import Footer from "@/components/Footer";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const images = [
-  "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800",
-  "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800",
-  "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800",
-  "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800",
-  "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800",
-  "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800",
-  "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=800",
-  "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800",
+const sections = [
+  {
+    image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800",
+    title: "Photorealistic Rendering",
+    description: "Our rendering service transforms your CAD designs into stunning photorealistic images. Every detail, from metal textures to gemstone brilliance, is captured with precision."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800",
+    title: "Multiple Angle Views",
+    description: "We provide comprehensive renders from multiple angles, giving you a complete view of your jewelry piece before production. This ensures you can make informed decisions about your design."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800",
+    title: "Client Approval Ready",
+    description: "Our high-quality renders are perfect for client presentations and approvals. They showcase your designs in the best possible light, helping secure customer confidence."
+  },
 ];
 
 const Rendering = () => {
@@ -32,18 +39,33 @@ const Rendering = () => {
           Back to Services
         </Link>
 
-        <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground text-center mb-12">
+        <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground text-center mb-16">
           Rendering
         </h1>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {images.map((img, idx) => (
-            <div key={idx} className="aspect-square overflow-hidden rounded-xl group">
-              <img
-                src={img}
-                alt={`Rendering ${idx + 1}`}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
+        <div className="flex flex-col gap-16 md:gap-24">
+          {sections.map((section, idx) => (
+            <div 
+              key={idx} 
+              className={`flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 md:gap-12`}
+            >
+              <div className="w-full md:w-1/2">
+                <div className="aspect-square max-w-md mx-auto overflow-hidden rounded-2xl shadow-2xl">
+                  <img
+                    src={section.image}
+                    alt={section.title}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
+              </div>
+              <div className="w-full md:w-1/2 text-center md:text-left">
+                <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
+                  {section.title}
+                </h2>
+                <p className="text-primary-foreground/80 text-lg leading-relaxed">
+                  {section.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
