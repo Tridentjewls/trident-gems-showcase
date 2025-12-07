@@ -135,7 +135,14 @@ const Index = () => {
   }, []);
   return <div className="min-h-screen flex flex-col relative">
       {/* Unified Video Background for Entire Page */}
-      <video autoPlay loop muted playsInline className="fixed inset-0 w-full h-full object-cover -z-10">
+      <video 
+        autoPlay 
+        loop 
+        muted 
+        playsInline 
+        className="fixed inset-0 w-full h-full object-cover -z-10"
+        onCanPlayThrough={() => window.dispatchEvent(new Event("videoLoaded"))}
+      >
         <source src="/videos/bg-trident.mp4" type="video/mp4" />
       </video>
       
