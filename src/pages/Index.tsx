@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import JewelryCarousel from "@/components/JewelryCarousel";
+import AnimatedCounter from "@/components/AnimatedCounter";
 import jewelryRing from "@/assets/jewelry-ring.png";
 import jewelryRing1 from "@/assets/jewelry-ring-1.jpg";
 import jewelryNecklace1 from "@/assets/jewelry-necklace-1.jpg";
@@ -414,6 +415,48 @@ const Index = () => {
                   </p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Stats Counter Strip */}
+        <section className="relative overflow-hidden py-16">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary"></div>
+          <div className="absolute inset-0 bg-background/10 backdrop-blur-sm"></div>
+          
+          <div className="relative z-10 container mx-auto px-4">
+            <h3 className="text-2xl md:text-3xl font-bold text-background text-center mb-10 tracking-wider">
+              We Deliver Excellence Worldwide
+            </h3>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-background drop-shadow-lg">
+                  <AnimatedCounter end={500} suffix="+" />
+                </div>
+                <p className="text-background/80 mt-2 text-sm md:text-base">Happy Clients</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-background drop-shadow-lg">
+                  <AnimatedCounter end={2000} suffix="+" />
+                </div>
+                <p className="text-background/80 mt-2 text-sm md:text-base">Designs Delivered</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-background drop-shadow-lg">
+                  <AnimatedCounter end={15} suffix="+" />
+                </div>
+                <p className="text-background/80 mt-2 text-sm md:text-base">Countries Served</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-background drop-shadow-lg">
+                  <AnimatedCounter end={8} suffix="+" />
+                </div>
+                <p className="text-background/80 mt-2 text-sm md:text-base">Years Experience</p>
+              </div>
             </div>
           </div>
         </section>

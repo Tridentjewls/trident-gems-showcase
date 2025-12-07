@@ -16,7 +16,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="py-3 px-6 flex justify-between items-center relative overflow-hidden border-b border-border/10">
+    <header className="py-5 px-6 flex justify-between items-center relative overflow-hidden border-b border-border/10">
       <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-40">
         <source src="/videos/bg-trident.mp4" type="video/mp4" />
       </video>
@@ -28,7 +28,7 @@ const Header = () => {
           <img 
             src={tridentLogo} 
             alt="TRIDENT Jewellery Designer Logo" 
-            className="relative h-10 md:h-12 w-auto object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-300" 
+            className="relative h-12 md:h-16 w-auto object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-300" 
           />
         </div>
       </div>
