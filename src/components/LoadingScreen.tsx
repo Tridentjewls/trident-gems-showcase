@@ -23,11 +23,11 @@ const LoadingScreen = () => {
 
     window.addEventListener("videoLoaded", handleVideoLoaded);
     
-    // Minimum 5 second display
+    // Minimum 1 second display
     const timer = setTimeout(() => {
       timerComplete = true;
       tryHide();
-    }, 5000);
+    }, 1000);
 
     // Fallback timeout in case video never loads
     const fallback = setTimeout(() => {
