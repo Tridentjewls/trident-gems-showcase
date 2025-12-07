@@ -6,21 +6,39 @@ const LoadingScreen = () => {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
+    let videoLoaded = false;
+    let timerComplete = false;
+
+    const tryHide = () => {
+      if (videoLoaded && timerComplete) {
+        setFadeOut(true);
+        setTimeout(() => setIsLoading(false), 500);
+      }
+    };
+
     const handleVideoLoaded = () => {
-      setFadeOut(true);
-      setTimeout(() => setIsLoading(false), 500);
+      videoLoaded = true;
+      tryHide();
     };
 
     window.addEventListener("videoLoaded", handleVideoLoaded);
     
-    // Fallback timeout in case video takes too long
-    const timeout = setTimeout(() => {
-      handleVideoLoaded();
+    // Minimum 5 second display
+    const timer = setTimeout(() => {
+      timerComplete = true;
+      tryHide();
     }, 5000);
+
+    // Fallback timeout in case video never loads
+    const fallback = setTimeout(() => {
+      videoLoaded = true;
+      tryHide();
+    }, 10000);
 
     return () => {
       window.removeEventListener("videoLoaded", handleVideoLoaded);
-      clearTimeout(timeout);
+      clearTimeout(timer);
+      clearTimeout(fallback);
     };
   }, []);
 
