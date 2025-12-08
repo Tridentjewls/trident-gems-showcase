@@ -17,10 +17,10 @@ const Header = () => {
 
   return (
     <header className="py-5 px-6 flex justify-between items-center relative overflow-hidden border-b border-border/10">
-      <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-40">
+      <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
         <source src="/videos/bg-trident.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-accent/50 to-primary/60"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-secondary/80 to-primary/80"></div>
       
       <div className="relative flex items-center animate-fade-in">
         <div className="relative group cursor-pointer">

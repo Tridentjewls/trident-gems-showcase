@@ -19,6 +19,11 @@ const sections = [
     title: "Iced Out Pieces",
     description: "We excel in designing iced-out jewelry with intricate stone settings. Our CAD expertise ensures every diamond and gemstone placement is precise and stunning."
   },
+  {
+    image: "https://images.unsplash.com/photo-1610694955371-d4a3e0ce4b52?w=800",
+    title: "Grillz & Custom Teeth",
+    description: "From classic gold grillz to fully iced diamond sets, we design custom dental jewelry that perfectly fits your style and personality."
+  },
 ];
 
 const HiphopWork = () => {

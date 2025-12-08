@@ -19,6 +19,11 @@ const sections = [
     title: "Instant Download",
     description: "Purchase and download files instantly. Our streamlined process ensures you get the files you need without delay, ready for your manufacturing process."
   },
+  {
+    image: "https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?w=800",
+    title: "Extensive Library",
+    description: "Browse our extensive collection of jewelry CAD files spanning rings, necklaces, bracelets, earrings, and more. New designs added regularly to keep your offerings fresh."
+  },
 ];
 
 const FileSelling = () => {

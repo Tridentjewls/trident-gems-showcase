@@ -19,6 +19,11 @@ const sections = [
     title: "End-to-End Service",
     description: "From design to finished product, we provide comprehensive manufacturing solutions. Our streamlined process ensures timely delivery without compromising quality."
   },
+  {
+    image: "https://images.unsplash.com/photo-1600721391776-b5cd0e0048f9?w=800",
+    title: "Quality Control",
+    description: "Every piece undergoes rigorous quality control checks. Our expert craftsmen ensure each jewelry item meets our exacting standards before delivery."
+  },
 ];
 
 const Manufacturing = () => {

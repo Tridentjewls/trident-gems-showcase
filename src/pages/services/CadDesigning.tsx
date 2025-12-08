@@ -19,6 +19,11 @@ const sections = [
     title: "Industry-Standard Quality",
     description: "We deliver CAD files that are ready for manufacturing, ensuring seamless transition from design to production. Our designs meet the highest industry standards for quality and accuracy."
   },
+  {
+    image: "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=800",
+    title: "Advanced 3D Visualization",
+    description: "Experience your jewelry designs in stunning 3D before production. Our advanced visualization technology allows you to see every angle and detail, ensuring complete satisfaction with the final design."
+  },
 ];
 
 const CadDesigning = () => {
