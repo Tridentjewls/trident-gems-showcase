@@ -140,6 +140,10 @@ All colors MUST be HSL.
     animation: scroll-horizontal 30s linear infinite;
   }
 
+  .animate-scroll-horizontal-fast {
+    animation: scroll-horizontal 15s linear infinite;
+  }
+
   .animate-scroll-horizontal-slow {
     animation: scroll-horizontal 60s linear infinite;
   }
