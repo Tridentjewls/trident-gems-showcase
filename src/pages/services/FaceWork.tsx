@@ -19,6 +19,11 @@ const sections = [
     title: "Custom Face Pendants",
     description: "From celebrity portraits to personal photos, we transform any face into wearable art. Our precision CAD work captures the likeness with remarkable accuracy."
   },
+  {
+    image: "https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=800",
+    title: "3D Sculpted Faces",
+    description: "Our advanced 3D sculpting techniques create lifelike facial features with incredible depth and detail, perfect for high-end custom jewelry pieces."
+  },
 ];
 
 const FaceWork = () => {

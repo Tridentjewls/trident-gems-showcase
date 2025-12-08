@@ -19,6 +19,11 @@ const sections = [
     title: "Client Approval Ready",
     description: "Our high-quality renders are perfect for client presentations and approvals. They showcase your designs in the best possible light, helping secure customer confidence."
   },
+  {
+    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800",
+    title: "Video Animation Renders",
+    description: "Bring your jewelry designs to life with stunning 360° video animations. Our video renders showcase every facet and detail of your piece in captivating motion."
+  },
 ];
 
 const Rendering = () => {

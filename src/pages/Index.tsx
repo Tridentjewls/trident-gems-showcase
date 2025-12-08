@@ -17,7 +17,7 @@ const Index = () => {
   const [visibleBoxes, setVisibleBoxes] = useState<boolean[]>([false, false, false]);
   const [visibleImages, setVisibleImages] = useState<boolean[]>([false, false, false, false, false]);
   const [visibleWorkflowBoxes, setVisibleWorkflowBoxes] = useState<boolean[]>([false, false, false, false]);
-  const [visibleWhyUsBoxes, setVisibleWhyUsBoxes] = useState<boolean[]>([false, false, false, false, false, false]);
+  const [visibleWhyUsBoxes, setVisibleWhyUsBoxes] = useState<boolean[]>([false, false, false, false, false, false, false, false, false]);
   const [visibleReviews, setVisibleReviews] = useState<boolean[]>([false, false, false]);
   const boxRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -231,7 +231,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Jewelry Gallery Section with Horizontal Scroll */}
+        {/* Jewelry Gallery Section with Auto Scroll */}
         <section className="relative overflow-hidden min-h-screen flex flex-col">
           <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
           
@@ -245,36 +245,36 @@ const Index = () => {
             </div>
           </div>
           
-          {/* Horizontal Scroll Container */}
-          <div className="flex-1 flex items-center overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory scrollbar-hide pb-12">
-            <div className="flex gap-8 px-8 min-w-min">
-              {[{
-              img: jewelryRing1,
-              alt: "Diamond Engagement Ring"
-            }, {
-              img: jewelryNecklace1,
-              alt: "Emerald Gold Necklace"
-            }, {
-              img: jewelryBracelet1,
-              alt: "Sapphire Diamond Bracelet"
-            }, {
-              img: jewelryEarrings1,
-              alt: "Ruby Drop Earrings"
-            }, {
-              img: jewelryTiara1,
-              alt: "Pearl Diamond Tiara"
-            }].map((item, index) => <div key={index} ref={el => imageRefs.current[index] = el} className="snap-center flex-shrink-0">
-                  <div className={`transition-all duration-1000 ease-out ${visibleImages[index] ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-95 blur-sm'}`} style={{
-                transitionDelay: `${index * 150}ms`
-              }}>
+          {/* Auto Scrolling Container */}
+          <div className="flex-1 flex items-center overflow-hidden pb-12">
+            <div className="flex animate-scroll-horizontal">
+              {[...Array(2)].map((_, loopIndex) => (
+                [{
+                  img: jewelryRing1,
+                  alt: "Diamond Engagement Ring"
+                }, {
+                  img: jewelryNecklace1,
+                  alt: "Emerald Gold Necklace"
+                }, {
+                  img: jewelryBracelet1,
+                  alt: "Sapphire Diamond Bracelet"
+                }, {
+                  img: jewelryEarrings1,
+                  alt: "Ruby Drop Earrings"
+                }, {
+                  img: jewelryTiara1,
+                  alt: "Pearl Diamond Tiara"
+                }].map((item, index) => (
+                  <div key={`${loopIndex}-${index}`} className="flex-shrink-0 mx-4">
                     <div className="relative group">
                       <div className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-primary rounded-2xl blur-xl opacity-30 group-hover:opacity-70 transition-opacity duration-500"></div>
                       <div className="relative rounded-2xl overflow-hidden shadow-luxury border border-border/20 bg-background/95 backdrop-blur-sm p-6">
-                        <img src={item.img} alt={item.alt} className="w-[70vw] h-[70vh] object-cover group-hover:scale-105 transition-transform duration-700 ease-out rounded-lg" />
+                        <img src={item.img} alt={item.alt} className="w-[60vw] md:w-[40vw] h-[50vh] object-cover group-hover:scale-105 transition-transform duration-700 ease-out rounded-lg" />
                       </div>
                     </div>
                   </div>
-                </div>)}
+                ))
+              ))}
             </div>
           </div>
         </section>
@@ -321,6 +321,17 @@ const Index = () => {
                   </div>
                 </div>)}
             </div>
+
+            {/* Video below workflow */}
+            <div className="mt-16 max-w-4xl mx-auto">
+              <div className="bg-background/95 backdrop-blur-sm rounded-xl p-6 shadow-luxury border border-border/20">
+                <div className="aspect-video rounded-lg overflow-hidden shadow-lg bg-black/30">
+                  <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                    <source src="/videos/bg-trident.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -360,7 +371,19 @@ const Index = () => {
             }, {
               number: "06",
               title: "100% File Guarantee",
-              description: "We have complete confidence in our work. If there's any problem in the CAD/STL file due to us, we will refund your payment – no questions asked. This is our promise of trust, responsibility, and safety."
+              description: "We have complete confidence in our work. If there's any problem in the CAD/STL file due to us, we will refund your payment – no questions asked."
+            }, {
+              number: "07",
+              title: "24/7 Support",
+              description: "Our dedicated support team is available around the clock to assist you with any questions or concerns about your jewelry designs."
+            }, {
+              number: "08",
+              title: "Competitive Pricing",
+              description: "We offer premium quality designs at competitive prices, ensuring you get the best value for your investment without compromising on excellence."
+            }, {
+              number: "09",
+              title: "Global Expertise",
+              description: "With clients across 15+ countries, we bring global design sensibilities and diverse cultural aesthetics to every project we undertake."
             }].map((item, index) => <div key={index} ref={el => whyUsRefs.current[index] = el} className={`group bg-background/95 backdrop-blur-sm rounded-xl p-6 shadow-luxury border border-border/20 transition-all duration-1000 hover:scale-105 ${visibleWhyUsBoxes[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{
               transitionDelay: `${index * 150}ms`
             }}>
@@ -415,6 +438,42 @@ const Index = () => {
                   <AnimatedCounter end={8} suffix="+" />
                 </div>
                 <p className="text-foreground/80 mt-2 text-sm md:text-base">Years Experience</p>
+              </div>
+            </div>
+
+            {/* Auto Scrolling Photos - 20 images */}
+            <div className="mt-16 overflow-hidden">
+              <div className="flex animate-scroll-horizontal-slow">
+                {[...Array(2)].map((_, loopIndex) => (
+                  [
+                    "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400",
+                    "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=400",
+                    "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400",
+                    "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400",
+                    "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400",
+                    "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=400",
+                    "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=400",
+                    "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400",
+                    "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400",
+                    "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400",
+                    "https://images.unsplash.com/photo-1610694955371-d4a3e0ce4b52?w=400",
+                    "https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?w=400",
+                    "https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=400",
+                    "https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=400",
+                    "https://images.unsplash.com/photo-1600721391776-b5cd0e0048f9?w=400",
+                    "https://images.unsplash.com/photo-1629224316810-9d8805b95e76?w=400",
+                    "https://images.unsplash.com/photo-1618403088890-3d9ff6f4c8b1?w=400",
+                    "https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?w=400",
+                    "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=400",
+                    "https://images.unsplash.com/photo-1635767798638-3e25273a8236?w=400",
+                  ].map((img, index) => (
+                    <div key={`${loopIndex}-${index}`} className="flex-shrink-0 mx-3">
+                      <div className="w-48 h-48 rounded-xl overflow-hidden shadow-lg hover:scale-110 transition-transform duration-300">
+                        <img src={img} alt={`Jewelry ${index + 1}`} className="w-full h-full object-cover" />
+                      </div>
+                    </div>
+                  ))
+                ))}
               </div>
             </div>
           </div>

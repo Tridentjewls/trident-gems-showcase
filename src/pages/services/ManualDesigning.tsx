@@ -19,6 +19,11 @@ const sections = [
     title: "Traditional Craftsmanship",
     description: "We blend traditional craftsmanship with modern techniques. Our manual designs serve as the foundation for creating timeless, one-of-a-kind jewelry pieces."
   },
+  {
+    image: "https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=800",
+    title: "Conceptual Development",
+    description: "Our designers excel at developing initial concepts into refined sketches. We iterate and refine until the design perfectly matches your creative vision."
+  },
 ];
 
 const ManualDesigning = () => {

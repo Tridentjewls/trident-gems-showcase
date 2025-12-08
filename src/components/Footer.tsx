@@ -4,11 +4,13 @@ import tridentLogo from "@/assets/trident-logo.png";
 
 const Footer = () => {
   const services = [
-    "CAD Designing",
-    "Photo Rendering",
-    "Video Rendering",
-    "Hip Hop Work",
-    "Face Work",
+    { label: "CAD Designing", path: "/services/cad-designing" },
+    { label: "Rendering", path: "/services/rendering" },
+    { label: "Hip Hop Work", path: "/services/hiphop-work" },
+    { label: "Face Work", path: "/services/face-work" },
+    { label: "Manual Designing", path: "/services/manual-designing" },
+    { label: "Manufacturing", path: "/services/manufacturing" },
+    { label: "File Selling", path: "/services/file-selling" },
   ];
 
   const usefulLinks = [
@@ -17,10 +19,14 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Instagram, url: "https://www.instagram.com/trident_jewelles?igsh=MTQ5ZG81MmV1aWtoMg==", label: "Instagram" },
-    { icon: Facebook, url: "#", label: "Facebook" },
-    { icon: Linkedin, url: "#", label: "LinkedIn" },
-    { icon: Mail, url: "mailto:contact@tridentjewellery.com", label: "Email" },
+    { icon: Instagram, url: "https://www.instagram.com/trident_jewelles?igsh=MTQ5ZG81MmV1aWtoMg==", label: "Instagram", image: null },
+    { icon: Facebook, url: "#", label: "Facebook", image: null },
+    { icon: Linkedin, url: "#", label: "LinkedIn", image: null },
+    { icon: Mail, url: "mailto:contact@tridentjewellery.com", label: "Email", image: null },
+    { icon: null, url: "https://www.fiverr.com", label: "Fiverr", image: "https://cdn.worldvectorlogo.com/logos/fiverr-1.svg" },
+    { icon: null, url: "https://www.upwork.com", label: "Upwork", image: "https://cdn.worldvectorlogo.com/logos/upwork-1.svg" },
+    { icon: null, url: "https://x.com", label: "X", image: "https://cdn.worldvectorlogo.com/logos/x-2.svg" },
+    { icon: null, url: "https://www.pinterest.com", label: "Pinterest", image: "https://cdn.worldvectorlogo.com/logos/pinterest-1.svg" },
   ];
 
   return (
@@ -47,17 +53,25 @@ const Footer = () => {
             />
             
             {/* Social Media Icons */}
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg"
+                  className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center transition-all duration-300 hover:scale-125"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-5 h-5 text-primary-foreground" />
+                  {social.icon ? (
+                    <social.icon className="w-5 h-5 text-primary-foreground" />
+                  ) : (
+                    <img 
+                      src={social.image!} 
+                      alt={social.label} 
+                      className="w-5 h-5 object-contain invert"
+                    />
+                  )}
                 </a>
               ))}
             </div>
@@ -88,12 +102,12 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               {services.map((service) => (
-                <li key={service}>
+                <li key={service.label}>
                   <Link
-                    to="/services"
+                    to={service.path}
                     className="text-primary-foreground/80 hover:text-accent transition-colors duration-300 text-sm"
                   >
-                    {service}
+                    {service.label}
                   </Link>
                 </li>
               ))}
