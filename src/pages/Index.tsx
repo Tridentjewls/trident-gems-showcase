@@ -247,7 +247,7 @@ const Index = () => {
           
           {/* Auto Scrolling Container */}
           <div className="flex-1 flex items-center overflow-hidden pb-12">
-            <div className="flex animate-scroll-horizontal">
+            <div className="flex animate-scroll-horizontal-fast">
               {[...Array(2)].map((_, loopIndex) => (
                 [{
                   img: jewelryRing1,
@@ -440,10 +440,20 @@ const Index = () => {
                 <p className="text-foreground/80 mt-2 text-sm md:text-base">Years Experience</p>
               </div>
             </div>
+          </div>
+        </section>
 
-            {/* Auto Scrolling Photos - 20 images */}
-            <div className="mt-16 overflow-hidden">
-              <div className="flex animate-scroll-horizontal-slow">
+        {/* Auto Scrolling Gallery - 20 images */}
+        <section className="relative overflow-hidden py-16">
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
+          
+          <div className="relative z-10">
+            <h3 className="text-3xl md:text-4xl font-bold text-background text-center mb-12 tracking-wider drop-shadow-2xl">
+              Our Creations
+            </h3>
+            
+            <div className="overflow-hidden">
+              <div className="flex animate-scroll-horizontal-fast">
                 {[...Array(2)].map((_, loopIndex) => (
                   [
                     "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400",
@@ -467,8 +477,8 @@ const Index = () => {
                     "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=400",
                     "https://images.unsplash.com/photo-1635767798638-3e25273a8236?w=400",
                   ].map((img, index) => (
-                    <div key={`${loopIndex}-${index}`} className="flex-shrink-0 mx-3">
-                      <div className="w-48 h-48 rounded-xl overflow-hidden shadow-lg hover:scale-110 transition-transform duration-300">
+                    <div key={`${loopIndex}-${index}`} className="flex-shrink-0 mx-4">
+                      <div className="w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden shadow-luxury hover:scale-110 transition-transform duration-300">
                         <img src={img} alt={`Jewelry ${index + 1}`} className="w-full h-full object-cover" />
                       </div>
                     </div>
