@@ -8,11 +8,11 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   
   const navItems = [
-    { label: "HOME", range: "(1-8)", path: "/" },
-    { label: "ABOUT US", range: "(9)", path: "/about" },
-    { label: "SERVICES", range: "(13-20)", path: "/services" },
-    { label: "OUR CLIENT", range: "(10)", path: "/clients" },
-    { label: "PRICING", range: "(11-12)", path: "/pricing" },
+    { label: "HOME", path: "/" },
+    { label: "ABOUT US", path: "/about" },
+    { label: "SERVICES", path: "/services" },
+    { label: "OUR CLIENT", path: "/clients" },
+    { label: "PRICING", path: "/pricing" },
   ];
 
   return (
@@ -46,9 +46,6 @@ const Header = () => {
                 <span className="relative text-sm font-medium tracking-wider group-hover:text-accent transition-colors duration-300">
                   {item.label}
                 </span>
-                <span className="relative text-xs ml-1 text-primary-foreground/70 group-hover:text-accent/70 transition-colors duration-300">
-                  {item.range}
-                </span>
               </Link>
             </li>
           ))}
@@ -73,9 +70,6 @@ const Header = () => {
               >
                 <span className="text-base font-medium tracking-wider group-hover:text-accent transition-colors duration-300">
                   {item.label}
-                </span>
-                <span className="text-xs ml-2 text-muted-foreground group-hover:text-accent/70 transition-colors duration-300">
-                  {item.range}
                 </span>
               </Link>
             ))}
