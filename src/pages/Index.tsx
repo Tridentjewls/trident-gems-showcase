@@ -478,7 +478,7 @@ const Index = () => {
                     "https://images.unsplash.com/photo-1635767798638-3e25273a8236?w=400",
                   ].map((img, index) => (
                     <div key={`${loopIndex}-${index}`} className="flex-shrink-0 mx-4">
-                      <div className="w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden shadow-luxury hover:scale-110 transition-transform duration-300">
+                      <div className="w-80 h-80 md:w-96 md:h-96 rounded-2xl overflow-hidden shadow-luxury hover:scale-110 transition-transform duration-300">
                         <img src={img} alt={`Jewelry ${index + 1}`} className="w-full h-full object-cover" />
                       </div>
                     </div>
