@@ -5,22 +5,38 @@ import { Link } from "react-router-dom";
 
 const sections = [
   {
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800",
+    images: [
+      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800",
+      "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=400",
+      "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400",
+    ],
     title: "Portrait Jewelry Design",
     description: "Our face work specialty transforms portraits into stunning jewelry pieces. We create detailed face pendants and charms that capture every nuance of expression."
   },
   {
-    image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800",
+    images: [
+      "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800",
+      "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400",
+      "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=400",
+    ],
     title: "Memorial Pieces",
     description: "Honor your loved ones with beautifully crafted memorial jewelry. Our sensitive approach ensures each piece becomes a treasured keepsake that celebrates their memory."
   },
   {
-    image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=800",
+    images: [
+      "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800",
+      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400",
+      "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400",
+    ],
     title: "Custom Face Pendants",
     description: "From celebrity portraits to personal photos, we transform any face into wearable art. Our precision CAD work captures the likeness with remarkable accuracy."
   },
   {
-    image: "https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=800",
+    images: [
+      "https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=800",
+      "https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?w=400",
+      "https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=400",
+    ],
     title: "3D Sculpted Faces",
     description: "Our advanced 3D sculpting techniques create lifelike facial features with incredible depth and detail, perfect for high-end custom jewelry pieces."
   },
@@ -55,12 +71,28 @@ const FaceWork = () => {
               className={`flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 md:gap-12`}
             >
               <div className="w-full md:w-1/2">
-                <div className="aspect-square max-w-md mx-auto overflow-hidden rounded-2xl shadow-2xl">
-                  <img
-                    src={section.image}
-                    alt={section.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  />
+                <div className="grid grid-cols-2 gap-3 max-w-lg mx-auto">
+                  <div className="col-span-2 aspect-video overflow-hidden rounded-2xl shadow-2xl">
+                    <img
+                      src={section.images[0]}
+                      alt={section.title}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+                  <div className="aspect-square overflow-hidden rounded-xl shadow-xl">
+                    <img
+                      src={section.images[1]}
+                      alt={`${section.title} detail 1`}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+                  <div className="aspect-square overflow-hidden rounded-xl shadow-xl">
+                    <img
+                      src={section.images[2]}
+                      alt={`${section.title} detail 2`}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
                 </div>
               </div>
               <div className="w-full md:w-1/2 text-center md:text-left">
