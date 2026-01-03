@@ -11,27 +11,35 @@ import jewelry3 from "@/assets/jewelry-3.jpg";
 import jewelryRing from "@/assets/jewelry-ring.png";
 
 const OurCreations = () => {
-  // Pinterest-style masonry images with varying heights
-  const creations = [
+  // Column 1 images
+  const column1 = [
     { img: jewelryRing1, alt: "Diamond Engagement Ring", height: "h-72" },
-    { img: jewelryNecklace1, alt: "Emerald Gold Necklace", height: "h-96" },
-    { img: jewelryBracelet1, alt: "Sapphire Diamond Bracelet", height: "h-80" },
-    { img: jewelryEarrings1, alt: "Ruby Drop Earrings", height: "h-64" },
-    { img: jewelryTiara1, alt: "Pearl Diamond Tiara", height: "h-80" },
-    { img: jewelry1, alt: "Luxury Gold Set", height: "h-72" },
-    { img: jewelry2, alt: "Elegant Diamond Piece", height: "h-96" },
-    { img: jewelry3, alt: "Royal Collection", height: "h-64" },
-    { img: jewelryRing, alt: "Statement Ring", height: "h-80" },
-    { img: jewelryRing1, alt: "Wedding Band Collection", height: "h-64" },
-    { img: jewelryNecklace1, alt: "Pendant Necklace", height: "h-80" },
-    { img: jewelryEarrings1, alt: "Chandelier Earrings", height: "h-96" },
+    { img: jewelryTiara1, alt: "Pearl Diamond Tiara", height: "h-96" },
+    { img: jewelryRing, alt: "Statement Ring", height: "h-64" },
   ];
 
-  // Split images into columns for masonry effect
-  const columns = [[], [], [], []] as typeof creations[];
-  creations.forEach((item, index) => {
-    columns[index % 4].push(item);
-  });
+  // Column 2 images
+  const column2 = [
+    { img: jewelryNecklace1, alt: "Emerald Gold Necklace", height: "h-96" },
+    { img: jewelry1, alt: "Luxury Gold Set", height: "h-72" },
+    { img: jewelryEarrings1, alt: "Chandelier Earrings", height: "h-80" },
+  ];
+
+  // Column 3 images
+  const column3 = [
+    { img: jewelryBracelet1, alt: "Sapphire Diamond Bracelet", height: "h-80" },
+    { img: jewelry2, alt: "Elegant Diamond Piece", height: "h-96" },
+    { img: jewelryNecklace1, alt: "Pendant Necklace", height: "h-64" },
+  ];
+
+  // Column 4 images
+  const column4 = [
+    { img: jewelryEarrings1, alt: "Ruby Drop Earrings", height: "h-64" },
+    { img: jewelry3, alt: "Royal Collection", height: "h-80" },
+    { img: jewelryRing1, alt: "Wedding Band Collection", height: "h-96" },
+  ];
+
+  const columns = [column1, column2, column3, column4];
 
   return (
     <div className="min-h-screen flex flex-col relative">
