@@ -1,29 +1,30 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import jewelryRing1 from "@/assets/jewelry-ring-1.jpg";
+import jewelryNecklace1 from "@/assets/jewelry-necklace-1.jpg";
+import jewelryBracelet1 from "@/assets/jewelry-bracelet-1.jpg";
+import jewelryEarrings1 from "@/assets/jewelry-earrings-1.jpg";
+import jewelryTiara1 from "@/assets/jewelry-tiara-1.jpg";
+import jewelry1 from "@/assets/jewelry-1.jpg";
+import jewelry2 from "@/assets/jewelry-2.jpg";
+import jewelry3 from "@/assets/jewelry-3.jpg";
+import jewelryRing from "@/assets/jewelry-ring.png";
 
 const OurCreations = () => {
   // Pinterest-style masonry images with varying heights
   const creations = [
-    { img: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400", alt: "Gold Ring", height: "h-64" },
-    { img: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=400", alt: "Gold Necklaces", height: "h-80" },
-    { img: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400", alt: "Flower Earrings", height: "h-72" },
-    { img: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400", alt: "Gold Choker", height: "h-96" },
-    { img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400", alt: "Kundan Set", height: "h-80" },
-    { img: "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=400", alt: "Hand Jewelry", height: "h-72" },
-    { img: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=400", alt: "Diamond Necklace", height: "h-64" },
-    { img: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400", alt: "Layered Necklace", height: "h-80" },
-    { img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400", alt: "Lotus Bracelet", height: "h-72" },
-    { img: "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400", alt: "Gold Charms", height: "h-64" },
-    { img: "https://images.unsplash.com/photo-1610694955371-d4a3e0ce4b52?w=400", alt: "Statement Earrings", height: "h-96" },
-    { img: "https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?w=400", alt: "Pearl Bangles", height: "h-80" },
-    { img: "https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=400", alt: "Elegant Ring", height: "h-72" },
-    { img: "https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=400", alt: "Gold Pendant", height: "h-64" },
-    { img: "https://images.unsplash.com/photo-1600721391776-b5cd0e0048f9?w=400", alt: "Diamond Bracelet", height: "h-80" },
-    { img: "https://images.unsplash.com/photo-1629224316810-9d8805b95e76?w=400", alt: "Vintage Earrings", height: "h-72" },
-    { img: "https://images.unsplash.com/photo-1618403088890-3d9ff6f4c8b1?w=400", alt: "Modern Ring", height: "h-96" },
-    { img: "https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?w=400", alt: "Pearl Necklace", height: "h-80" },
-    { img: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=400", alt: "Crystal Set", height: "h-72" },
-    { img: "https://images.unsplash.com/photo-1635767798638-3e25273a8236?w=400", alt: "Gold Bangles", height: "h-64" },
+    { img: jewelryRing1, alt: "Diamond Engagement Ring", height: "h-72" },
+    { img: jewelryNecklace1, alt: "Emerald Gold Necklace", height: "h-96" },
+    { img: jewelryBracelet1, alt: "Sapphire Diamond Bracelet", height: "h-80" },
+    { img: jewelryEarrings1, alt: "Ruby Drop Earrings", height: "h-64" },
+    { img: jewelryTiara1, alt: "Pearl Diamond Tiara", height: "h-80" },
+    { img: jewelry1, alt: "Luxury Gold Set", height: "h-72" },
+    { img: jewelry2, alt: "Elegant Diamond Piece", height: "h-96" },
+    { img: jewelry3, alt: "Royal Collection", height: "h-64" },
+    { img: jewelryRing, alt: "Statement Ring", height: "h-80" },
+    { img: jewelryRing1, alt: "Wedding Band Collection", height: "h-64" },
+    { img: jewelryNecklace1, alt: "Pendant Necklace", height: "h-80" },
+    { img: jewelryEarrings1, alt: "Chandelier Earrings", height: "h-96" },
   ];
 
   // Split images into columns for masonry effect
