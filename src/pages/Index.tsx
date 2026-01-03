@@ -370,7 +370,7 @@ const Index = () => {
         </section>
 
         {/* Stats Counter Strip */}
-        <section className="relative overflow-hidden py-16 bg-background">
+        <section className="relative overflow-hidden py-16 mb-20 bg-background">
           <div className="relative z-10 container mx-auto px-4">
             <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10 tracking-wider">
               We Deliver Excellence Worldwide
