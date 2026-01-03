@@ -408,51 +408,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Auto Scrolling Gallery - 20 images */}
-        <section className="relative overflow-hidden py-16">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
-          
-          <div className="relative z-10">
-            <h3 className="text-3xl md:text-4xl font-bold text-background text-center mb-12 tracking-wider drop-shadow-2xl">
-              Our Creations
-            </h3>
-            
-            <div className="overflow-hidden">
-              <div className="flex animate-scroll-horizontal-fast">
-                {[...Array(2)].map((_, loopIndex) => (
-                  [
-                    "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400",
-                    "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=400",
-                    "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400",
-                    "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400",
-                    "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400",
-                    "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=400",
-                    "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=400",
-                    "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400",
-                    "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400",
-                    "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400",
-                    "https://images.unsplash.com/photo-1610694955371-d4a3e0ce4b52?w=400",
-                    "https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?w=400",
-                    "https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=400",
-                    "https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=400",
-                    "https://images.unsplash.com/photo-1600721391776-b5cd0e0048f9?w=400",
-                    "https://images.unsplash.com/photo-1629224316810-9d8805b95e76?w=400",
-                    "https://images.unsplash.com/photo-1618403088890-3d9ff6f4c8b1?w=400",
-                    "https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?w=400",
-                    "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=400",
-                    "https://images.unsplash.com/photo-1635767798638-3e25273a8236?w=400",
-                  ].map((img, index) => (
-                    <div key={`${loopIndex}-${index}`} className="flex-shrink-0 mx-4">
-                      <div className="w-80 h-80 md:w-96 md:h-96 rounded-2xl overflow-hidden shadow-luxury hover:scale-110 transition-transform duration-300">
-                        <img src={img} alt={`Jewelry ${index + 1}`} className="w-full h-full object-cover" />
-                      </div>
-                    </div>
-                  ))
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
 
       </main>
 

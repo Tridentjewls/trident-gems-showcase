@@ -9,6 +9,9 @@ import About from "./pages/About";
 import Clients from "./pages/Clients";
 import Pricing from "./pages/Pricing";
 import Services from "./pages/Services";
+import OurCreations from "./pages/OurCreations";
+import Terms from "./pages/Terms";
+import FAQs from "./pages/FAQs";
 import CadDesigning from "./pages/services/CadDesigning";
 import Rendering from "./pages/services/Rendering";
 import HiphopWork from "./pages/services/HiphopWork";
@@ -33,6 +36,9 @@ const App = () => (
           <Route path="/clients" element={<Clients />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/our-creations" element={<OurCreations />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/faqs" element={<FAQs />} />
           <Route path="/services/cad-designing" element={<CadDesigning />} />
           <Route path="/services/rendering" element={<Rendering />} />
           <Route path="/services/hiphop-work" element={<HiphopWork />} />
