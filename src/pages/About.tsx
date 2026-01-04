@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 import { User, Building2 } from "lucide-react";
 
 const About = () => {
@@ -38,6 +39,7 @@ const About = () => {
   }, []);
 
   return (
+    <PageTransition>
     <div className="min-h-screen flex flex-col">
       <Header />
       
@@ -134,6 +136,7 @@ const About = () => {
 
       <Footer />
     </div>
+    </PageTransition>
   );
 };
 

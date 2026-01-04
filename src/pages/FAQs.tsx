@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 import {
   Accordion,
   AccordionContent,
@@ -60,6 +61,7 @@ const FAQs = () => {
   ];
 
   return (
+    <PageTransition>
     <div className="min-h-screen flex flex-col relative">
       <video 
         autoPlay 
@@ -137,6 +139,7 @@ const FAQs = () => {
 
       <Footer />
     </div>
+    </PageTransition>
   );
 };
 
