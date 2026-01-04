@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 import jewelryRing1 from "@/assets/jewelry-ring-1.jpg";
 import jewelryNecklace1 from "@/assets/jewelry-necklace-1.jpg";
 import jewelryBracelet1 from "@/assets/jewelry-bracelet-1.jpg";
@@ -42,6 +43,7 @@ const OurCreations = () => {
   const columns = [column1, column2, column3, column4];
 
   return (
+    <PageTransition>
     <div className="min-h-screen flex flex-col relative">
       <video 
         autoPlay 
@@ -100,6 +102,7 @@ const OurCreations = () => {
 
       <Footer />
     </div>
+    </PageTransition>
   );
 };
 

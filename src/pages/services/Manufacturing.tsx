@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -44,6 +45,7 @@ const sections = [
 
 const Manufacturing = () => {
   return (
+    <PageTransition>
     <div className="min-h-screen relative">
       <div className="fixed inset-0 w-full h-full overflow-hidden -z-10">
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
@@ -110,6 +112,7 @@ const Manufacturing = () => {
 
       <Footer />
     </div>
+    </PageTransition>
   );
 };
 

@@ -1,8 +1,10 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 
 const Terms = () => {
   return (
+    <PageTransition>
     <div className="min-h-screen flex flex-col relative">
       <video 
         autoPlay 
@@ -120,6 +122,7 @@ const Terms = () => {
 
       <Footer />
     </div>
+    </PageTransition>
   );
 };
 

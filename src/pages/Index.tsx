@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import JewelryCarousel from "@/components/JewelryCarousel";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import PageTransition from "@/components/PageTransition";
 import jewelryRing from "@/assets/jewelry-ring.png";
 import jewelryRing1 from "@/assets/jewelry-ring-1.jpg";
 import jewelryNecklace1 from "@/assets/jewelry-necklace-1.jpg";
@@ -110,7 +111,7 @@ const Index = () => {
       });
     };
   }, []);
-  return <div className="min-h-screen flex flex-col relative">
+  return <PageTransition><div className="min-h-screen flex flex-col relative">
       {/* Unified Video Background for Entire Page */}
       <video 
         autoPlay 
@@ -413,6 +414,6 @@ const Index = () => {
 
       {/* Professional Footer - End of Page */}
       <Footer />
-    </div>;
+    </div></PageTransition>;
 };
 export default Index;
