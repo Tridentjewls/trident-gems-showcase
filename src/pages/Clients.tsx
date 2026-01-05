@@ -30,9 +30,6 @@ const Clients = () => {
     },
   ];
 
-  // Duplicate for seamless loop
-  const duplicatedClients = [...clients, ...clients];
-
   return (
     <PageTransition>
     <div className="min-h-screen flex flex-col">
@@ -59,25 +56,31 @@ const Clients = () => {
             Trusted by leading jewelry brands worldwide
           </p>
 
-          {/* Horizontal Scrolling Logos */}
-          <div className="w-full overflow-hidden">
-            <div className="flex animate-scroll-horizontal">
-              {duplicatedClients.map((client, index) => (
+          {/* Client Logos Grid */}
+          <div className="w-full max-w-5xl mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
+              {clients.map((client) => (
                 <div
-                  key={`${client.name}-${index}`}
-                  className="flex-shrink-0 mx-8 md:mx-12"
+                  key={client.name}
+                  className="flex items-center justify-center"
                 >
-                  <div className="bg-white rounded-xl px-8 py-6 shadow-luxury hover:scale-105 transition-transform duration-300 min-w-[200px] flex items-center justify-center">
+                  <div className="bg-white rounded-xl p-6 shadow-luxury hover:scale-105 transition-transform duration-300 w-full h-28 flex flex-col items-center justify-center">
                     <img
                       src={client.logo}
                       alt={`${client.name} logo`}
-                      className="h-16 md:h-20 w-auto object-contain"
+                      className="h-12 w-auto object-contain mb-2"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        target.onerror = null;
-                        target.parentElement!.innerHTML = `<span class="text-xl md:text-2xl font-bold text-primary whitespace-nowrap">${client.name}</span>`;
+                        target.style.display = 'none';
+                        target.nextElementSibling?.classList.remove('hidden');
                       }}
                     />
+                    <span className="text-sm font-semibold text-primary text-center whitespace-nowrap hidden">
+                      {client.name}
+                    </span>
+                    <span className="text-xs font-medium text-primary/70 text-center mt-1">
+                      {client.name}
+                    </span>
                   </div>
                 </div>
               ))}
