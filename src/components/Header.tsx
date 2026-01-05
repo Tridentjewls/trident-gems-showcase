@@ -41,10 +41,19 @@ const Header = () => {
             <li key={item.label}>
               <Link
                 to={item.path}
-                className="relative text-primary-foreground transition-all duration-300 group px-3 py-2 block"
+                className="relative text-primary-foreground transition-all duration-300 group px-4 py-2 block overflow-hidden"
               >
-                <span className="absolute inset-0 border-2 border-transparent group-hover:border-accent rounded-lg transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(var(--accent),0.5)]"></span>
-                <span className="relative text-sm font-medium tracking-wider group-hover:text-accent transition-colors duration-300">
+                {/* Background glow effect */}
+                <span className="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/20 to-accent/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></span>
+                
+                {/* Border with animated gradient */}
+                <span className="absolute inset-0 rounded-lg border border-primary-foreground/20 group-hover:border-accent/60 transition-all duration-300"></span>
+                
+                {/* Bottom line animation */}
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent group-hover:w-full transition-all duration-300 ease-out"></span>
+                
+                {/* Text with scale effect */}
+                <span className="relative text-sm font-medium tracking-wider group-hover:text-accent group-hover:scale-105 transition-all duration-300 inline-block">
                   {item.label}
                 </span>
               </Link>
