@@ -2,25 +2,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import LoadingScreen from "./components/LoadingScreen";
 import ScrollToTop from "./components/ScrollToTop";
-import Index from "./pages/Index";
-import About from "./pages/About";
-import Clients from "./pages/Clients";
-import Pricing from "./pages/Pricing";
-import Services from "./pages/Services";
-import OurCreations from "./pages/OurCreations";
-import Terms from "./pages/Terms";
-import FAQs from "./pages/FAQs";
-import CadDesigning from "./pages/services/CadDesigning";
-import Rendering from "./pages/services/Rendering";
-import HiphopWork from "./pages/services/HiphopWork";
-import FaceWork from "./pages/services/FaceWork";
-import ManualDesigning from "./pages/services/ManualDesigning";
-import Manufacturing from "./pages/services/Manufacturing";
-import FileSelling from "./pages/services/FileSelling";
-import NotFound from "./pages/NotFound";
+import AnimatedRoutes from "./components/AnimatedRoutes";
 
 const queryClient = new QueryClient();
 
@@ -32,25 +17,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/clients" element={<Clients />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/our-creations" element={<OurCreations />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/faqs" element={<FAQs />} />
-          <Route path="/services/cad-designing" element={<CadDesigning />} />
-          <Route path="/services/rendering" element={<Rendering />} />
-          <Route path="/services/hiphop-work" element={<HiphopWork />} />
-          <Route path="/services/face-work" element={<FaceWork />} />
-          <Route path="/services/manual-designing" element={<ManualDesigning />} />
-          <Route path="/services/manufacturing" element={<Manufacturing />} />
-          <Route path="/services/file-selling" element={<FileSelling />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AnimatedRoutes />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
