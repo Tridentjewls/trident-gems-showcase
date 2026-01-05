@@ -1,11 +1,12 @@
 import tridentLogo from "@/assets/trident-logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu } from "lucide-react";
 import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
   
   const navItems = [
     { label: "HOME", path: "/" },
@@ -15,6 +16,11 @@ const Header = () => {
     { label: "OUR CLIENT", path: "/clients" },
     { label: "PRICING", path: "/pricing" },
   ];
+
+  const isActive = (path: string) => {
+    if (path === "/") return location.pathname === "/";
+    return location.pathname.startsWith(path);
+  };
 
   return (
     <header className="py-5 px-6 flex justify-between items-center relative overflow-hidden border-b border-border/10">
@@ -41,21 +47,23 @@ const Header = () => {
             <li key={item.label}>
               <Link
                 to={item.path}
-                className="relative text-primary-foreground transition-all duration-300 group px-4 py-2 block overflow-hidden"
+                className="relative text-primary-foreground transition-all duration-300 group py-2 block"
               >
-                {/* Background glow effect */}
-                <span className="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/20 to-accent/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></span>
-                
-                {/* Border with animated gradient */}
-                <span className="absolute inset-0 rounded-lg border border-primary-foreground/20 group-hover:border-accent/60 transition-all duration-300"></span>
-                
-                {/* Bottom line animation */}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent group-hover:w-full transition-all duration-300 ease-out"></span>
-                
-                {/* Text with scale effect */}
-                <span className="relative text-sm font-medium tracking-wider group-hover:text-accent group-hover:scale-105 transition-all duration-300 inline-block">
+                {/* Text */}
+                <span className={`relative text-sm font-medium tracking-wider transition-all duration-300 ${
+                  isActive(item.path) 
+                    ? "text-accent" 
+                    : "group-hover:text-accent"
+                }`}>
                   {item.label}
                 </span>
+                
+                {/* Active/Hover underline */}
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ease-out ${
+                  isActive(item.path) 
+                    ? "w-full" 
+                    : "w-0 group-hover:w-full"
+                }`}></span>
               </Link>
             </li>
           ))}
@@ -76,9 +84,15 @@ const Header = () => {
                 key={item.label}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className="relative text-foreground transition-all duration-300 group px-4 py-3 block rounded-lg hover:bg-primary/10"
+                className={`relative text-foreground transition-all duration-300 px-4 py-3 block rounded-lg ${
+                  isActive(item.path) 
+                    ? "bg-primary/10 text-accent border-l-2 border-accent" 
+                    : "hover:bg-primary/10"
+                }`}
               >
-                <span className="text-base font-medium tracking-wider group-hover:text-accent transition-colors duration-300">
+                <span className={`text-base font-medium tracking-wider transition-colors duration-300 ${
+                  isActive(item.path) ? "text-accent" : "group-hover:text-accent"
+                }`}>
                   {item.label}
                 </span>
               </Link>
