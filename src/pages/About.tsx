@@ -63,69 +63,28 @@ const About = () => {
               About <span className="text-white">Us</span>
             </h1>
 
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+            <div className="flex justify-center">
               
-              {/* Box 1: About Pritesh Prajapati - Founder */}
+              {/* Single Box: Founder & Company */}
               <div
                 ref={el => boxRefs.current[0] = el}
-                className={`bg-background/95 backdrop-blur-sm rounded-2xl p-8 shadow-luxury border border-border/20 transition-all duration-1000 ${
+                className={`bg-background/95 backdrop-blur-sm rounded-2xl p-8 shadow-luxury border border-border/20 transition-all duration-1000 max-w-md text-center ${
                   visibleBoxes[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
               >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center">
-                    <User className="w-7 h-7 text-primary" />
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-2">
+                    <User className="w-8 h-8 text-primary" />
                   </div>
-                  <div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                      Pritesh Prajapati
-                    </h2>
-                    <p className="text-primary font-medium">Founder & Lead Designer</p>
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                    Pritesh Prajapati
+                  </h2>
+                  <p className="text-primary font-medium">Founder & Lead Designer</p>
+                  <div className="w-12 h-0.5 bg-primary/40 my-3"></div>
+                  <div className="flex items-center gap-2">
+                    <Building2 className="w-5 h-5 text-primary" />
+                    <p className="text-lg font-semibold text-foreground">Trident Jewellery</p>
                   </div>
-                </div>
-                
-                <div className="space-y-4 text-foreground/80 leading-relaxed">
-                  <p>
-                    With over a decade of experience in jewelry CAD design, Pritesh Prajapati founded Trident Jewellery with a vision to blend traditional craftsmanship with cutting-edge technology.
-                  </p>
-                  <p>
-                    His passion for precision and creativity has helped countless jewelry brands and designers bring their visions to life. Pritesh believes that every piece of jewelry tells a story, and his mission is to help clients craft those stories with perfection.
-                  </p>
-                  <p>
-                    Specializing in intricate CAD designs, 3D modeling, and photorealistic rendering, Pritesh ensures every project meets the highest standards of quality and artistry.
-                  </p>
-                </div>
-              </div>
-
-              {/* Box 2: About Trident Jewellery Company */}
-              <div
-                ref={el => boxRefs.current[1] = el}
-                className={`bg-background/95 backdrop-blur-sm rounded-2xl p-8 shadow-luxury border border-border/20 transition-all duration-1000 delay-200 ${
-                  visibleBoxes[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-                }`}
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center">
-                    <Building2 className="w-7 h-7 text-primary" />
-                  </div>
-                  <div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                      Trident Jewellery
-                    </h2>
-                    <p className="text-primary font-medium">CAD Design Excellence</p>
-                  </div>
-                </div>
-                
-                <div className="space-y-4 text-foreground/80 leading-relaxed">
-                  <p>
-                    Trident Jewellery is a premier jewelry CAD design studio based in Surat, Gujarat – the diamond capital of the world. We specialize in transforming creative ideas into stunning, production-ready jewelry designs.
-                  </p>
-                  <p>
-                    Our services include custom CAD design, 3D modeling, photorealistic rendering, and STL file preparation for manufacturing. We work with jewelry brands, retailers, and individual designers worldwide.
-                  </p>
-                  <p>
-                    At Trident, we combine advanced technology with artistic expertise to deliver designs that are not only beautiful but also technically precise and ready for production.
-                  </p>
                 </div>
               </div>
 

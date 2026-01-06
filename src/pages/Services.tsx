@@ -61,7 +61,7 @@ const Services = () => {
           Explore our wide range of jewelry design
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10 w-full max-w-5xl">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full max-w-4xl">
           {services.map((service) => (
             <Link
               key={service.name}
