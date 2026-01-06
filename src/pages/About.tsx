@@ -68,7 +68,7 @@ const About = () => {
               {/* Single Box: Founder & Company */}
               <div
                 ref={el => boxRefs.current[0] = el}
-                className={`bg-background/95 backdrop-blur-sm rounded-2xl p-8 shadow-luxury border border-border/20 transition-all duration-1000 max-w-md text-center ${
+                className={`bg-background/95 backdrop-blur-sm rounded-2xl p-8 md:p-10 shadow-luxury border border-border/20 transition-all duration-1000 max-w-2xl w-full text-center ${
                   visibleBoxes[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
               >
@@ -80,11 +80,14 @@ const About = () => {
                     Pritesh Prajapati
                   </h2>
                   <p className="text-primary font-medium">Founder & Lead Designer</p>
-                  <div className="w-12 h-0.5 bg-primary/40 my-3"></div>
-                  <div className="flex items-center gap-2">
+                  <div className="w-16 h-0.5 bg-primary/40 my-4"></div>
+                  <div className="flex items-center gap-2 mb-4">
                     <Building2 className="w-5 h-5 text-primary" />
                     <p className="text-lg font-semibold text-foreground">Trident Jewellery</p>
                   </div>
+                  <p className="text-foreground/80 leading-relaxed max-w-xl">
+                    Trident Jewellery is a premier jewelry CAD design studio based in Surat, Gujarat – the diamond capital of the world. We specialize in transforming creative ideas into stunning, production-ready jewelry designs using advanced CAD technology, 3D modeling, and photorealistic rendering.
+                  </p>
                 </div>
               </div>
 
