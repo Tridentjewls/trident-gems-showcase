@@ -111,7 +111,7 @@ const Footer = () => {
           </div>
 
           {/* Center Column - Services */}
-          <div className="mb-0 mt-[25px] ml-[70px]">
+          <div className="mb-0 mt-[25px] ml-[70px] mx-[75px]">
             <h3 className="text-xl font-bold text-primary-foreground mb-6 tracking-wider">
               SERVICES
             </h3>
@@ -125,7 +125,7 @@ const Footer = () => {
           </div>
 
           {/* Right Column - Useful Links */}
-          <div className="mt-[25px]">
+          <div className="mt-[25px] ml-[59px]">
             <h3 className="text-xl font-bold text-primary-foreground mb-6 tracking-wider">
               USEFUL LINKS
             </h3>
