@@ -5,6 +5,7 @@ import jewelry3 from "@/assets/jewelry-3.jpg";
 
 const JewelryCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([false, false, false]);
   const images = [jewelry1, jewelry2, jewelry3];
 
   useEffect(() => {
@@ -15,10 +16,30 @@ const JewelryCarousel = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  // Preload all carousel images
+  useEffect(() => {
+    images.forEach((src, index) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        setImagesLoaded(prev => {
+          const newState = [...prev];
+          newState[index] = true;
+          return newState;
+        });
+      };
+    });
+  }, []);
+
   return (
-    <div className="w-full h-[85vh] overflow-hidden">
+    <div className="w-full h-[85vh] overflow-hidden relative">
+      {/* Skeleton placeholder */}
+      {!imagesLoaded[0] && (
+        <div className="absolute inset-0 skeleton-shimmer" />
+      )}
+      
       <div
-        className="flex h-full transition-transform duration-700 ease-in-out"
+        className="flex h-full transition-transform duration-700 ease-in-out will-change-transform"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((image, index) => (
@@ -26,7 +47,12 @@ const JewelryCarousel = () => {
             <img
               src={image}
               alt={`Luxury jewelry piece ${index + 1}`}
-              className="w-full h-full object-cover"
+              className={`w-full h-full object-cover transition-opacity duration-500 ${
+                imagesLoaded[index] ? "opacity-100" : "opacity-0"
+              }`}
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "auto"}
+              decoding={index === 0 ? "sync" : "async"}
             />
           </div>
         ))}
