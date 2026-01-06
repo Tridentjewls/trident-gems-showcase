@@ -43,7 +43,7 @@ const Footer = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-secondary/80 to-primary/80"></div>
       
       <div className="relative container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {/* Left Column - Company Info */}
           <div className="space-y-6">
             <img 
@@ -96,7 +96,7 @@ const Footer = () => {
           </div>
 
           {/* Center Column - Services */}
-          <div className="pt-8 md:pt-10">
+          <div>
             <h3 className="text-xl font-bold text-primary-foreground mb-6 tracking-wider">
               SERVICES
             </h3>
@@ -115,7 +115,7 @@ const Footer = () => {
           </div>
 
           {/* Right Column - Useful Links */}
-          <div className="pt-8 md:pt-10">
+          <div>
             <h3 className="text-xl font-bold text-primary-foreground mb-6 tracking-wider">
               USEFUL LINKS
             </h3>
