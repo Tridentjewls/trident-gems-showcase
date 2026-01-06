@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import JewelryCarousel from "@/components/JewelryCarousel";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import PageTransition from "@/components/PageTransition";
+import OptimizedImage from "@/components/OptimizedImage";
 import jewelryRing from "@/assets/jewelry-ring.png";
 import jewelryRing1 from "@/assets/jewelry-ring-1.jpg";
 import jewelryNecklace1 from "@/assets/jewelry-necklace-1.jpg";
@@ -247,7 +248,12 @@ const Index = () => {
                     <div className="relative group">
                       <div className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-primary rounded-2xl blur-xl opacity-30 group-hover:opacity-70 transition-opacity duration-500"></div>
                       <div className="relative rounded-2xl overflow-hidden shadow-luxury border border-border/20 bg-background/95 backdrop-blur-sm p-6">
-                        <img src={item.img} alt={item.alt} className="w-[60vw] md:w-[40vw] h-[50vh] object-cover group-hover:scale-105 transition-transform duration-700 ease-out rounded-lg" />
+                        <OptimizedImage 
+                          src={item.img} 
+                          alt={item.alt} 
+                          className="w-[60vw] md:w-[40vw] h-[50vh] group-hover:scale-105 transition-transform duration-700 ease-out rounded-lg"
+                          containerClassName="rounded-lg"
+                        />
                       </div>
                     </div>
                   </div>
@@ -290,8 +296,13 @@ const Index = () => {
               transitionDelay: `${index * 200}ms`
             }}>
                   <div className="relative h-64 overflow-hidden">
-                    <img src={step.img} alt={step.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent"></div>
+                    <OptimizedImage 
+                      src={step.img} 
+                      alt={step.title} 
+                      className="transition-transform duration-500 hover:scale-110"
+                      containerClassName="h-full"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none"></div>
                   </div>
                   <div className="p-6 space-y-3">
                     <h3 className="text-xl font-bold text-foreground">{step.title}</h3>

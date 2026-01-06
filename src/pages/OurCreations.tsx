@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
+import OptimizedImage from "@/components/OptimizedImage";
 import jewelryRing1 from "@/assets/jewelry-ring-1.jpg";
 import jewelryNecklace1 from "@/assets/jewelry-necklace-1.jpg";
 import jewelryBracelet1 from "@/assets/jewelry-bracelet-1.jpg";
@@ -81,12 +82,14 @@ const OurCreations = () => {
                       key={index}
                       className={`relative group overflow-hidden rounded-2xl ${item.height} shadow-luxury`}
                     >
-                      <img 
+                      <OptimizedImage 
                         src={item.img} 
                         alt={item.alt} 
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        priority={colIndex < 2 && index === 0}
+                        className="transition-transform duration-500 group-hover:scale-110"
+                        containerClassName="h-full"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                         <div className="absolute bottom-4 left-4 right-4">
                           <p className="text-white font-medium text-sm">{item.alt}</p>
                         </div>

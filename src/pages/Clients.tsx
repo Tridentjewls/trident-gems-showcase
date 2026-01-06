@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const Clients = () => {
   const clients = [
@@ -65,19 +66,13 @@ const Clients = () => {
                   className="flex items-center justify-center"
                 >
                   <div className="bg-white rounded-xl p-6 shadow-luxury hover:scale-105 transition-transform duration-300 w-full h-28 flex flex-col items-center justify-center">
-                    <img
+                    <OptimizedImage
                       src={client.logo}
                       alt={`${client.name} logo`}
-                      className="h-12 w-auto object-contain mb-2"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        target.nextElementSibling?.classList.remove('hidden');
-                      }}
+                      priority
+                      className="h-12 w-auto max-w-full"
+                      containerClassName="h-12 w-full bg-transparent flex items-center justify-center"
                     />
-                    <span className="text-sm font-semibold text-primary text-center whitespace-nowrap hidden">
-                      {client.name}
-                    </span>
                     <span className="text-xs font-medium text-primary/70 text-center mt-1">
                       {client.name}
                     </span>
