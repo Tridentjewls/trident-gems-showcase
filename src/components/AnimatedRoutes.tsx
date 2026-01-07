@@ -15,6 +15,7 @@ import FaceWork from "../pages/services/FaceWork";
 import ManualDesigning from "../pages/services/ManualDesigning";
 import Manufacturing from "../pages/services/Manufacturing";
 import FileSelling from "../pages/services/FileSelling";
+import CustomJewelry from "../pages/services/CustomJewelry";
 import NotFound from "../pages/NotFound";
 
 const AnimatedRoutes = () => {
@@ -38,6 +39,7 @@ const AnimatedRoutes = () => {
         <Route path="/services/manual-designing" element={<ManualDesigning />} />
         <Route path="/services/manufacturing" element={<Manufacturing />} />
         <Route path="/services/file-selling" element={<FileSelling />} />
+        <Route path="/services/custom-jewelry" element={<CustomJewelry />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

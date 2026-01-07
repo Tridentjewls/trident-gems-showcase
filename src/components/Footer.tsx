@@ -23,6 +23,9 @@ const Footer = () => {
   }, {
     label: "File Selling",
     path: "/services/file-selling"
+  }, {
+    label: "Custom Jewelry",
+    path: "/services/custom-jewelry"
   }];
   const usefulLinks = [{
     label: "Terms and Conditions",

@@ -40,6 +40,11 @@ const services = [
     name: "File Selling",
     path: "/services/file-selling",
     image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400&q=80&auto=format"
+  },
+  {
+    name: "Custom Jewelry",
+    path: "/services/custom-jewelry",
+    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&q=80&auto=format"
   }
 ];
 
