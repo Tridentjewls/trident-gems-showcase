@@ -5,6 +5,7 @@ import PageTransition from "@/components/PageTransition";
 import { User, Building2 } from "lucide-react";
 import tridentLogo from "@/assets/trident-logo.png";
 import tridentLogoAlt from "@/assets/trident-logo-alt.png";
+import founderPhoto from "@/assets/founder-photo.png";
 
 const About = () => {
   const [visibleBoxes, setVisibleBoxes] = useState<boolean[]>([false, false]);
@@ -76,8 +77,12 @@ const About = () => {
               >
                 <div className="flex flex-col items-center gap-2">
                   {/* Founder Section */}
-                  <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-2">
-                    <User className="w-8 h-8 text-primary" />
+                  <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-primary/30 mb-2">
+                    <img 
+                      src={founderPhoto} 
+                      alt="Pritesh Prajapati - Founder" 
+                      className="w-full h-full object-cover object-top"
+                    />
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground">
                     Pritesh Prajapati
@@ -87,11 +92,13 @@ const About = () => {
                   <div className="w-16 h-0.5 bg-primary/40 my-4"></div>
                   
                   {/* Company Section */}
-                  <img 
-                    src={tridentLogoAlt} 
-                    alt="Trident Jewellery Logo" 
-                    className="w-40 h-40 md:w-48 md:h-48 object-contain mb-2"
-                  />
+                  <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-primary/30 bg-black flex items-center justify-center mb-2">
+                    <img 
+                      src={tridentLogoAlt} 
+                      alt="Trident Jewellery Logo" 
+                      className="w-3/4 h-3/4 object-contain"
+                    />
+                  </div>
                   <p className="text-lg font-semibold text-foreground">Trident Jewellery</p>
                   <p className="text-foreground/80 leading-relaxed max-w-xl mt-2">
                     Trident Jewellery is a premier jewelry CAD design studio based in Surat, Gujarat – the diamond capital of the world. We specialize in transforming creative ideas into stunning, production-ready jewelry designs using advanced CAD technology, 3D modeling, and photorealistic rendering.
