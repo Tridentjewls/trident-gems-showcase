@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 import { User, Building2 } from "lucide-react";
+import tridentLogo from "@/assets/trident-logo.png";
 
 const About = () => {
   const [visibleBoxes, setVisibleBoxes] = useState<boolean[]>([false, false]);
@@ -73,9 +74,11 @@ const About = () => {
                 }`}
               >
                 <div className="flex flex-col items-center gap-2">
-                  <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-2">
-                    <User className="w-8 h-8 text-primary" />
-                  </div>
+                  <img 
+                    src={tridentLogo} 
+                    alt="Trident Jewellery Logo" 
+                    className="w-24 h-24 md:w-32 md:h-32 object-contain mb-4"
+                  />
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground">
                     Pritesh Prajapati
                   </h2>
