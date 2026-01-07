@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
 import { User, Building2 } from "lucide-react";
 import tridentLogo from "@/assets/trident-logo.png";
+import tridentLogoAlt from "@/assets/trident-logo-alt.png";
 
 const About = () => {
   const [visibleBoxes, setVisibleBoxes] = useState<boolean[]>([false, false]);
@@ -87,9 +88,9 @@ const About = () => {
                   
                   {/* Company Section */}
                   <img 
-                    src={tridentLogo} 
+                    src={tridentLogoAlt} 
                     alt="Trident Jewellery Logo" 
-                    className="w-20 h-20 md:w-24 md:h-24 object-contain mb-2"
+                    className="w-40 h-40 md:w-48 md:h-48 object-contain mb-2"
                   />
                   <p className="text-lg font-semibold text-foreground">Trident Jewellery</p>
                   <p className="text-foreground/80 leading-relaxed max-w-xl mt-2">
