@@ -74,21 +74,25 @@ const About = () => {
                 }`}
               >
                 <div className="flex flex-col items-center gap-2">
-                  <img 
-                    src={tridentLogo} 
-                    alt="Trident Jewellery Logo" 
-                    className="w-24 h-24 md:w-32 md:h-32 object-contain mb-4"
-                  />
+                  {/* Founder Section */}
+                  <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-2">
+                    <User className="w-8 h-8 text-primary" />
+                  </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground">
                     Pritesh Prajapati
                   </h2>
                   <p className="text-primary font-medium">Founder & Lead Designer</p>
+                  
                   <div className="w-16 h-0.5 bg-primary/40 my-4"></div>
-                  <div className="flex items-center gap-2 mb-4">
-                    <Building2 className="w-5 h-5 text-primary" />
-                    <p className="text-lg font-semibold text-foreground">Trident Jewellery</p>
-                  </div>
-                  <p className="text-foreground/80 leading-relaxed max-w-xl">
+                  
+                  {/* Company Section */}
+                  <img 
+                    src={tridentLogo} 
+                    alt="Trident Jewellery Logo" 
+                    className="w-20 h-20 md:w-24 md:h-24 object-contain mb-2"
+                  />
+                  <p className="text-lg font-semibold text-foreground">Trident Jewellery</p>
+                  <p className="text-foreground/80 leading-relaxed max-w-xl mt-2">
                     Trident Jewellery is a premier jewelry CAD design studio based in Surat, Gujarat – the diamond capital of the world. We specialize in transforming creative ideas into stunning, production-ready jewelry designs using advanced CAD technology, 3D modeling, and photorealistic rendering.
                   </p>
                 </div>
