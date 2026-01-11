@@ -58,22 +58,22 @@ const Footer = () => {
     icon: null,
     url: "https://www.fiverr.com",
     label: "Fiverr",
-    image: "https://cdn.worldvectorlogo.com/logos/fiverr-1.svg"
+    image: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/fiverr.svg"
   }, {
     icon: null,
     url: "https://www.upwork.com",
     label: "Upwork",
-    image: "https://cdn.worldvectorlogo.com/logos/upwork-1.svg"
+    image: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/upwork.svg"
   }, {
     icon: null,
     url: "https://x.com",
     label: "X",
-    image: "https://cdn.worldvectorlogo.com/logos/x-2.svg"
+    image: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg"
   }, {
     icon: null,
     url: "https://www.pinterest.com",
     label: "Pinterest",
-    image: "https://cdn.worldvectorlogo.com/logos/pinterest-1.svg"
+    image: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pinterest.svg"
   }];
   return <footer className="relative overflow-hidden bg-background border-t border-border/20">
       <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
