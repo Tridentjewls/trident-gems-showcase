@@ -114,7 +114,7 @@ const Footer = () => {
           </div>
 
           {/* Center Column - Services */}
-          <div className="mb-0 mt-[25px] ml-[70px] mx-[75px]">
+          <div className="mb-0 mt-[25px] mx-[7px] my-[80px] ml-[89px]">
             <h3 className="text-xl font-bold text-primary-foreground mb-6 tracking-wider">
               SERVICES
             </h3>
