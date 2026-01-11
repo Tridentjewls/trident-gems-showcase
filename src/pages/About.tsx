@@ -71,7 +71,7 @@ const About = () => {
               {/* Single Box: Founder & Company */}
               <div
                 ref={el => boxRefs.current[0] = el}
-                className={`bg-background/95 backdrop-blur-sm rounded-2xl p-8 md:p-10 shadow-luxury border border-border/20 transition-all duration-1000 max-w-2xl w-full text-center ${
+                className={`bg-background/95 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-luxury border border-border/20 transition-all duration-1000 max-w-4xl w-full text-center ${
                   visibleBoxes[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
               >
