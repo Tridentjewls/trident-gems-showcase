@@ -29,6 +29,30 @@ const Clients = () => {
       name: "Senco Gold", 
       logo: "https://images.seeklogo.com/logo-png/43/1/senco-gold-diamonds-logo-png_seeklogo-432177.png"
     },
+    { 
+      name: "Titan", 
+      logo: "https://images.seeklogo.com/logo-png/52/1/titan-logo-png_seeklogo-527612.png"
+    },
+    { 
+      name: "CaratLane", 
+      logo: "https://images.seeklogo.com/logo-png/48/1/caratlane-logo-png_seeklogo-480389.png"
+    },
+    { 
+      name: "Tribhovandas Bhimji", 
+      logo: "https://images.seeklogo.com/logo-png/52/1/tbz-the-original-logo-png_seeklogo-528976.png"
+    },
+    { 
+      name: "GRT Jewellers", 
+      logo: "https://images.seeklogo.com/logo-png/23/1/grt-jewellers-logo-png_seeklogo-230393.png"
+    },
+    { 
+      name: "Bhima Jewellers", 
+      logo: "https://images.seeklogo.com/logo-png/8/1/bhima-jewellers-logo-png_seeklogo-89878.png"
+    },
+    { 
+      name: "PNG Jewellers", 
+      logo: "https://images.seeklogo.com/logo-png/35/1/png-jewellers-logo-png_seeklogo-353959.png"
+    },
   ];
 
   return (
@@ -58,8 +82,8 @@ const Clients = () => {
           </p>
 
           {/* Client Logos Grid */}
-          <div className="w-full max-w-5xl mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
+          <div className="w-full max-w-7xl mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12">
               {clients.map((client) => (
                 <div
                   key={client.name}
