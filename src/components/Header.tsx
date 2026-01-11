@@ -31,7 +31,6 @@ const Header = () => {
       
       <div className="relative flex items-center animate-fade-in">
         <div className="relative group cursor-pointer">
-          <div className="absolute -inset-3 bg-gradient-to-r from-primary via-accent to-secondary rounded-full blur-xl opacity-40 group-hover:opacity-70 transition-all duration-700 animate-pulse"></div>
           <img 
             src={tridentLogo} 
             alt="TRIDENT Jewellery Designer Logo" 
