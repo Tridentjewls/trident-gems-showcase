@@ -361,7 +361,7 @@ const Index = () => {
               number: "06",
               title: "100% File Guarantee",
               description: "We have complete confidence in our work. If there's any problem in the CAD/STL file due to us, we will refund your payment – no questions asked."
-            }].map((item, index) => <div key={index} ref={el => whyUsRefs.current[index] = el} className={`group bg-background/95 backdrop-blur-sm rounded-xl p-6 shadow-luxury border border-border/20 transition-all duration-1000 hover:scale-105 ${visibleWhyUsBoxes[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{
+            }].map((item, index) => <div key={index} ref={el => whyUsRefs.current[index] = el} className={`group bg-background/95 backdrop-blur-sm rounded-xl p-6 shadow-luxury border border-border/20 transition-all duration-150 hover:scale-105 ${visibleWhyUsBoxes[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{
               transitionDelay: `${index * 150}ms`
             }}>
                   <div className="relative mb-4">

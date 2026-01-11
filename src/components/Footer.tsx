@@ -90,7 +90,7 @@ const Footer = () => {
             {/* Social Media Icons */}
             <div className="flex flex-wrap gap-3">
               {socialLinks.map(social => <a key={social.label} href={social.url} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center transition-all duration-300 hover:scale-125" aria-label={social.label}>
-                  {social.icon ? <social.icon className="w-5 h-5 text-primary-foreground" /> : <img src={social.image!} alt={social.label} className="w-5 h-5 object-contain invert" />}
+                  {social.icon ? <social.icon className="w-5 h-5 text-primary-foreground" /> : <img src={social.image!} alt={social.label} className="w-5 h-5 object-contain brightness-0 invert" />}
                 </a>)}
             </div>
 
