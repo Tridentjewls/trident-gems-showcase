@@ -61,18 +61,16 @@ const Clients = () => {
       <Header />
       
       <main className="flex-1 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(240,67%,12%)] via-[hsl(260,50%,20%)] to-[hsl(220,60%,15%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(280,60%,25%/0.4),transparent_60%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(200,70%,20%/0.3),transparent_60%)]"></div>
-        <div className="absolute top-0 left-0 w-96 h-96 bg-[hsl(270,50%,30%/0.15)] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-[hsl(210,60%,25%/0.2)] rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(0,0%,96%)] via-[hsl(0,0%,94%)] to-[hsl(0,0%,92%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(0,0%,100%/0.6),transparent_60%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(0,0%,88%/0.4),transparent_60%)]"></div>
         
         <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-200px)] py-20">
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white text-center px-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-primary text-center px-4">
             Our Clients
           </h1>
-          <p className="text-lg md:text-xl text-white/80 mb-16 text-center px-4">
+          <p className="text-lg md:text-xl text-primary/60 mb-16 text-center px-4">
             Trusted by leading jewelry brands worldwide
           </p>
 
@@ -84,7 +82,7 @@ const Clients = () => {
                   key={client.name}
                   className="flex items-center justify-center"
                 >
-                  <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-luxury hover:scale-105 hover:bg-white/20 transition-all duration-300 w-full h-28 flex flex-col items-center justify-center">
+                  <div className="bg-white border border-primary/10 rounded-xl p-6 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 w-full h-28 flex flex-col items-center justify-center">
                     <OptimizedImage
                       src={client.logo}
                       alt={`${client.name} logo`}
@@ -92,7 +90,7 @@ const Clients = () => {
                       className="h-12 w-auto max-w-full"
                       containerClassName="h-12 w-full bg-transparent flex items-center justify-center"
                     />
-                    <span className="text-xs font-medium text-white/70 text-center mt-1">
+                    <span className="text-xs font-medium text-primary/60 text-center mt-1">
                       {client.name}
                     </span>
                   </div>
@@ -106,10 +104,10 @@ const Clients = () => {
         {/* Client Reviews Section */}
         <div className="relative z-10 container mx-auto px-4 py-20">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white drop-shadow-2xl tracking-wider mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-primary tracking-wider mb-4">
               What Our Clients Say
             </h2>
-            <div className="w-32 h-1 bg-white/80 mx-auto rounded-full"></div>
+            <div className="w-32 h-1 bg-primary/30 mx-auto rounded-full"></div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -135,7 +133,7 @@ const Clients = () => {
             ].map((review, index) => (
               <div
                 key={index}
-                className="bg-white/10 backdrop-blur-md rounded-xl p-8 shadow-luxury border border-white/20 transition-all duration-300 hover:scale-105 hover:bg-white/15"
+                className="bg-white rounded-xl p-8 shadow-md border border-primary/10 transition-all duration-300 hover:scale-105 hover:shadow-xl"
               >
                 <div className="flex gap-1 mb-4">
                   {[...Array(review.rating)].map((_, i) => (
@@ -144,12 +142,12 @@ const Clients = () => {
                     </svg>
                   ))}
                 </div>
-                <p className="text-white/80 leading-relaxed text-sm mb-6 italic">
+                <p className="text-primary/70 leading-relaxed text-sm mb-6 italic">
                   "{review.review}"
                 </p>
-                <div className="border-t border-white/20 pt-4">
-                  <h4 className="font-bold text-white text-base">{review.name}</h4>
-                  <p className="text-white/60 text-xs mt-1">{review.role}</p>
+                <div className="border-t border-primary/10 pt-4">
+                  <h4 className="font-bold text-primary text-base">{review.name}</h4>
+                  <p className="text-primary/50 text-xs mt-1">{review.role}</p>
                 </div>
               </div>
             ))}
