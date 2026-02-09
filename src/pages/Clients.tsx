@@ -61,16 +61,11 @@ const Clients = () => {
       <Header />
       
       <main className="flex-1 relative overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/bg-trident.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(240,67%,12%)] via-[hsl(260,50%,20%)] to-[hsl(220,60%,15%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(280,60%,25%/0.4),transparent_60%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(200,70%,20%/0.3),transparent_60%)]"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-[hsl(270,50%,30%/0.15)] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-[hsl(210,60%,25%/0.2)] rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
         
         <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-200px)] py-20">
           
@@ -89,7 +84,7 @@ const Clients = () => {
                   key={client.name}
                   className="flex items-center justify-center"
                 >
-                  <div className="bg-white rounded-xl p-6 shadow-luxury hover:scale-105 transition-transform duration-300 w-full h-28 flex flex-col items-center justify-center">
+                  <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 shadow-luxury hover:scale-105 hover:bg-white/20 transition-all duration-300 w-full h-28 flex flex-col items-center justify-center">
                     <OptimizedImage
                       src={client.logo}
                       alt={`${client.name} logo`}
@@ -97,7 +92,7 @@ const Clients = () => {
                       className="h-12 w-auto max-w-full"
                       containerClassName="h-12 w-full bg-transparent flex items-center justify-center"
                     />
-                    <span className="text-xs font-medium text-primary/70 text-center mt-1">
+                    <span className="text-xs font-medium text-white/70 text-center mt-1">
                       {client.name}
                     </span>
                   </div>
@@ -140,7 +135,7 @@ const Clients = () => {
             ].map((review, index) => (
               <div
                 key={index}
-                className="bg-background/95 backdrop-blur-sm rounded-xl p-8 shadow-luxury border border-border/20 transition-all duration-300 hover:scale-105"
+                className="bg-white/10 backdrop-blur-md rounded-xl p-8 shadow-luxury border border-white/20 transition-all duration-300 hover:scale-105 hover:bg-white/15"
               >
                 <div className="flex gap-1 mb-4">
                   {[...Array(review.rating)].map((_, i) => (
@@ -149,12 +144,12 @@ const Clients = () => {
                     </svg>
                   ))}
                 </div>
-                <p className="text-foreground/80 leading-relaxed text-sm mb-6 italic">
+                <p className="text-white/80 leading-relaxed text-sm mb-6 italic">
                   "{review.review}"
                 </p>
-                <div className="border-t border-border/20 pt-4">
-                  <h4 className="font-bold text-foreground text-base">{review.name}</h4>
-                  <p className="text-foreground/60 text-xs mt-1">{review.role}</p>
+                <div className="border-t border-white/20 pt-4">
+                  <h4 className="font-bold text-white text-base">{review.name}</h4>
+                  <p className="text-white/60 text-xs mt-1">{review.role}</p>
                 </div>
               </div>
             ))}
