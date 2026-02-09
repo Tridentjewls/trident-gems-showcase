@@ -76,21 +76,21 @@ const Header = () => {
             <Menu className="h-6 w-6" />
           </button>
         </SheetTrigger>
-        <SheetContent side="right" className="w-[300px] bg-background/95 backdrop-blur-xl border-l border-border/20">
+        <SheetContent side="right" className="w-[300px] bg-primary/95 backdrop-blur-xl border-l border-accent/30">
           <nav className="flex flex-col gap-4 mt-8">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`relative text-foreground transition-all duration-300 px-4 py-3 block rounded-lg ${
+                className={`relative text-primary-foreground transition-all duration-300 px-4 py-3 block rounded-lg ${
                   isActive(item.path) 
-                    ? "bg-primary/10 text-accent border-l-2 border-accent" 
-                    : "hover:bg-primary/10"
+                    ? "bg-accent/20 text-accent border-l-2 border-accent" 
+                    : "hover:bg-accent/10"
                 }`}
               >
                 <span className={`text-base font-medium tracking-wider transition-colors duration-300 ${
-                  isActive(item.path) ? "text-accent" : "group-hover:text-accent"
+                  isActive(item.path) ? "text-accent" : "hover:text-accent"
                 }`}>
                   {item.label}
                 </span>
