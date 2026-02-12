@@ -61,7 +61,13 @@ const Clients = () => {
       <Header />
       
       <main className="flex-1 relative overflow-hidden">
-        <div className="absolute inset-0 bg-white"></div>
+        {/* Animated background */}
+        <div className="absolute inset-0 bg-white">
+          <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl animate-[float1_8s_ease-in-out_infinite]" />
+          <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-secondary/5 blur-3xl animate-[float2_10s_ease-in-out_infinite]" />
+          <div className="absolute top-[30%] right-[20%] w-[400px] h-[400px] rounded-full bg-primary/3 blur-3xl animate-[float3_12s_ease-in-out_infinite]" />
+          <div className="absolute bottom-[20%] left-[15%] w-[350px] h-[350px] rounded-full bg-secondary/3 blur-3xl animate-[float1_9s_ease-in-out_infinite_reverse]" />
+        </div>
         
         <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-200px)] py-20">
           
