@@ -61,9 +61,7 @@ const Clients = () => {
       <Header />
       
       <main className="flex-1 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(0,0%,100%)] via-[hsl(0,0%,96%)] to-[hsl(0,0%,92%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(0,0%,100%/0.8),transparent_60%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(0,0%,90%/0.4),transparent_60%)]"></div>
+        <div className="absolute inset-0 bg-white"></div>
         
         <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-200px)] py-20">
           
