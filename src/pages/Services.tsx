@@ -53,21 +53,15 @@ const Services = () => {
 
   return (
     <PageTransition>
-    <div className="min-h-screen relative">
-      <div className="fixed inset-0 w-full h-full overflow-hidden -z-10">
-        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-          <source src="/videos/bg-trident.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-primary/60" />
-      </div>
+    <div className="min-h-screen bg-white">
 
       <Header />
 
       <main className="container mx-auto px-4 py-20 min-h-[80vh] flex flex-col items-center justify-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground text-center mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-primary text-center mb-4">
           Our Services
         </h1>
-        <p className="text-primary-foreground/80 text-center mb-12 max-w-2xl">
+        <p className="text-primary/70 text-center mb-12 max-w-2xl">
           Explore our wide range of jewelry design
         </p>
 
@@ -76,7 +70,7 @@ const Services = () => {
             <Link
               key={service.name}
               to={service.path}
-              className="group relative bg-background/10 backdrop-blur-sm border border-primary-foreground/20 rounded-xl overflow-hidden transition-all duration-300 hover:bg-background/20 hover:border-primary-foreground/40 hover:scale-105 hover:shadow-xl"
+              className="group relative bg-white border border-primary/10 rounded-xl overflow-hidden transition-all duration-300 hover:border-primary/30 hover:scale-105 hover:shadow-xl"
             >
               <OptimizedImage
                 src={service.image}
@@ -87,7 +81,7 @@ const Services = () => {
                 className="transition-transform duration-500 group-hover:scale-110"
               />
               <div className="p-4 text-center">
-                <span className="text-primary-foreground font-semibold text-sm md:text-base group-hover:text-accent transition-colors">
+                <span className="text-primary font-semibold text-sm md:text-base group-hover:text-secondary transition-colors">
                   {service.name}
                 </span>
               </div>

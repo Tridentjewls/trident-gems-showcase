@@ -43,27 +43,17 @@ const About = () => {
 
   return (
     <PageTransition>
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
       <Header />
       
       <main className="flex-1 relative overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/bg-trident.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
         
         <div className="relative z-10 container mx-auto px-4 py-20">
           <div className="max-w-6xl mx-auto">
             
             {/* Page Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-16 text-white">
-              About <span className="text-white">Us</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-16 text-primary">
+              About <span className="text-primary">Us</span>
             </h1>
 
             <div className="flex justify-center">
@@ -71,7 +61,7 @@ const About = () => {
               {/* Single Box: Founder & Company */}
               <div
                 ref={el => boxRefs.current[0] = el}
-                className={`bg-background/95 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-luxury border border-border/20 transition-all duration-1000 max-w-4xl w-full text-center ${
+                className={`bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-primary/10 transition-all duration-1000 max-w-4xl w-full text-center ${
                   visibleBoxes[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
               >

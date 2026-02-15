@@ -46,23 +46,17 @@ const sections = [
 const Rendering = () => {
   return (
     <PageTransition>
-    <div className="min-h-screen relative">
-      <div className="fixed inset-0 w-full h-full overflow-hidden -z-10">
-        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-          <source src="/videos/bg-trident.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-primary/60" />
-      </div>
+    <div className="min-h-screen bg-white">
 
       <Header />
 
       <main className="container mx-auto px-4 py-20">
-        <Link to="/services" className="inline-flex items-center gap-2 text-primary-foreground hover:text-accent mb-8 transition-colors">
+        <Link to="/services" className="inline-flex items-center gap-2 text-primary hover:text-secondary mb-8 transition-colors">
           <ArrowLeft className="w-5 h-5" />
           Back to Services
         </Link>
 
-        <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground text-center mb-16">
+        <h1 className="text-4xl md:text-6xl font-bold text-primary text-center mb-16">
           Rendering
         </h1>
 
@@ -98,10 +92,10 @@ const Rendering = () => {
                 </div>
               </div>
               <div className="w-full md:w-1/2 text-center md:text-left">
-                <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
+                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
                   {section.title}
                 </h2>
-                <p className="text-primary-foreground/80 text-lg leading-relaxed">
+                <p className="text-primary/70 text-lg leading-relaxed">
                   {section.description}
                 </p>
               </div>

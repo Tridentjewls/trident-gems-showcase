@@ -112,18 +112,7 @@ const Index = () => {
       });
     };
   }, []);
-  return <PageTransition><div className="min-h-screen flex flex-col relative">
-      {/* Unified Video Background for Entire Page */}
-      <video 
-        autoPlay 
-        loop 
-        muted 
-        playsInline 
-        className="fixed inset-0 w-full h-full object-cover -z-10"
-        onCanPlayThrough={() => window.dispatchEvent(new Event("videoLoaded"))}
-      >
-        <source src="/videos/bg-trident.mp4" type="video/mp4" />
-      </video>
+  return <PageTransition><div className="min-h-screen flex flex-col bg-white">
       
       <Header />
       
@@ -134,8 +123,7 @@ const Index = () => {
         </section>
 
         {/* Three Boxes Section */}
-        <section className="relative overflow-hidden min-h-screen flex items-center">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
+        <section className="relative overflow-hidden min-h-screen flex items-center bg-white">
           
           <div className="relative z-10 container mx-auto px-4 py-12">
             <div className="max-w-7xl mx-auto space-y-6 lg:space-y-8">
@@ -143,7 +131,7 @@ const Index = () => {
               {/* Top Row: Two Boxes */}
               <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
                 {/* Box 1: Role of CAD */}
-                <div ref={el => boxRefs.current[0] = el} className={`bg-background/95 backdrop-blur-sm rounded-xl p-6 shadow-luxury border border-border/20 transition-all duration-1000 ${visibleBoxes[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+                <div ref={el => boxRefs.current[0] = el} className={`bg-white rounded-xl p-6 shadow-lg border border-primary/10 transition-all duration-1000 ${visibleBoxes[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
                   
                   <div className="space-y-3 text-foreground/80 leading-relaxed text-sm">
                     <p>
@@ -167,7 +155,7 @@ const Index = () => {
                 </div>
 
                 {/* Box 2: Why CAD is Essential */}
-                <div ref={el => boxRefs.current[1] = el} className={`bg-background/95 backdrop-blur-sm rounded-xl p-6 shadow-luxury border border-border/20 transition-all duration-1000 delay-300 ${visibleBoxes[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+                <div ref={el => boxRefs.current[1] = el} className={`bg-white rounded-xl p-6 shadow-lg border border-primary/10 transition-all duration-1000 delay-300 ${visibleBoxes[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
                   
                   <div className="space-y-3 text-foreground/80 leading-relaxed text-sm">
                     <p>
@@ -196,7 +184,7 @@ const Index = () => {
               </div>
 
               {/* Bottom Row: Video Box */}
-              <div ref={el => boxRefs.current[2] = el} className={`bg-background/95 backdrop-blur-sm rounded-xl p-6 shadow-luxury border border-border/20 transition-all duration-1000 delay-600 ${visibleBoxes[2] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'} max-w-3xl mx-auto`}>
+              <div ref={el => boxRefs.current[2] = el} className={`bg-white rounded-xl p-6 shadow-lg border border-primary/10 transition-all duration-1000 delay-600 ${visibleBoxes[2] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'} max-w-3xl mx-auto`}>
                 
                 <div className="aspect-video rounded-lg overflow-hidden shadow-lg bg-black/30">
                   <video autoPlay loop muted playsInline className="w-full h-full object-cover">
@@ -211,16 +199,15 @@ const Index = () => {
         </section>
 
         {/* Jewelry Gallery Section with Auto Scroll */}
-        <section className="relative overflow-hidden min-h-screen flex flex-col">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
+        <section className="relative overflow-hidden min-h-screen flex flex-col bg-white">
           
           {/* Compact Header */}
           <div className="py-12 flex items-center justify-center">
             <div className="text-center space-y-2">
-              <h2 className="text-4xl md:text-6xl font-bold text-background drop-shadow-2xl tracking-wider">
+              <h2 className="text-4xl md:text-6xl font-bold text-primary drop-shadow-sm tracking-wider">
                 Exotic Collection
               </h2>
-              <div className="w-24 h-1 bg-background/80 mx-auto rounded-full"></div>
+              <div className="w-24 h-1 bg-primary/30 mx-auto rounded-full"></div>
             </div>
           </div>
           
@@ -247,7 +234,7 @@ const Index = () => {
                   <div key={`${loopIndex}-${index}`} className="flex-shrink-0 mx-4">
                     <div className="relative group">
                       <div className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-primary rounded-2xl blur-xl opacity-30 group-hover:opacity-70 transition-opacity duration-500"></div>
-                      <div className="relative rounded-2xl overflow-hidden shadow-luxury border border-border/20 bg-background/95 backdrop-blur-sm p-6">
+                      <div className="relative rounded-2xl overflow-hidden shadow-lg border border-primary/10 bg-white p-6">
                         <OptimizedImage 
                           src={item.img} 
                           alt={item.alt} 
@@ -264,15 +251,14 @@ const Index = () => {
         </section>
 
         {/* How We Work Together Section */}
-        <section className="relative overflow-hidden min-h-screen flex items-center">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
+        <section className="relative overflow-hidden min-h-screen flex items-center bg-white">
           
           <div className="relative z-10 container mx-auto px-4 py-20">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-6xl font-bold text-background drop-shadow-2xl tracking-wider mb-4">
+              <h2 className="text-4xl md:text-6xl font-bold text-primary drop-shadow-sm tracking-wider mb-4">
                 How We Will Work Together
               </h2>
-              <div className="w-32 h-1 bg-background/80 mx-auto rounded-full"></div>
+              <div className="w-32 h-1 bg-primary/30 mx-auto rounded-full"></div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -292,7 +278,7 @@ const Index = () => {
               title: "4. Final STL File Delivery",
               description: "Receive production-ready STL files optimized for 3D printing or manufacturing, ready to bring your jewelry design to life.",
               img: stepStl
-            }].map((step, index) => <div key={index} ref={el => workflowRefs.current[index] = el} className={`bg-background/95 backdrop-blur-sm rounded-xl overflow-hidden shadow-luxury border border-border/20 transition-all duration-1000 ${visibleWorkflowBoxes[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{
+            }].map((step, index) => <div key={index} ref={el => workflowRefs.current[index] = el} className={`bg-white rounded-xl overflow-hidden shadow-lg border border-primary/10 transition-all duration-1000 ${visibleWorkflowBoxes[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{
               transitionDelay: `${index * 200}ms`
             }}>
                   <div className="relative h-64 overflow-hidden">
@@ -302,7 +288,7 @@ const Index = () => {
                       className="transition-transform duration-500 hover:scale-110"
                       containerClassName="h-full"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/60 to-transparent pointer-events-none"></div>
                   </div>
                   <div className="p-6 space-y-3">
                     <h3 className="text-xl font-bold text-foreground">{step.title}</h3>
@@ -313,7 +299,7 @@ const Index = () => {
 
             {/* Video below workflow */}
             <div className="mt-16 max-w-4xl mx-auto">
-              <div className="bg-background/95 backdrop-blur-sm rounded-xl p-6 shadow-luxury border border-border/20">
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-primary/10">
                 <div className="aspect-video rounded-lg overflow-hidden shadow-lg bg-black/30">
                   <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                     <source src="/videos/bg-trident.mp4" type="video/mp4" />
@@ -325,15 +311,14 @@ const Index = () => {
         </section>
 
         {/* Why Work With Us Section */}
-        <section className="relative overflow-hidden min-h-screen flex items-center">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
+        <section className="relative overflow-hidden min-h-screen flex items-center bg-white">
           
           <div className="relative z-10 container mx-auto px-4 py-20">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-6xl font-bold text-background drop-shadow-2xl tracking-wider mb-4">
+              <h2 className="text-4xl md:text-6xl font-bold text-primary drop-shadow-sm tracking-wider mb-4">
                 Why Work With Us?
               </h2>
-              <div className="w-32 h-1 bg-background/80 mx-auto rounded-full"></div>
+              <div className="w-32 h-1 bg-primary/30 mx-auto rounded-full"></div>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
@@ -361,7 +346,7 @@ const Index = () => {
               number: "06",
               title: "100% File Guarantee",
               description: "We have complete confidence in our work. If there's any problem in the CAD/STL file due to us, we will refund your payment – no questions asked."
-            }].map((item, index) => <div key={index} ref={el => whyUsRefs.current[index] = el} className={`group bg-background/95 backdrop-blur-sm rounded-xl p-6 shadow-luxury border border-border/20 transition-all duration-150 hover:scale-105 ${visibleWhyUsBoxes[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{
+            }].map((item, index) => <div key={index} ref={el => whyUsRefs.current[index] = el} className={`group bg-white rounded-xl p-6 shadow-lg border border-primary/10 transition-all duration-150 hover:scale-105 ${visibleWhyUsBoxes[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{
               transitionDelay: `${index * 150}ms`
             }}>
                   <div className="relative mb-4">
@@ -382,7 +367,7 @@ const Index = () => {
         </section>
 
         {/* Stats Counter Strip */}
-        <section className="relative overflow-hidden py-16 mb-20 bg-background">
+        <section className="relative overflow-hidden py-16 mb-20 bg-white">
           <div className="relative z-10 container mx-auto px-4">
             <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10 tracking-wider">
               We Deliver Excellence Worldwide
