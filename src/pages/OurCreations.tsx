@@ -13,28 +13,24 @@ import jewelry3 from "@/assets/jewelry-3.jpg";
 import jewelryRing from "@/assets/jewelry-ring.png";
 
 const OurCreations = () => {
-  // Column 1 images
   const column1 = [
     { img: jewelryRing1, alt: "Diamond Engagement Ring", height: "h-72" },
     { img: jewelryTiara1, alt: "Pearl Diamond Tiara", height: "h-96" },
     { img: jewelryRing, alt: "Statement Ring", height: "h-64" },
   ];
 
-  // Column 2 images
   const column2 = [
     { img: jewelryNecklace1, alt: "Emerald Gold Necklace", height: "h-96" },
     { img: jewelry1, alt: "Luxury Gold Set", height: "h-72" },
     { img: jewelryEarrings1, alt: "Chandelier Earrings", height: "h-80" },
   ];
 
-  // Column 3 images
   const column3 = [
     { img: jewelryBracelet1, alt: "Sapphire Diamond Bracelet", height: "h-80" },
     { img: jewelry2, alt: "Elegant Diamond Piece", height: "h-96" },
     { img: jewelryNecklace1, alt: "Pendant Necklace", height: "h-64" },
   ];
 
-  // Column 4 images
   const column4 = [
     { img: jewelryEarrings1, alt: "Ruby Drop Earrings", height: "h-64" },
     { img: jewelry3, alt: "Royal Collection", height: "h-80" },
@@ -45,30 +41,20 @@ const OurCreations = () => {
 
   return (
     <PageTransition>
-    <div className="min-h-screen flex flex-col relative">
-      <video 
-        autoPlay 
-        loop 
-        muted 
-        playsInline 
-        className="fixed inset-0 w-full h-full object-cover -z-10"
-      >
-        <source src="/videos/bg-trident.mp4" type="video/mp4" />
-      </video>
+    <div className="min-h-screen flex flex-col bg-white">
       
       <Header />
       
       <main className="flex-1 relative">
         <section className="relative overflow-hidden min-h-screen">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
           
           <div className="relative z-10 container mx-auto px-4 py-16">
             <div className="text-center mb-12">
-              <h1 className="text-4xl md:text-6xl font-bold text-background drop-shadow-2xl tracking-wider mb-4">
+              <h1 className="text-4xl md:text-6xl font-bold text-primary drop-shadow-sm tracking-wider mb-4">
                 Our Creations
               </h1>
-              <div className="w-32 h-1 bg-background/80 mx-auto rounded-full"></div>
-              <p className="text-background/90 mt-6 max-w-2xl mx-auto text-lg">
+              <div className="w-32 h-1 bg-primary/30 mx-auto rounded-full"></div>
+              <p className="text-primary/70 mt-6 max-w-2xl mx-auto text-lg">
                 Explore our exquisite collection of handcrafted jewelry designs, each piece telling its own unique story of elegance and craftsmanship.
               </p>
             </div>
@@ -80,7 +66,7 @@ const OurCreations = () => {
                   {column.map((item, index) => (
                     <div 
                       key={index}
-                      className={`relative group overflow-hidden rounded-2xl ${item.height} shadow-luxury`}
+                      className={`relative group overflow-hidden rounded-2xl ${item.height} shadow-lg`}
                     >
                       <OptimizedImage 
                         src={item.img} 

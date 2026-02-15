@@ -5,33 +5,23 @@ import PageTransition from "@/components/PageTransition";
 const Terms = () => {
   return (
     <PageTransition>
-    <div className="min-h-screen flex flex-col relative">
-      <video 
-        autoPlay 
-        loop 
-        muted 
-        playsInline 
-        className="fixed inset-0 w-full h-full object-cover -z-10"
-      >
-        <source src="/videos/bg-trident.mp4" type="video/mp4" />
-      </video>
+    <div className="min-h-screen flex flex-col bg-white">
       
       <Header />
       
       <main className="flex-1 relative">
         <section className="relative overflow-hidden min-h-screen">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-secondary/40 to-primary/40"></div>
           
           <div className="relative z-10 container mx-auto px-4 py-16">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
-                <h1 className="text-4xl md:text-6xl font-bold text-background drop-shadow-2xl tracking-wider mb-4">
+                <h1 className="text-4xl md:text-6xl font-bold text-primary drop-shadow-sm tracking-wider mb-4">
                   Terms and Conditions
                 </h1>
-                <div className="w-32 h-1 bg-background/80 mx-auto rounded-full"></div>
+                <div className="w-32 h-1 bg-primary/30 mx-auto rounded-full"></div>
               </div>
 
-              <div className="bg-background/95 backdrop-blur-sm rounded-xl p-8 shadow-luxury border border-border/20 space-y-8">
+              <div className="bg-white rounded-xl p-8 shadow-lg border border-primary/10 space-y-8">
                 <div>
                   <h2 className="text-2xl font-bold text-foreground mb-4">1. Introduction</h2>
                   <p className="text-foreground/80 leading-relaxed">
