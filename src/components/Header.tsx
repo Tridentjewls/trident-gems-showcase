@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   return (
-    <header className="py-5 px-6 flex justify-between items-center bg-white border-b border-border shadow-sm sticky top-0 z-50">
+    <header className="py-5 px-6 flex justify-between items-center bg-background border-b border-border sticky top-0 z-50">
       
       <div className="flex items-center animate-fade-in">
         <Link to="/" className="relative group cursor-pointer">
@@ -46,13 +46,13 @@ const Header = () => {
               >
                 <span className={`relative text-sm font-medium tracking-wider transition-all duration-300 ${
                   isActive(item.path) 
-                    ? "text-gold" 
-                    : "text-foreground/70 group-hover:text-gold"
+                    ? "text-primary" 
+                    : "text-muted-foreground group-hover:text-primary"
                 }`}>
                   {item.label}
                 </span>
                 
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-gold transition-all duration-300 ease-out ${
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ease-out ${
                   isActive(item.path) 
                     ? "w-full" 
                     : "w-0 group-hover:w-full"
@@ -66,11 +66,11 @@ const Header = () => {
       {/* Mobile Menu */}
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild className="md:hidden">
-          <button className="text-foreground p-2 hover:text-gold transition-colors">
+          <button className="text-foreground p-2 hover:text-primary transition-colors">
             <Menu className="h-6 w-6" />
           </button>
         </SheetTrigger>
-        <SheetContent side="right" className="w-[300px] bg-white border-l border-border">
+        <SheetContent side="right" className="w-[300px] bg-background border-l border-border">
           <nav className="flex flex-col gap-4 mt-8">
             {navItems.map((item) => (
               <Link
@@ -79,8 +79,8 @@ const Header = () => {
                 onClick={() => setIsOpen(false)}
                 className={`transition-all duration-300 px-4 py-3 block rounded-lg ${
                   isActive(item.path) 
-                    ? "bg-gold/10 text-gold border-l-2 border-gold" 
-                    : "text-foreground/70 hover:bg-gold/5 hover:text-gold"
+                    ? "bg-primary/10 text-primary border-l-2 border-primary" 
+                    : "text-muted-foreground hover:bg-primary/5 hover:text-primary"
                 }`}
               >
                 <span className="text-base font-medium tracking-wider">

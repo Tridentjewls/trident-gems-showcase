@@ -18,66 +18,53 @@ const OurCreations = () => {
     { img: jewelryTiara1, alt: "Pearl Diamond Tiara", height: "h-96" },
     { img: jewelryRing, alt: "Statement Ring", height: "h-64" },
   ];
-
   const column2 = [
     { img: jewelryNecklace1, alt: "Emerald Gold Necklace", height: "h-96" },
     { img: jewelry1, alt: "Luxury Gold Set", height: "h-72" },
     { img: jewelryEarrings1, alt: "Chandelier Earrings", height: "h-80" },
   ];
-
   const column3 = [
     { img: jewelryBracelet1, alt: "Sapphire Diamond Bracelet", height: "h-80" },
     { img: jewelry2, alt: "Elegant Diamond Piece", height: "h-96" },
     { img: jewelryNecklace1, alt: "Pendant Necklace", height: "h-64" },
   ];
-
   const column4 = [
     { img: jewelryEarrings1, alt: "Ruby Drop Earrings", height: "h-64" },
     { img: jewelry3, alt: "Royal Collection", height: "h-80" },
     { img: jewelryRing1, alt: "Wedding Band Collection", height: "h-96" },
   ];
-
   const columns = [column1, column2, column3, column4];
 
   return (
     <PageTransition>
-    <div className="min-h-screen flex flex-col bg-white">
-      
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      
       <main className="flex-1 relative">
         <section className="relative overflow-hidden min-h-screen">
-          
           <div className="relative z-10 container mx-auto px-4 py-16">
             <div className="text-center mb-12">
-              <h1 className="text-4xl md:text-6xl font-bold text-primary drop-shadow-sm tracking-wider mb-4">
+              <h1 className="text-4xl md:text-6xl font-bold text-foreground drop-shadow-sm tracking-wider mb-4">
                 Our Creations
               </h1>
-              <div className="w-32 h-1 bg-primary/30 mx-auto rounded-full"></div>
-              <p className="text-primary/70 mt-6 max-w-2xl mx-auto text-lg">
+              <div className="w-32 h-1 bg-primary mx-auto rounded-full"></div>
+              <p className="text-muted-foreground mt-6 max-w-2xl mx-auto text-lg">
                 Explore our exquisite collection of handcrafted jewelry designs, each piece telling its own unique story of elegance and craftsmanship.
               </p>
             </div>
-
-            {/* Pinterest-style Masonry Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {columns.map((column, colIndex) => (
                 <div key={colIndex} className="flex flex-col gap-4">
                   {column.map((item, index) => (
-                    <div 
-                      key={index}
-                      className={`relative group overflow-hidden rounded-2xl ${item.height} shadow-lg`}
-                    >
+                    <div key={index} className={`relative group overflow-hidden rounded-2xl ${item.height} shadow-lg border border-border hover:border-primary/30 transition-colors`}>
                       <OptimizedImage 
-                        src={item.img} 
-                        alt={item.alt} 
+                        src={item.img} alt={item.alt} 
                         priority={colIndex < 2 && index === 0}
                         className="transition-transform duration-500 group-hover:scale-110"
                         containerClassName="h-full"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                         <div className="absolute bottom-4 left-4 right-4">
-                          <p className="text-white font-medium text-sm">{item.alt}</p>
+                          <p className="text-background font-medium text-sm">{item.alt}</p>
                         </div>
                       </div>
                     </div>
@@ -88,7 +75,6 @@ const OurCreations = () => {
           </div>
         </section>
       </main>
-
       <Footer />
     </div>
     </PageTransition>

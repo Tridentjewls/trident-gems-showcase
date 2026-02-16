@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
-import { User, Building2 } from "lucide-react";
 import tridentLogo from "@/assets/trident-logo.png";
 import tridentLogoAlt from "@/assets/trident-logo-alt.png";
 import founderPhoto from "@/assets/founder-photo.png";
@@ -43,7 +42,7 @@ const About = () => {
 
   return (
     <PageTransition>
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
       
       <main className="flex-1 relative overflow-hidden">
@@ -52,7 +51,7 @@ const About = () => {
           <div className="max-w-6xl mx-auto">
             
             {/* Page Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-16 text-primary">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-16 text-foreground">
               About <span className="text-primary">Us</span>
             </h1>
 
@@ -61,7 +60,7 @@ const About = () => {
               {/* Single Box: Founder & Company */}
               <div
                 ref={el => boxRefs.current[0] = el}
-                className={`bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-primary/10 transition-all duration-1000 max-w-4xl w-full text-center ${
+                className={`bg-background rounded-2xl p-8 md:p-12 shadow-lg border border-border transition-all duration-1000 max-w-4xl w-full text-center ${
                   visibleBoxes[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
               >
@@ -82,7 +81,7 @@ const About = () => {
                   <div className="w-16 h-0.5 bg-primary/40 my-4"></div>
                   
                   {/* Company Section */}
-                  <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-primary/30 bg-black flex items-center justify-center mb-2">
+                  <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-primary/30 bg-foreground flex items-center justify-center mb-2">
                     <img 
                       src={tridentLogoAlt} 
                       alt="Trident Jewellery Logo" 
@@ -90,7 +89,7 @@ const About = () => {
                     />
                   </div>
                   <p className="text-lg font-semibold text-foreground">Trident Jewellery</p>
-                  <p className="text-foreground/80 leading-relaxed max-w-xl mt-2">
+                  <p className="text-muted-foreground leading-relaxed max-w-xl mt-2">
                     Trident Jewellery is a premier jewelry CAD design studio based in Surat, Gujarat – the diamond capital of the world. We specialize in transforming creative ideas into stunning, production-ready jewelry designs using advanced CAD technology, 3D modeling, and photorealistic rendering.
                   </p>
                 </div>

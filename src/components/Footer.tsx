@@ -29,7 +29,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-white border-t border-border">
+    <footer className="bg-background border-t border-border">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {/* Left Column - Company Info */}
@@ -39,23 +39,23 @@ const Footer = () => {
             {/* Social Media Icons */}
             <div className="flex flex-wrap gap-3">
               {socialLinks.map(social => (
-                <a key={social.label} href={social.url} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-foreground/5 border border-border flex items-center justify-center transition-all duration-300 hover:bg-gold/10 hover:border-gold hover:scale-110" aria-label={social.label}>
-                  {social.icon ? <social.icon className="w-5 h-5 text-foreground/60 group-hover:text-gold" /> : <img src={social.image!} alt={social.label} className="w-5 h-5 object-contain opacity-50" />}
+                <a key={social.label} href={social.url} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-border flex items-center justify-center transition-all duration-300 hover:bg-primary/10 hover:border-primary hover:scale-110" aria-label={social.label}>
+                  {social.icon ? <social.icon className="w-5 h-5 text-muted-foreground" /> : <img src={social.image!} alt={social.label} className="w-5 h-5 object-contain opacity-40" />}
                 </a>
               ))}
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-3 text-foreground/70">
+            <div className="space-y-3 text-muted-foreground">
               <div className="flex items-start gap-3">
-                <Phone className="w-5 h-5 mt-0.5 flex-shrink-0 text-gold" />
+                <Phone className="w-5 h-5 mt-0.5 flex-shrink-0 text-primary" />
                 <div>
                   <p className="font-medium text-foreground">Mobile</p>
                   <p className="text-sm">+91 878-0532068</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-gold" />
+                <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-primary" />
                 <div>
                   <p className="font-medium text-foreground">Address</p>
                   <p className="text-sm">F118, ABC apartment, ABC Circle,<br />Sudama chowk, Surat, Gujarat, 394101</p>
@@ -72,7 +72,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {services.map(service => (
                 <li key={service.label}>
-                  <Link to={service.path} className="text-foreground/60 hover:text-gold transition-colors duration-300 text-sm">
+                  <Link to={service.path} className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm">
                     {service.label}
                   </Link>
                 </li>
@@ -88,7 +88,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {usefulLinks.map(link => (
                 <li key={link.label}>
-                  <Link to={link.path} className="text-foreground/60 hover:text-gold transition-colors duration-300 text-sm">
+                  <Link to={link.path} className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm">
                     {link.label}
                   </Link>
                 </li>
@@ -99,7 +99,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-border text-center">
-          <p className="text-foreground/50 text-sm">
+          <p className="text-muted-foreground text-sm">
             © 2025 Trident Jewellery Design and Rendering. All rights reserved.
           </p>
         </div>

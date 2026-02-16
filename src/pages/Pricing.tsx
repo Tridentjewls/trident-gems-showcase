@@ -17,48 +17,24 @@ const Pricing = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!name.trim() || !mobile.trim() || !email.trim()) {
-      toast({
-        title: "Error",
-        description: "Please fill in all fields",
-        variant: "destructive",
-      });
+      toast({ title: "Error", description: "Please fill in all fields", variant: "destructive" });
       return;
     }
-
     const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
     if (!emailRegex.test(email)) {
-      toast({
-        title: "Error",
-        description: "Please enter a valid email address",
-        variant: "destructive",
-      });
+      toast({ title: "Error", description: "Please enter a valid email address", variant: "destructive" });
       return;
     }
-
     if (mobile.length < 10) {
-      toast({
-        title: "Error",
-        description: "Please enter a valid mobile number",
-        variant: "destructive",
-      });
+      toast({ title: "Error", description: "Please enter a valid mobile number", variant: "destructive" });
       return;
     }
-
     setIsSubmitting(true);
-
     const message = `Hello! I'm interested in your jewelry CAD design services.%0A%0A*Name:* ${encodeURIComponent(name.trim())}%0A*Mobile:* ${encodeURIComponent(mobile.trim())}%0A*Email:* ${encodeURIComponent(email.trim())}%0A%0APlease share the pricing details.`;
-    
     const whatsappUrl = `https://wa.me/918780532068?text=${message}`;
-    
     window.open(whatsappUrl, "_blank");
-
-    toast({
-      title: "Success!",
-      description: "Redirecting to WhatsApp...",
-    });
-
+    toast({ title: "Success!", description: "Redirecting to WhatsApp..." });
     setName("");
     setMobile("");
     setEmail("");
@@ -67,83 +43,39 @@ const Pricing = () => {
 
   return (
     <PageTransition>
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      
       <main className="flex-1 relative overflow-hidden">
-        
         <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-200px)] py-20 px-4">
-          
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-primary text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground text-center">
             Pricing
           </h1>
-          <p className="text-lg md:text-xl text-primary/70 mb-12 text-center max-w-2xl">
+          <p className="text-lg md:text-xl text-muted-foreground mb-12 text-center max-w-2xl">
             For pricing details, drop your information below and we will connect with you soon!
           </p>
 
-          {/* Contact Form Box */}
-          <div className="w-full max-w-md bg-white rounded-2xl p-8 shadow-lg border border-primary/10">
+          <div className="w-full max-w-md bg-background rounded-2xl p-8 shadow-lg border border-border">
             <form onSubmit={handleSubmit} className="space-y-6">
-              
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-foreground font-medium">
-                  Name
-                </Label>
-                <Input
-                  id="name"
-                  type="text"
-                  placeholder="Enter your name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="bg-white border-border/50 focus:border-primary"
-                  maxLength={100}
-                />
+                <Label htmlFor="name" className="text-foreground font-medium">Name</Label>
+                <Input id="name" type="text" placeholder="Enter your name" value={name} onChange={(e) => setName(e.target.value)} className="bg-background border-border focus:border-primary focus:ring-primary" maxLength={100} />
               </div>
-
               <div className="space-y-2">
-                <Label htmlFor="mobile" className="text-foreground font-medium">
-                  Mobile No
-                </Label>
-                <Input
-                  id="mobile"
-                  type="tel"
-                  placeholder="Enter your mobile number"
-                  value={mobile}
-                  onChange={(e) => setMobile(e.target.value)}
-                  className="bg-white border-border/50 focus:border-primary"
-                  maxLength={15}
-                />
+                <Label htmlFor="mobile" className="text-foreground font-medium">Mobile No</Label>
+                <Input id="mobile" type="tel" placeholder="Enter your mobile number" value={mobile} onChange={(e) => setMobile(e.target.value)} className="bg-background border-border focus:border-primary focus:ring-primary" maxLength={15} />
               </div>
-
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-foreground font-medium">
-                  Email
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="bg-white border-border/50 focus:border-primary"
-                  maxLength={255}
-                />
+                <Label htmlFor="email" className="text-foreground font-medium">Email</Label>
+                <Input id="email" type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} className="bg-background border-border focus:border-primary focus:ring-primary" maxLength={255} />
               </div>
-
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 rounded-lg transition-all duration-300 hover:scale-105"
-              >
+              <Button type="submit" disabled={isSubmitting} className="w-full bg-primary hover:bg-secondary text-primary-foreground font-semibold py-3 rounded-lg transition-all duration-300 hover:scale-105">
                 <Send className="w-4 h-4 mr-2" />
                 {isSubmitting ? "Sending..." : "Send Details"}
               </Button>
             </form>
           </div>
-
         </div>
       </main>
-
       <Footer />
     </div>
     </PageTransition>
