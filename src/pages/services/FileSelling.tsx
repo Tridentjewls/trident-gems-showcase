@@ -51,12 +51,12 @@ const FileSelling = () => {
       <Header />
 
       <main className="container mx-auto px-4 py-20">
-        <Link to="/services" className="inline-flex items-center gap-2 text-primary hover:text-secondary mb-8 transition-colors">
+        <Link to="/services" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary mb-8 transition-colors">
           <ArrowLeft className="w-5 h-5" />
           Back to Services
         </Link>
 
-        <h1 className="text-4xl md:text-6xl font-bold text-primary text-center mb-16">
+        <h1 className="text-4xl md:text-6xl font-bold text-foreground text-center mb-16">
           File Selling
         </h1>
 
@@ -92,10 +92,10 @@ const FileSelling = () => {
                 </div>
               </div>
               <div className="w-full md:w-1/2 text-center md:text-left">
-                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                   {section.title}
                 </h2>
-                <p className="text-primary/70 text-lg leading-relaxed">
+                <p className="text-muted-foreground text-lg leading-relaxed">
                   {section.description}
                 </p>
               </div>
