@@ -23,42 +23,36 @@ const Header = () => {
   };
 
   return (
-    <header className="py-5 px-6 flex justify-between items-center relative overflow-hidden border-b border-border/10">
-      <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-        <source src="/videos/bg-trident.mp4" type="video/mp4" />
-      </video>
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-secondary/80 to-primary/80"></div>
+    <header className="py-5 px-6 flex justify-between items-center bg-white border-b border-border shadow-sm sticky top-0 z-50">
       
-      <div className="relative flex items-center animate-fade-in">
-        <div className="relative group cursor-pointer">
+      <div className="flex items-center animate-fade-in">
+        <Link to="/" className="relative group cursor-pointer">
           <img 
             src={tridentLogo} 
             alt="TRIDENT Jewellery Designer Logo" 
-            className="relative h-12 md:h-16 w-auto object-contain drop-shadow-2xl group-hover:scale-105 transition-transform duration-300" 
+            className="h-12 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300" 
           />
-        </div>
+        </Link>
       </div>
 
       {/* Desktop Navigation */}
-      <nav className="relative hidden md:block animate-fade-in">
+      <nav className="hidden md:block animate-fade-in">
         <ul className="flex items-center gap-6 lg:gap-8">
           {navItems.map((item) => (
             <li key={item.label}>
               <Link
                 to={item.path}
-                className="relative text-primary-foreground transition-all duration-300 group py-2 block"
+                className="relative transition-all duration-300 group py-2 block"
               >
-                {/* Text */}
                 <span className={`relative text-sm font-medium tracking-wider transition-all duration-300 ${
                   isActive(item.path) 
-                    ? "text-accent" 
-                    : "group-hover:text-accent"
+                    ? "text-gold" 
+                    : "text-foreground/70 group-hover:text-gold"
                 }`}>
                   {item.label}
                 </span>
                 
-                {/* Active/Hover underline */}
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ease-out ${
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-gold transition-all duration-300 ease-out ${
                   isActive(item.path) 
                     ? "w-full" 
                     : "w-0 group-hover:w-full"
@@ -72,26 +66,24 @@ const Header = () => {
       {/* Mobile Menu */}
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild className="md:hidden">
-          <button className="relative text-primary-foreground p-2 hover:text-accent transition-colors">
+          <button className="text-foreground p-2 hover:text-gold transition-colors">
             <Menu className="h-6 w-6" />
           </button>
         </SheetTrigger>
-        <SheetContent side="right" className="w-[300px] bg-primary/95 backdrop-blur-xl border-l border-accent/30">
+        <SheetContent side="right" className="w-[300px] bg-white border-l border-border">
           <nav className="flex flex-col gap-4 mt-8">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`relative text-primary-foreground transition-all duration-300 px-4 py-3 block rounded-lg ${
+                className={`transition-all duration-300 px-4 py-3 block rounded-lg ${
                   isActive(item.path) 
-                    ? "bg-accent/20 text-accent border-l-2 border-accent" 
-                    : "hover:bg-accent/10"
+                    ? "bg-gold/10 text-gold border-l-2 border-gold" 
+                    : "text-foreground/70 hover:bg-gold/5 hover:text-gold"
                 }`}
               >
-                <span className={`text-base font-medium tracking-wider transition-colors duration-300 ${
-                  isActive(item.path) ? "text-accent" : "hover:text-accent"
-                }`}>
+                <span className="text-base font-medium tracking-wider">
                   {item.label}
                 </span>
               </Link>
