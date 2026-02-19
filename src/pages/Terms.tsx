@@ -9,28 +9,35 @@ const Terms = () => {
       <Header />
       <main className="flex-1 relative">
         <section className="relative overflow-hidden min-h-screen">
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-primary/4 blur-3xl rounded-full pointer-events-none" />
           <div className="relative z-10 container mx-auto px-4 py-16">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
-                <h1 className="text-4xl md:text-6xl font-bold text-foreground drop-shadow-sm tracking-wider mb-4">
+                <p className="text-primary text-xs tracking-[0.4em] uppercase font-medium mb-4">Legal</p>
+                <h1 className="text-4xl md:text-6xl font-bold text-foreground tracking-wider mb-6">
                   Terms and Conditions
                 </h1>
-                <div className="w-32 h-1 bg-primary mx-auto rounded-full"></div>
+                <div className="flex items-center justify-center gap-4">
+                  <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/60" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/60" />
+                </div>
               </div>
 
-              <div className="bg-background rounded-xl p-8 shadow-lg border border-border space-y-8">
+              <div className="bg-card rounded-xl p-8 border border-border space-y-8 relative overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
                 {[
                   { title: "1. Introduction", content: "Welcome to Trident Jewellery Design and Rendering. By accessing our services, you agree to be bound by these Terms and Conditions. Please read them carefully before engaging our design services." },
                   { title: "2. Services", content: "We provide CAD jewelry design, 3D rendering, file selling, and related design services. All work is custom-made based on client specifications and reference materials provided." },
                 ].map((section, i) => (
                   <div key={i}>
-                    <h2 className="text-2xl font-bold text-foreground mb-4">{section.title}</h2>
+                    <h2 className="text-xl font-bold text-foreground mb-3 text-primary">{section.title}</h2>
                     <p className="text-muted-foreground leading-relaxed">{section.content}</p>
                   </div>
                 ))}
 
                 <div>
-                  <h2 className="text-2xl font-bold text-foreground mb-4">3. Payment Terms</h2>
+                  <h2 className="text-xl font-bold text-primary mb-3">3. Payment Terms</h2>
                   <ul className="list-disc list-inside text-muted-foreground space-y-2">
                     <li>50% advance payment is required before starting any project</li>
                     <li>Remaining 50% is due upon delivery of final files</li>
@@ -40,7 +47,7 @@ const Terms = () => {
                 </div>
 
                 <div>
-                  <h2 className="text-2xl font-bold text-foreground mb-4">4. Revisions</h2>
+                  <h2 className="text-xl font-bold text-primary mb-3">4. Revisions</h2>
                   <ul className="list-disc list-inside text-muted-foreground space-y-2">
                     <li>Each project includes up to 2 free revisions</li>
                     <li>Additional revisions will be charged at an hourly rate</li>
@@ -54,13 +61,13 @@ const Terms = () => {
                   { title: "7. Confidentiality", content: "All client information, designs, and communications are kept strictly confidential. We do not share any client data with third parties without explicit consent." },
                 ].map((section, i) => (
                   <div key={i}>
-                    <h2 className="text-2xl font-bold text-foreground mb-4">{section.title}</h2>
+                    <h2 className="text-xl font-bold text-primary mb-3">{section.title}</h2>
                     <p className="text-muted-foreground leading-relaxed">{section.content}</p>
                   </div>
                 ))}
 
                 <div>
-                  <h2 className="text-2xl font-bold text-foreground mb-4">8. Cancellation Policy</h2>
+                  <h2 className="text-xl font-bold text-primary mb-3">8. Cancellation Policy</h2>
                   <ul className="list-disc list-inside text-muted-foreground space-y-2">
                     <li>Cancellation before work begins: Full refund minus processing fees</li>
                     <li>Cancellation after work begins: No refund on advance payment</li>
@@ -73,7 +80,7 @@ const Terms = () => {
                   { title: "10. Contact", content: "For any questions regarding these terms, please contact us at contact@tridentjewellery.com or +91 878-0532068." },
                 ].map((section, i) => (
                   <div key={i}>
-                    <h2 className="text-2xl font-bold text-foreground mb-4">{section.title}</h2>
+                    <h2 className="text-xl font-bold text-primary mb-3">{section.title}</h2>
                     <p className="text-muted-foreground leading-relaxed">{section.content}</p>
                   </div>
                 ))}

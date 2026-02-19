@@ -43,11 +43,16 @@ const OurCreations = () => {
         <section className="relative overflow-hidden min-h-screen">
           <div className="relative z-10 container mx-auto px-4 py-16">
             <div className="text-center mb-12">
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground drop-shadow-sm tracking-wider mb-4">
+              <p className="text-primary text-xs tracking-[0.4em] uppercase font-medium mb-4">Craftsmanship</p>
+              <h1 className="text-4xl md:text-6xl font-bold text-foreground tracking-wider mb-6">
                 Our Creations
               </h1>
-              <div className="w-32 h-1 bg-primary mx-auto rounded-full"></div>
-              <p className="text-muted-foreground mt-6 max-w-2xl mx-auto text-lg">
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/60" />
+                <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/60" />
+              </div>
+              <p className="text-muted-foreground mt-2 max-w-2xl mx-auto text-lg">
                 Explore our exquisite collection of handcrafted jewelry designs, each piece telling its own unique story of elegance and craftsmanship.
               </p>
             </div>
@@ -55,16 +60,21 @@ const OurCreations = () => {
               {columns.map((column, colIndex) => (
                 <div key={colIndex} className="flex flex-col gap-4">
                   {column.map((item, index) => (
-                    <div key={index} className={`relative group overflow-hidden rounded-2xl ${item.height} shadow-lg border border-border hover:border-primary/30 transition-colors`}>
-                      <OptimizedImage 
-                        src={item.img} alt={item.alt} 
+                    <div
+                      key={index}
+                      className={`relative group overflow-hidden rounded-2xl ${item.height} border border-border hover:border-primary/40 transition-all duration-300`}
+                      onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 0 30px hsl(20 42% 58% / 0.15)')}
+                      onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}
+                    >
+                      <OptimizedImage
+                        src={item.img} alt={item.alt}
                         priority={colIndex < 2 && index === 0}
                         className="transition-transform duration-500 group-hover:scale-110"
                         containerClassName="h-full"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                         <div className="absolute bottom-4 left-4 right-4">
-                          <p className="text-background font-medium text-sm">{item.alt}</p>
+                          <p className="text-foreground font-medium text-sm tracking-wide">{item.alt}</p>
                         </div>
                       </div>
                     </div>

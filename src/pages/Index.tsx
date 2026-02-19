@@ -100,57 +100,47 @@ const Index = () => {
   }, []);
 
   return <PageTransition><div className="min-h-screen flex flex-col bg-background">
-      
+
       <Header />
-      
+
       <main className="flex-1 relative">
-        
+
         <section className="relative z-10 bg-background">
           <JewelryCarousel />
         </section>
 
         {/* Three Boxes Section */}
         <section className="relative overflow-hidden min-h-screen flex items-center bg-background">
-          
           <div className="relative z-10 container mx-auto px-4 py-12">
             <div className="max-w-7xl mx-auto space-y-6 lg:space-y-8">
-              
+
               {/* Top Row: Two Boxes */}
               <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
                 {/* Box 1: Role of CAD */}
-                <div ref={el => boxRefs.current[0] = el} className={`bg-background rounded-xl p-6 shadow-lg border border-border transition-all duration-1000 hover:border-primary/30 ${visibleBoxes[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-                  
+                <div ref={el => boxRefs.current[0] = el} className={`bg-card rounded-xl p-6 border border-border transition-all duration-1000 hover:border-primary/40 group ${visibleBoxes[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-xl" />
                   <div className="space-y-3 text-muted-foreground leading-relaxed text-sm">
                     <p>
                       CAD revolutionizes jewelry design by blending traditional craftsmanship with cutting-edge technology.
                     </p>
                     <ul className="space-y-2 list-disc list-inside">
-                      <li>
-                        <strong className="text-foreground">Precision:</strong> Create intricate patterns with mathematical accuracy
-                      </li>
-                      <li>
-                        <strong className="text-foreground">Prototyping:</strong> Quickly iterate design variations
-                      </li>
-                      <li>
-                        <strong className="text-foreground">Efficiency:</strong> Reduce material waste and costs
-                      </li>
-                      <li>
-                        <strong className="text-foreground">Custom:</strong> Personalized pieces tailored to preferences
-                      </li>
+                      <li><strong className="text-primary">Precision:</strong> Create intricate patterns with mathematical accuracy</li>
+                      <li><strong className="text-primary">Prototyping:</strong> Quickly iterate design variations</li>
+                      <li><strong className="text-primary">Efficiency:</strong> Reduce material waste and costs</li>
+                      <li><strong className="text-primary">Custom:</strong> Personalized pieces tailored to preferences</li>
                     </ul>
                   </div>
                 </div>
 
                 {/* Box 2: Why CAD is Essential */}
-                <div ref={el => boxRefs.current[1] = el} className={`bg-background rounded-xl p-6 shadow-lg border border-border transition-all duration-1000 delay-300 hover:border-primary/30 ${visibleBoxes[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-                  
+                <div ref={el => boxRefs.current[1] = el} className={`bg-card rounded-xl p-6 border border-border transition-all duration-1000 delay-300 hover:border-primary/40 group ${visibleBoxes[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
                   <div className="space-y-3 text-muted-foreground leading-relaxed text-sm">
                     <p>
                       CAD technology is essential for staying competitive in modern jewelry markets.
                     </p>
                     <div className="space-y-3">
                       <div className="space-y-2">
-                        <h3 className="text-base font-semibold text-foreground">Technical</h3>
+                        <h3 className="text-base font-semibold text-primary">Technical</h3>
                         <ul className="space-y-1 list-disc list-inside text-xs">
                           <li>Perfect symmetry</li>
                           <li>Stone calculations</li>
@@ -158,7 +148,7 @@ const Index = () => {
                         </ul>
                       </div>
                       <div className="space-y-2">
-                        <h3 className="text-base font-semibold text-foreground">Business</h3>
+                        <h3 className="text-base font-semibold text-primary">Business</h3>
                         <ul className="space-y-1 list-disc list-inside text-xs">
                           <li>Faster delivery</li>
                           <li>Better communication</li>
@@ -171,7 +161,7 @@ const Index = () => {
               </div>
 
               {/* Bottom Row: Video Box */}
-              <div ref={el => boxRefs.current[2] = el} className={`bg-background rounded-xl p-6 shadow-lg border border-border transition-all duration-1000 delay-600 hover:border-primary/30 ${visibleBoxes[2] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'} max-w-3xl mx-auto`}>
+              <div ref={el => boxRefs.current[2] = el} className={`bg-card rounded-xl p-6 border border-border transition-all duration-1000 delay-600 hover:border-primary/40 ${visibleBoxes[2] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'} max-w-3xl mx-auto`}>
                 
                 <div className="aspect-video rounded-lg overflow-hidden shadow-lg bg-muted">
                   <video autoPlay loop muted playsInline className="w-full h-full object-cover">
@@ -187,14 +177,18 @@ const Index = () => {
 
         {/* Jewelry Gallery Section with Auto Scroll */}
         <section className="relative overflow-hidden min-h-screen flex flex-col bg-background">
-          
           {/* Compact Header */}
           <div className="py-12 flex items-center justify-center">
-            <div className="text-center space-y-2">
-              <h2 className="text-4xl md:text-6xl font-bold text-foreground drop-shadow-sm tracking-wider">
+            <div className="text-center space-y-4">
+              <p className="text-primary text-xs tracking-[0.4em] uppercase font-medium">Portfolio</p>
+              <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-wider">
                 Exotic Collection
               </h2>
-              <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+              <div className="flex items-center justify-center gap-4">
+                <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/60" />
+                <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/60" />
+              </div>
             </div>
           </div>
           
@@ -221,7 +215,7 @@ const Index = () => {
                   <div key={`${loopIndex}-${index}`} className="flex-shrink-0 mx-4">
                     <div className="relative group">
                       <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 via-gold-light/30 to-primary/30 rounded-2xl blur-xl opacity-30 group-hover:opacity-70 transition-opacity duration-500"></div>
-                      <div className="relative rounded-2xl overflow-hidden shadow-lg border border-border bg-background p-6">
+                      <div className="relative rounded-2xl overflow-hidden border border-border bg-card p-6 hover:border-primary/40 transition-colors duration-300">
                         <OptimizedImage 
                           src={item.img} 
                           alt={item.alt} 
@@ -239,13 +233,17 @@ const Index = () => {
 
         {/* How We Work Together Section */}
         <section className="relative overflow-hidden min-h-screen flex items-center bg-background">
-          
           <div className="relative z-10 container mx-auto px-4 py-20">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-6xl font-bold text-foreground drop-shadow-sm tracking-wider mb-4">
+              <p className="text-primary text-xs tracking-[0.4em] uppercase font-medium mb-4">Our Process</p>
+              <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-wider mb-6">
                 How We Will Work Together
               </h2>
-              <div className="w-32 h-1 bg-primary mx-auto rounded-full"></div>
+              <div className="flex items-center justify-center gap-4">
+                <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/60" />
+                <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/60" />
+              </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -265,7 +263,7 @@ const Index = () => {
               title: "4. Final STL File Delivery",
               description: "Receive production-ready STL files optimized for 3D printing or manufacturing, ready to bring your jewelry design to life.",
               img: stepStl
-            }].map((step, index) => <div key={index} ref={el => workflowRefs.current[index] = el} className={`bg-background rounded-xl overflow-hidden shadow-lg border border-border transition-all duration-1000 hover:border-primary/30 ${visibleWorkflowBoxes[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{
+            }].map((step, index) => <div key={index} ref={el => workflowRefs.current[index] = el} className={`bg-card rounded-xl overflow-hidden border border-border transition-all duration-1000 hover:border-primary/40 ${visibleWorkflowBoxes[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{
               transitionDelay: `${index * 200}ms`
             }}>
                   <div className="relative h-64 overflow-hidden">
@@ -286,7 +284,7 @@ const Index = () => {
 
             {/* Video below workflow */}
             <div className="mt-16 max-w-4xl mx-auto">
-              <div className="bg-background rounded-xl p-6 shadow-lg border border-border">
+              <div className="bg-card rounded-xl p-4 border border-border hover:border-primary/40 transition-colors duration-300">
                 <div className="aspect-video rounded-lg overflow-hidden shadow-lg bg-muted">
                   <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                     <source src="/videos/bg-trident.mp4" type="video/mp4" />
@@ -299,13 +297,17 @@ const Index = () => {
 
         {/* Why Work With Us Section */}
         <section className="relative overflow-hidden min-h-screen flex items-center bg-background">
-          
           <div className="relative z-10 container mx-auto px-4 py-20">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-6xl font-bold text-foreground drop-shadow-sm tracking-wider mb-4">
+              <p className="text-primary text-xs tracking-[0.4em] uppercase font-medium mb-4">Why Choose Us</p>
+              <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-wider mb-6">
                 Why Work With Us?
               </h2>
-              <div className="w-32 h-1 bg-primary mx-auto rounded-full"></div>
+              <div className="flex items-center justify-center gap-4">
+                <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/60" />
+                <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/60" />
+              </div>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
@@ -333,7 +335,7 @@ const Index = () => {
               number: "06",
               title: "100% File Guarantee",
               description: "We have complete confidence in our work. If there's any problem in the CAD/STL file due to us, we will refund your payment – no questions asked."
-            }].map((item, index) => <div key={index} ref={el => whyUsRefs.current[index] = el} className={`group bg-background rounded-xl p-6 shadow-lg border border-border transition-all duration-150 hover:scale-105 hover:border-primary/30 ${visibleWhyUsBoxes[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{
+            }].map((item, index) => <div key={index} ref={el => whyUsRefs.current[index] = el} className={`group bg-card rounded-xl p-6 border border-border transition-all duration-300 hover:scale-105 hover:border-primary/40 ${visibleWhyUsBoxes[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{
               transitionDelay: `${index * 150}ms`
             }}>
                   <div className="relative mb-4">
@@ -354,9 +356,12 @@ const Index = () => {
         </section>
 
         {/* Stats Counter Strip */}
-        <section className="relative overflow-hidden py-16 mb-20 bg-background">
+        <section className="relative overflow-hidden py-16 mb-20 bg-card border-y border-border">
+          {/* Top/bottom copper dividers */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
           <div className="relative z-10 container mx-auto px-4">
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10 tracking-wider">
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10 tracking-widest uppercase text-sm text-primary opacity-70">
               We Deliver Excellence Worldwide
             </h3>
             

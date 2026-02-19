@@ -17,26 +17,36 @@ const services = [
 ];
 
 const Services = () => {
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
-
   return (
     <PageTransition>
     <div className="min-h-screen bg-background">
       <Header />
       <main className="container mx-auto px-4 py-20 min-h-[80vh] flex flex-col items-center justify-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-foreground text-center mb-4">
-          Our Services
-        </h1>
-        <p className="text-muted-foreground text-center mb-12 max-w-2xl">
-          Explore our wide range of jewelry design
-        </p>
+        
+        <div className="text-center mb-12">
+          <p className="text-primary text-xs tracking-[0.4em] uppercase font-medium mb-4">What We Offer</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground text-center mb-6">
+            Our Services
+          </h1>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/60" />
+            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+            <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/60" />
+          </div>
+          <p className="text-muted-foreground text-center max-w-2xl">
+            Explore our wide range of jewelry design services
+          </p>
+        </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full max-w-4xl">
           {services.map((service, index) => (
             <Link
               key={service.name}
               to={service.path}
-              className="group relative bg-background border border-border rounded-xl overflow-hidden transition-all duration-300 hover:border-primary/50 hover:scale-105 hover:shadow-xl"
+              className="group relative bg-card border border-border rounded-xl overflow-hidden transition-all duration-300 hover:border-primary/50 hover:scale-105"
+              style={{ transition: 'all 0.3s ease' }}
+              onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 0 30px hsl(20 42% 58% / 0.15)')}
+              onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}
             >
               <OptimizedImage
                 src={service.image}
@@ -46,8 +56,10 @@ const Services = () => {
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 className="transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="p-4 text-center">
-                <span className="text-foreground font-semibold text-sm md:text-base group-hover:text-primary transition-colors">
+              {/* Overlay gradient on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="p-4 text-center relative z-10">
+                <span className="text-foreground font-semibold text-sm md:text-base group-hover:text-primary transition-colors tracking-wide">
                   {service.name}
                 </span>
               </div>

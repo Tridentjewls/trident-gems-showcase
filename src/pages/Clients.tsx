@@ -21,40 +21,51 @@ const Clients = () => {
 
   return (
     <PageTransition>
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      
+
       <main className="flex-1 relative overflow-hidden">
-        {/* Animated background */}
-        <div className="absolute inset-0 bg-background">
-          <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl animate-[float1_8s_ease-in-out_infinite]" />
-          <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-gold-light/5 blur-3xl animate-[float2_10s_ease-in-out_infinite]" />
-          <div className="absolute top-[30%] right-[20%] w-[400px] h-[400px] rounded-full bg-primary/3 blur-3xl animate-[float3_12s_ease-in-out_infinite]" />
-          <div className="absolute bottom-[20%] left-[15%] w-[350px] h-[350px] rounded-full bg-gold-light/3 blur-3xl animate-[float1_9s_ease-in-out_infinite_reverse]" />
+        {/* Ambient background glows */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl animate-[float1_8s_ease-in-out_infinite]" />
+          <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-primary/4 blur-3xl animate-[float2_10s_ease-in-out_infinite]" />
         </div>
-        
+
         <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-200px)] py-20">
-          
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground text-center px-4">
-            Our Clients
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-16 text-center px-4">
-            Trusted by leading jewelry brands worldwide
-          </p>
+
+          {/* Page header */}
+          <div className="text-center mb-16 px-4">
+            <p className="text-primary text-sm tracking-[0.3em] uppercase mb-4 font-medium">Trusted Worldwide</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-foreground">
+              Our Clients
+            </h1>
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/60" />
+              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+              <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/60" />
+            </div>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Trusted by leading jewelry brands worldwide
+            </p>
+          </div>
 
           <div className="w-full max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
               {clients.map((client) => (
                 <div key={client.name} className="flex items-center justify-center">
-                  <div className="bg-background border border-border rounded-xl p-6 shadow-md hover:shadow-xl hover:scale-105 hover:border-primary/30 transition-all duration-300 w-full h-28 flex flex-col items-center justify-center">
+                  <div className="bg-card border border-border rounded-xl p-6 transition-all duration-300 w-full h-28 flex flex-col items-center justify-center group hover:border-primary/40 hover:scale-105"
+                    style={{ boxShadow: 'none', transition: 'all 0.3s ease' }}
+                    onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 0 30px hsl(20 42% 58% / 0.12)')}
+                    onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}
+                  >
                     <OptimizedImage
                       src={client.logo}
                       alt={`${client.name} logo`}
                       priority
-                      className="h-12 w-auto max-w-full"
-                      containerClassName="h-12 w-full bg-transparent flex items-center justify-center"
+                      className="h-10 w-auto max-w-full opacity-60 group-hover:opacity-90 transition-opacity duration-300 invert"
+                      containerClassName="h-10 w-full bg-transparent flex items-center justify-center"
                     />
-                    <span className="text-xs font-medium text-muted-foreground text-center mt-1">
+                    <span className="text-xs font-medium text-muted-foreground text-center mt-2 tracking-wide">
                       {client.name}
                     </span>
                   </div>
@@ -67,10 +78,15 @@ const Clients = () => {
         {/* Client Reviews Section */}
         <div className="relative z-10 container mx-auto px-4 py-20">
           <div className="text-center mb-16">
+            <p className="text-primary text-sm tracking-[0.3em] uppercase mb-4 font-medium">Testimonials</p>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-wider mb-4">
               What Our Clients Say
             </h2>
-            <div className="w-32 h-1 bg-primary mx-auto rounded-full"></div>
+            <div className="flex items-center justify-center gap-4">
+              <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/60" />
+              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+              <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/60" />
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -79,10 +95,16 @@ const Clients = () => {
               { name: "Priya Sharma", role: "Independent Designer", review: "Working with this team has been a game-changer for my business. Their advanced CAD technology and creative approach helped me bring my unique designs to life. The rendering quality is exceptional!", rating: 5 },
               { name: "Mohammed Ali", role: "Jewelry Manufacturer", review: "Excellent transparency throughout the process. We could review every step from sketch to final STL file. Their 100% file guarantee shows their confidence and commitment to quality. Truly trustworthy partners!", rating: 5 },
             ].map((review, index) => (
-              <div key={index} className="bg-background rounded-xl p-8 shadow-md border border-border transition-all duration-300 hover:scale-105 hover:shadow-xl hover:border-primary/30">
-                <div className="flex gap-1 mb-4">
+              <div
+                key={index}
+                className="bg-card rounded-xl p-8 border border-border transition-all duration-300 hover:border-primary/40 hover:scale-[1.02] relative overflow-hidden group"
+              >
+                {/* Subtle top glow on hover */}
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <div className="flex gap-1 mb-5">
                   {[...Array(review.rating)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 fill-primary" viewBox="0 0 20 20">
+                    <svg key={i} className="w-4 h-4 fill-primary" viewBox="0 0 20 20">
                       <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
                     </svg>
                   ))}
@@ -91,8 +113,8 @@ const Clients = () => {
                   "{review.review}"
                 </p>
                 <div className="border-t border-border pt-4">
-                  <h4 className="font-bold text-foreground text-base">{review.name}</h4>
-                  <p className="text-muted-foreground text-xs mt-1">{review.role}</p>
+                  <h4 className="font-bold text-foreground text-sm tracking-wide">{review.name}</h4>
+                  <p className="text-primary text-xs mt-1 tracking-wide">{review.role}</p>
                 </div>
               </div>
             ))}

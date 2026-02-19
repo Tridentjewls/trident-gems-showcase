@@ -30,24 +30,37 @@ const FAQs = () => {
       <Header />
       <main className="flex-1 relative">
         <section className="relative overflow-hidden min-h-screen">
+          {/* Ambient glow */}
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-primary/4 blur-3xl rounded-full pointer-events-none" />
+
           <div className="relative z-10 container mx-auto px-4 py-16">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
-                <h1 className="text-4xl md:text-6xl font-bold text-foreground drop-shadow-sm tracking-wider mb-4">
+                <p className="text-primary text-xs tracking-[0.4em] uppercase font-medium mb-4">Help Center</p>
+                <h1 className="text-4xl md:text-6xl font-bold text-foreground tracking-wider mb-6">
                   Frequently Asked Questions
                 </h1>
-                <div className="w-32 h-1 bg-primary mx-auto rounded-full"></div>
-                <p className="text-muted-foreground mt-6 max-w-2xl mx-auto text-lg">
+                <div className="flex items-center justify-center gap-4 mb-6">
+                  <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/60" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/60" />
+                </div>
+                <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
                   Find answers to common questions about our jewelry design services.
                 </p>
               </div>
 
-              <div className="bg-background rounded-xl p-6 md:p-8 shadow-lg border border-border">
+              <div className="bg-card rounded-xl p-6 md:p-8 border border-border relative overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
                 <Accordion type="single" collapsible className="w-full space-y-2">
                   {faqs.map((faq, index) => (
-                    <AccordionItem key={index} value={`item-${index}`} className="border border-border rounded-lg px-4 data-[state=open]:bg-primary/5">
+                    <AccordionItem
+                      key={index}
+                      value={`item-${index}`}
+                      className="border border-border rounded-lg px-4 data-[state=open]:bg-primary/5 data-[state=open]:border-primary/30 transition-colors"
+                    >
                       <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline py-4">
-                        <span className="font-semibold">{faq.question}</span>
+                        <span className="font-semibold tracking-wide">{faq.question}</span>
                       </AccordionTrigger>
                       <AccordionContent className="text-muted-foreground leading-relaxed pb-4">
                         {faq.answer}
@@ -58,16 +71,17 @@ const FAQs = () => {
               </div>
 
               <div className="mt-12 text-center">
-                <div className="bg-background rounded-xl p-8 shadow-lg border border-border">
+                <div className="bg-card rounded-xl p-8 border border-border relative overflow-hidden">
+                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
                   <h2 className="text-2xl font-bold text-foreground mb-4">Still have questions?</h2>
                   <p className="text-muted-foreground mb-6">
                     Can't find the answer you're looking for? Feel free to reach out to us directly.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="mailto:contact@tridentjewellery.com" className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-secondary transition-colors">
+                    <a href="mailto:contact@tridentjewellery.com" className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-secondary transition-all duration-300 hover:scale-[1.02] tracking-wide">
                       Email Us
                     </a>
-                    <a href="tel:+918780532068" className="inline-flex items-center justify-center px-6 py-3 border border-primary text-foreground rounded-lg font-medium hover:bg-primary/10 transition-colors">
+                    <a href="tel:+918780532068" className="inline-flex items-center justify-center px-6 py-3 border border-primary/50 text-foreground rounded-lg font-medium hover:bg-primary/10 hover:border-primary transition-all duration-300 tracking-wide">
                       Call Us
                     </a>
                   </div>
