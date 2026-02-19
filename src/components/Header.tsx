@@ -7,7 +7,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  
+
   const navItems = [
     { label: "HOME", path: "/" },
     { label: "ABOUT US", path: "/about" },
@@ -23,14 +23,14 @@ const Header = () => {
   };
 
   return (
-    <header className="py-5 px-6 flex justify-between items-center bg-background border-b border-border sticky top-0 z-50">
-      
+    <header className="py-4 px-6 flex justify-between items-center bg-background border-b border-border sticky top-0 z-50 backdrop-blur-sm" style={{ boxShadow: '0 1px 30px hsl(20 42% 58% / 0.08)' }}>
+
       <div className="flex items-center animate-fade-in">
         <Link to="/" className="relative group cursor-pointer">
-          <img 
-            src={tridentLogo} 
-            alt="TRIDENT Jewellery Designer Logo" 
-            className="h-12 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300" 
+          <img
+            src={tridentLogo}
+            alt="TRIDENT Jewellery Designer Logo"
+            className="h-12 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
           />
         </Link>
       </div>
@@ -44,18 +44,18 @@ const Header = () => {
                 to={item.path}
                 className="relative transition-all duration-300 group py-2 block"
               >
-                <span className={`relative text-sm font-medium tracking-wider transition-all duration-300 ${
-                  isActive(item.path) 
-                    ? "text-primary" 
+                <span className={`relative text-sm font-medium tracking-widest transition-all duration-300 ${
+                  isActive(item.path)
+                    ? "text-primary"
                     : "text-muted-foreground group-hover:text-primary"
                 }`}>
                   {item.label}
                 </span>
-                
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ease-out ${
-                  isActive(item.path) 
-                    ? "w-full" 
-                    : "w-0 group-hover:w-full"
+
+                <span className={`absolute -bottom-1 left-0 h-px bg-gradient-to-r from-primary to-rose-gold transition-all duration-300 ease-out ${
+                  isActive(item.path)
+                    ? "w-full opacity-100"
+                    : "w-0 group-hover:w-full opacity-0 group-hover:opacity-100"
                 }`}></span>
               </Link>
             </li>
@@ -66,24 +66,26 @@ const Header = () => {
       {/* Mobile Menu */}
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild className="md:hidden">
-          <button className="text-foreground p-2 hover:text-primary transition-colors">
+          <button className="text-muted-foreground p-2 hover:text-primary transition-colors">
             <Menu className="h-6 w-6" />
           </button>
         </SheetTrigger>
         <SheetContent side="right" className="w-[300px] bg-background border-l border-border">
-          <nav className="flex flex-col gap-4 mt-8">
+          {/* Subtle glow top */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-60" />
+          <nav className="flex flex-col gap-2 mt-10">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`transition-all duration-300 px-4 py-3 block rounded-lg ${
-                  isActive(item.path) 
-                    ? "bg-primary/10 text-primary border-l-2 border-primary" 
-                    : "text-muted-foreground hover:bg-primary/5 hover:text-primary"
+                className={`transition-all duration-300 px-4 py-3 block rounded-lg border ${
+                  isActive(item.path)
+                    ? "bg-primary/10 text-primary border-primary/30"
+                    : "text-muted-foreground hover:bg-primary/5 hover:text-primary border-transparent"
                 }`}
               >
-                <span className="text-base font-medium tracking-wider">
+                <span className="text-sm font-medium tracking-widest">
                   {item.label}
                 </span>
               </Link>

@@ -21,7 +21,7 @@ const Pricing = () => {
       toast({ title: "Error", description: "Please fill in all fields", variant: "destructive" });
       return;
     }
-    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       toast({ title: "Error", description: "Please enter a valid email address", variant: "destructive" });
       return;
@@ -46,29 +46,43 @@ const Pricing = () => {
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
       <main className="flex-1 relative overflow-hidden">
-        <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-200px)] py-20 px-4">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground text-center">
-            Pricing
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-12 text-center max-w-2xl">
-            For pricing details, drop your information below and we will connect with you soon!
-          </p>
+        {/* Ambient glow */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/5 blur-3xl rounded-full pointer-events-none" />
 
-          <div className="w-full max-w-md bg-background rounded-2xl p-8 shadow-lg border border-border">
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-200px)] py-20 px-4">
+          <div className="text-center mb-12">
+            <p className="text-primary text-xs tracking-[0.4em] uppercase font-medium mb-4">Get a Quote</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-foreground">
+              Pricing
+            </h1>
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/60" />
+              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+              <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/60" />
+            </div>
+            <p className="text-muted-foreground max-w-2xl">
+              For pricing details, drop your information below and we will connect with you soon!
+            </p>
+          </div>
+
+          <div className="w-full max-w-md bg-card rounded-2xl p-8 border border-border relative overflow-hidden"
+            style={{ boxShadow: '0 0 60px hsl(20 42% 58% / 0.08)' }}
+          >
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-foreground font-medium">Name</Label>
-                <Input id="name" type="text" placeholder="Enter your name" value={name} onChange={(e) => setName(e.target.value)} className="bg-background border-border focus:border-primary focus:ring-primary" maxLength={100} />
+                <Label htmlFor="name" className="text-foreground font-medium tracking-wide text-sm">Name</Label>
+                <Input id="name" type="text" placeholder="Enter your name" value={name} onChange={(e) => setName(e.target.value)} className="bg-muted border-border focus:border-primary focus:ring-1 focus:ring-primary/50 text-foreground placeholder:text-muted-foreground" maxLength={100} />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="mobile" className="text-foreground font-medium">Mobile No</Label>
-                <Input id="mobile" type="tel" placeholder="Enter your mobile number" value={mobile} onChange={(e) => setMobile(e.target.value)} className="bg-background border-border focus:border-primary focus:ring-primary" maxLength={15} />
+                <Label htmlFor="mobile" className="text-foreground font-medium tracking-wide text-sm">Mobile No</Label>
+                <Input id="mobile" type="tel" placeholder="Enter your mobile number" value={mobile} onChange={(e) => setMobile(e.target.value)} className="bg-muted border-border focus:border-primary focus:ring-1 focus:ring-primary/50 text-foreground placeholder:text-muted-foreground" maxLength={15} />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-foreground font-medium">Email</Label>
-                <Input id="email" type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} className="bg-background border-border focus:border-primary focus:ring-primary" maxLength={255} />
+                <Label htmlFor="email" className="text-foreground font-medium tracking-wide text-sm">Email</Label>
+                <Input id="email" type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} className="bg-muted border-border focus:border-primary focus:ring-1 focus:ring-primary/50 text-foreground placeholder:text-muted-foreground" maxLength={255} />
               </div>
-              <Button type="submit" disabled={isSubmitting} className="w-full bg-primary hover:bg-secondary text-primary-foreground font-semibold py-3 rounded-lg transition-all duration-300 hover:scale-105">
+              <Button type="submit" disabled={isSubmitting} className="w-full bg-primary hover:bg-secondary text-primary-foreground font-semibold py-3 rounded-lg transition-all duration-300 hover:scale-[1.02] tracking-wide">
                 <Send className="w-4 h-4 mr-2" />
                 {isSubmitting ? "Sending..." : "Send Details"}
               </Button>

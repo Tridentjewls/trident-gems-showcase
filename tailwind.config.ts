@@ -44,6 +44,8 @@ export default {
           light: "hsl(var(--gold-light))",
           dark: "hsl(var(--gold-dark))",
         },
+        copper: "hsl(var(--copper))",
+        "rose-gold": "hsl(var(--rose-gold))",
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",

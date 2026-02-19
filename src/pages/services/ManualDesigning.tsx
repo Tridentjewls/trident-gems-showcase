@@ -46,64 +46,47 @@ const sections = [
 const ManualDesigning = () => {
   return (
     <PageTransition>
-    <div className="min-h-screen bg-white">
-
+    <div className="min-h-screen bg-background">
       <Header />
-
       <main className="container mx-auto px-4 py-20">
-        <Link to="/services" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary mb-8 transition-colors">
-          <ArrowLeft className="w-5 h-5" />
+        <Link to="/services" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary mb-10 transition-colors text-sm tracking-wide group">
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" />
           Back to Services
         </Link>
-
-        <h1 className="text-4xl md:text-6xl font-bold text-foreground text-center mb-16">
-          Manual Designing
-        </h1>
-
+        <div className="text-center mb-16">
+          <p className="text-primary text-xs tracking-[0.4em] uppercase font-medium mb-4">Traditional Craft</p>
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">Manual Designing</h1>
+          <div className="flex items-center justify-center gap-4">
+            <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/60" />
+            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+            <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/60" />
+          </div>
+        </div>
         <div className="flex flex-col gap-16 md:gap-24">
           {sections.map((section, idx) => (
-            <div 
-              key={idx} 
-              className={`flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 md:gap-12`}
-            >
+            <div key={idx} className={`flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-8 md:gap-12`}>
               <div className="w-full md:w-1/2">
                 <div className="grid grid-cols-2 gap-3 max-w-lg mx-auto">
-                  <div className="col-span-2 aspect-video overflow-hidden rounded-2xl shadow-2xl">
-                    <img
-                      src={section.images[0]}
-                      alt={section.title}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    />
+                  <div className="col-span-2 aspect-video overflow-hidden rounded-2xl border border-border hover:border-primary/40 transition-colors duration-300">
+                    <img src={section.images[0]} alt={section.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
                   </div>
-                  <div className="aspect-square overflow-hidden rounded-xl shadow-xl">
-                    <img
-                      src={section.images[1]}
-                      alt={`${section.title} detail 1`}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    />
+                  <div className="aspect-square overflow-hidden rounded-xl border border-border hover:border-primary/40 transition-colors duration-300">
+                    <img src={section.images[1]} alt={`${section.title} detail 1`} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
                   </div>
-                  <div className="aspect-square overflow-hidden rounded-xl shadow-xl">
-                    <img
-                      src={section.images[2]}
-                      alt={`${section.title} detail 2`}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    />
+                  <div className="aspect-square overflow-hidden rounded-xl border border-border hover:border-primary/40 transition-colors duration-300">
+                    <img src={section.images[2]} alt={`${section.title} detail 2`} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
                   </div>
                 </div>
               </div>
               <div className="w-full md:w-1/2 text-center md:text-left">
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                  {section.title}
-                </h2>
-                <p className="text-muted-foreground text-lg leading-relaxed">
-                  {section.description}
-                </p>
+                <div className="w-8 h-px bg-primary/60 mb-4 mx-auto md:mx-0" />
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{section.title}</h2>
+                <p className="text-muted-foreground text-lg leading-relaxed">{section.description}</p>
               </div>
             </div>
           ))}
         </div>
       </main>
-
       <Footer />
     </div>
     </PageTransition>
