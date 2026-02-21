@@ -64,29 +64,25 @@ const Clients = () => {
             </p>
           </div>
 
-          {/* Logo Marquee - Auto scrolling */}
-          <div className="w-full overflow-hidden mb-20">
-            <div className="flex animate-scroll-horizontal-slow">
-              {[...Array(3)].map((_, loopIndex) => (
-                <div key={loopIndex} className="flex shrink-0">
-                  {clients.map((client) => (
-                    <div key={`${loopIndex}-${client.name}`} className="flex-shrink-0 mx-6 md:mx-8">
-                      <div className="bg-card border border-border rounded-xl p-4 md:p-6 w-32 md:w-40 h-24 md:h-28 flex flex-col items-center justify-center transition-all duration-300 hover:border-primary/40 hover:scale-105"
-                        onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 0 30px hsl(20 42% 58% / 0.12)')}
-                        onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}
-                      >
-                        <img
-                          src={client.logo}
-                          alt={`${client.name} logo`}
-                          className="h-8 md:h-10 w-auto max-w-full opacity-50 hover:opacity-90 transition-opacity duration-300 invert"
-                          loading="lazy"
-                        />
-                        <span className="text-[10px] md:text-xs font-medium text-muted-foreground text-center mt-2 tracking-wide truncate w-full">
-                          {client.name}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
+          {/* Logo Grid */}
+          <div className="container mx-auto px-4 mb-20">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+              {clients.map((client) => (
+                <div
+                  key={client.name}
+                  className="bg-card border border-border rounded-xl p-4 md:p-6 flex flex-col items-center justify-center transition-all duration-300 hover:border-primary/40 hover:scale-105"
+                  onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 0 30px hsl(20 42% 58% / 0.12)')}
+                  onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}
+                >
+                  <img
+                    src={client.logo}
+                    alt={`${client.name} logo`}
+                    className="h-8 md:h-10 w-auto max-w-full opacity-50 hover:opacity-90 transition-opacity duration-300 invert"
+                    loading="lazy"
+                  />
+                  <span className="text-[10px] md:text-xs font-medium text-muted-foreground text-center mt-2 tracking-wide truncate w-full">
+                    {client.name}
+                  </span>
                 </div>
               ))}
             </div>
