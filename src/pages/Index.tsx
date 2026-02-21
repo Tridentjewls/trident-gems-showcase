@@ -11,10 +11,18 @@ import jewelryNecklace1 from "@/assets/jewelry-necklace-1.jpg";
 import jewelryBracelet1 from "@/assets/jewelry-bracelet-1.jpg";
 import jewelryEarrings1 from "@/assets/jewelry-earrings-1.jpg";
 import jewelryTiara1 from "@/assets/jewelry-tiara-1.jpg";
-import stepSketch from "@/assets/step-sketch.jpg";
-import stepCad from "@/assets/step-cad.jpg";
-import stepRendering from "@/assets/step-rendering.jpg";
-import stepStl from "@/assets/step-stl.jpg";
+import stepSketch from "@/assets/imgs/How we are work/0Manual.png";
+import stepCad from "@/assets/imgs/How we are work/1CAD.jpg";
+import stepRendering from "@/assets/imgs/How we are work/2Render.jpg";
+import stepStl from "@/assets/imgs/How we are work/3STL.jpg";
+
+import exotic1 from "@/assets/imgs/Exotik collecton/0001.png";
+import exotic2 from "@/assets/imgs/Exotik collecton/005.png";
+import exotic3 from "@/assets/imgs/Exotik collecton/007.png";
+import exotic4 from "@/assets/imgs/Exotik collecton/010.png";
+import exotic5 from "@/assets/imgs/Exotik collecton/011.png";
+import exotic6 from "@/assets/imgs/Exotik collecton/014.png";
+import exotic7 from "@/assets/imgs/Exotik collecton/39.png";
 
 const Index = () => {
   const [visibleBoxes, setVisibleBoxes] = useState<boolean[]>([false, false, false]);
@@ -25,11 +33,13 @@ const Index = () => {
   const sliderInterval = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const galleryItems = [
-    { img: jewelryRing1, alt: "Diamond Engagement Ring" },
-    { img: jewelryNecklace1, alt: "Emerald Gold Necklace" },
-    { img: jewelryBracelet1, alt: "Sapphire Diamond Bracelet" },
-    { img: jewelryEarrings1, alt: "Ruby Drop Earrings" },
-    { img: jewelryTiara1, alt: "Pearl Diamond Tiara" },
+    { img: exotic1, alt: "" },
+    { img: exotic2, alt: "" },
+    { img: exotic3, alt: "" },
+    { img: exotic4, alt: "" },
+    { img: exotic5, alt: "" },
+    { img: exotic6, alt: "" },
+    { img: exotic7, alt: "" },
   ];
 
   const startAutoPlay = () => {
@@ -138,321 +148,323 @@ const Index = () => {
 
   return <PageTransition><div className="min-h-screen flex flex-col bg-background">
 
-      <Header />
+    <Header />
 
-      <main className="flex-1 relative">
+    <main className="flex-1 relative">
 
-        <section className="relative z-10 bg-background">
-          <JewelryCarousel />
-        </section>
+      <section className="relative z-10 bg-background">
+        <JewelryCarousel />
+      </section>
 
-        {/* Three Boxes Section */}
-        <section className="relative overflow-hidden min-h-screen flex items-center bg-background">
-          <div className="relative z-10 container mx-auto px-4 py-12">
-            <div className="max-w-7xl mx-auto space-y-6 lg:space-y-8">
+      {/* Three Boxes Section */}
+      <section className="relative overflow-hidden min-h-screen flex items-center bg-background">
+        <div className="relative z-10 container mx-auto px-4 py-12">
+          <div className="max-w-7xl mx-auto space-y-6 lg:space-y-8">
 
-              {/* Top Row: Two Boxes */}
-              <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-                {/* Box 1: Role of CAD */}
-                <div ref={el => boxRefs.current[0] = el} className={`bg-card rounded-xl p-6 border border-border transition-all duration-1000 hover:border-primary/40 group ${visibleBoxes[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-xl" />
-                  <div className="space-y-3 text-muted-foreground leading-relaxed text-sm">
-                    <p>
-                      CAD revolutionizes jewelry design by blending traditional craftsmanship with cutting-edge technology.
-                    </p>
-                    <ul className="space-y-2 list-disc list-inside">
-                      <li><strong className="text-primary">Precision:</strong> Create intricate patterns with mathematical accuracy</li>
-                      <li><strong className="text-primary">Prototyping:</strong> Quickly iterate design variations</li>
-                      <li><strong className="text-primary">Efficiency:</strong> Reduce material waste and costs</li>
-                      <li><strong className="text-primary">Custom:</strong> Personalized pieces tailored to preferences</li>
-                    </ul>
-                  </div>
+            {/* Top Row: Two Boxes */}
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+              {/* Box 1: Role of CAD */}
+              <div ref={el => boxRefs.current[0] = el} className={`bg-card rounded-xl p-6 border border-border transition-all duration-1000 hover:border-primary/40 group ${visibleBoxes[0] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-xl" />
+                <div className="space-y-3 text-muted-foreground leading-relaxed text-sm">
+                  <h3 className="text-base font-semibold text-primary">Role of CAD in the Jewelry Industry</h3>
+                  <ul className="space-y-2 list-disc list-inside">
+                    <li><strong className="text-primary">Precision:</strong>reativity + Precision CAD ensures every design is created with accurate proportions and detailed finishing.
+                    </li>
+                    <li><strong className="text-primary">Prototyping:</strong> Speed & Efficiency Compared to traditional methods, CAD makes the entire designing process much faster.
+                    </li>
+                    <li><strong className="text-primary">Efficiency:</strong> Customization It allows easy creation of unique jewelry pieces based on each client’s personal preferences.
+                    </li>
+                    <li><strong className="text-primary">Custom:</strong> Visualization A realistic 3D view can be seen before the manufacturing starts, giving a clear picture of the final product.
+                    </li>
+                    <li><strong className="text-primary">Custom:</strong> Manufacturing Ready  CAD files can be directly used for 3D printing, CAM, and casting.
+                    </li>
+                  </ul>
                 </div>
+              </div>
 
-                {/* Box 2: Why CAD is Essential */}
-                <div ref={el => boxRefs.current[1] = el} className={`bg-card rounded-xl p-6 border border-border transition-all duration-1000 delay-300 hover:border-primary/40 group ${visibleBoxes[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-                  <div className="space-y-3 text-muted-foreground leading-relaxed text-sm">
-                    <p>
-                      CAD technology is essential for staying competitive in modern jewelry markets.
-                    </p>
-                    <div className="space-y-3">
-                      <div className="space-y-2">
-                        <h3 className="text-base font-semibold text-primary">Technical</h3>
-                        <ul className="space-y-1 list-disc list-inside text-xs">
-                          <li>Perfect symmetry</li>
-                          <li>Stone calculations</li>
-                          <li>3D printing ready</li>
-                        </ul>
-                      </div>
-                      <div className="space-y-2">
-                        <h3 className="text-base font-semibold text-primary">Business</h3>
-                        <ul className="space-y-1 list-disc list-inside text-xs">
-                          <li>Faster delivery</li>
-                          <li>Better communication</li>
-                          <li>Reduced errors</li>
-                        </ul>
-                      </div>
+              {/* Box 2: Why CAD is Essential */}
+              <div ref={el => boxRefs.current[1] = el} className={`bg-card rounded-xl p-6 border border-border transition-all duration-1000 delay-300 hover:border-primary/40 group ${visibleBoxes[1] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+                <div className="space-y-3 text-muted-foreground leading-relaxed text-sm">
+                  <h3 className="text-base font-semibold text-primary">Why CAD is Essential in Jewelry</h3>
+                  <div className="space-y-3">
+                    <div className="space-y-2">
+                      <ul className="space-y-1 list-disc list-inside text-xs">
+                        <li>High-quality, precise designs</li>
+                        <li>Quick adaptability to market trends</li>
+                        <li>Saves time and reduces overall cost</li>
+                        <li>Better communication between designer and client </li>
+                        <li>Modern workflow that meets international standards</li>
+                      </ul>
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="text-base font-semibold text-primary">Business</h3>
+                      <ul className="space-y-1 list-disc list-inside text-xs">
+                        <li>Faster delivery</li>
+                        <li>Better communication</li>
+                        <li>Reduced errors</li>
+                      </ul>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Bottom Row: Video Box */}
-              <div ref={el => boxRefs.current[2] = el} className={`bg-card rounded-xl p-6 border border-border transition-all duration-1000 delay-600 hover:border-primary/40 ${visibleBoxes[2] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'} max-w-3xl mx-auto`}>
-                
-                <div className="aspect-video rounded-lg overflow-hidden shadow-lg bg-muted">
-                  <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
-                  </video>
-                </div>
-                
+            {/* Bottom Row: Video Box */}
+            <div ref={el => boxRefs.current[2] = el} className={`bg-card rounded-xl p-6 border border-border transition-all duration-1000 delay-600 hover:border-primary/40 ${visibleBoxes[2] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'} max-w-3xl mx-auto`}>
+
+              <div className="aspect-video rounded-lg overflow-hidden shadow-lg bg-muted">
+                <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                  <source src="/src/assets/imgs/01.mp4 " type="video/mp4" />
+                </video>
               </div>
 
             </div>
-          </div>
-        </section>
 
-        {/* Exotic Collection Slider */}
-        <section className="relative overflow-hidden bg-background py-16 md:py-24">
-          <div className="text-center mb-12">
-            <p className="text-primary text-xs tracking-[0.4em] uppercase font-medium mb-4">Portfolio</p>
-            <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-wider">
-              Exotic Collection
+          </div>
+        </div>
+      </section>
+
+      {/* Exotic Collection Slider */}
+      <section className="relative overflow-hidden bg-background py-16 md:py-24">
+        <div className="text-center mb-12">
+          <p className="text-primary text-xs tracking-[0.4em] uppercase font-medium mb-4">Portfolio</p>
+          <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-wider">
+            Exotic Collection
+          </h2>
+          <div className="flex items-center justify-center gap-4 mt-4">
+            <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/60" />
+            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+            <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/60" />
+          </div>
+        </div>
+
+        <div className="relative max-w-5xl mx-auto px-4">
+          {/* Main slider */}
+          <div className="relative overflow-hidden rounded-2xl border border-border bg-card">
+            <div
+              className="flex transition-transform duration-700 ease-in-out"
+              style={{ transform: `translateX(-${sliderIndex * 100}%)` }}
+            >
+              {galleryItems.map((item, index) => (
+                <div key={index} className="min-w-full">
+                  <div className="relative group">
+                    <OptimizedImage
+                      src={item.img}
+                      alt={item.alt}
+                      className="w-full h-[50vh] md:h-[65vh] object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                      containerClassName="w-full"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/80 to-transparent p-6">
+                      <p className="text-foreground font-semibold text-lg tracking-wide">{item.alt}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Navigation arrows */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/70 border border-border hover:border-primary/60 flex items-center justify-center text-foreground hover:text-primary transition-all duration-300 backdrop-blur-sm"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/70 border border-border hover:border-primary/60 flex items-center justify-center text-foreground hover:text-primary transition-all duration-300 backdrop-blur-sm"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </button>
+          </div>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {galleryItems.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${sliderIndex === index
+                  ? "bg-primary w-8"
+                  : "bg-muted-foreground/30 hover:bg-muted-foreground/60"
+                  }`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How We Work Together Section */}
+      <section className="relative overflow-hidden min-h-screen flex items-center bg-background">
+        <div className="relative z-10 container mx-auto px-4 py-20">
+          <div className="text-center mb-16">
+            <p className="text-primary text-xs tracking-[0.4em] uppercase font-medium mb-4">Our Process</p>
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-wider mb-6">
+              How We Will Work Together
             </h2>
-            <div className="flex items-center justify-center gap-4 mt-4">
+            <div className="flex items-center justify-center gap-4">
               <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/60" />
               <div className="w-1.5 h-1.5 rounded-full bg-primary" />
               <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/60" />
             </div>
           </div>
 
-          <div className="relative max-w-5xl mx-auto px-4">
-            {/* Main slider */}
-            <div className="relative overflow-hidden rounded-2xl border border-border bg-card">
-              <div
-                className="flex transition-transform duration-700 ease-in-out"
-                style={{ transform: `translateX(-${sliderIndex * 100}%)` }}
-              >
-                {galleryItems.map((item, index) => (
-                  <div key={index} className="min-w-full">
-                    <div className="relative group">
-                      <OptimizedImage
-                        src={item.img}
-                        alt={item.alt}
-                        className="w-full h-[50vh] md:h-[65vh] object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                        containerClassName="w-full"
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/80 to-transparent p-6">
-                        <p className="text-foreground font-semibold text-lg tracking-wide">{item.alt}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Navigation arrows */}
-              <button
-                onClick={prevSlide}
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/70 border border-border hover:border-primary/60 flex items-center justify-center text-foreground hover:text-primary transition-all duration-300 backdrop-blur-sm"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-              </button>
-              <button
-                onClick={nextSlide}
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/70 border border-border hover:border-primary/60 flex items-center justify-center text-foreground hover:text-primary transition-all duration-300 backdrop-blur-sm"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-              </button>
-            </div>
-
-            {/* Dots */}
-            <div className="flex justify-center gap-2 mt-6">
-              {galleryItems.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    sliderIndex === index
-                      ? "bg-primary w-8"
-                      : "bg-muted-foreground/30 hover:bg-muted-foreground/60"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* How We Work Together Section */}
-        <section className="relative overflow-hidden min-h-screen flex items-center bg-background">
-          <div className="relative z-10 container mx-auto px-4 py-20">
-            <div className="text-center mb-16">
-              <p className="text-primary text-xs tracking-[0.4em] uppercase font-medium mb-4">Our Process</p>
-              <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-wider mb-6">
-                How We Will Work Together
-              </h2>
-              <div className="flex items-center justify-center gap-4">
-                <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/60" />
-                <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/60" />
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-              {[{
-              title: "1. Manual Sketch or Reference Image",
-              description: "Share your vision through hand-drawn sketches or reference images. This initial step helps us understand your design concept and preferences.",
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {[{
+              title: "1. Sketch or Reference Image",
+              description: "You send us your sketch or reference image with your design concept.",
               img: stepSketch
             }, {
               title: "2. CAD Design",
-              description: "Our expert designers transform your concept into precise 3D CAD models, ensuring every detail is captured with mathematical accuracy.",
+              description: "We create a precise CAD design based on your reference.",
               img: stepCad
             }, {
-              title: "3. Rendering for Confirmation",
-              description: "Review photorealistic renders of your design. We'll refine and adjust until you're completely satisfied with every aspect.",
+              title: "3. Confirmation Images",
+              description: "We share detailed images (dimensions, multiple views, proportions) for your approval.",
               img: stepRendering
             }, {
               title: "4. Final STL File Delivery",
-              description: "Receive production-ready STL files optimized for 3D printing or manufacturing, ready to bring your jewelry design to life.",
+              description: "After your confirmation, we deliver the final STL file in manufacturing-ready format.",
               img: stepStl
             }].map((step, index) => <div key={index} ref={el => workflowRefs.current[index] = el} className={`bg-card rounded-xl overflow-hidden border border-border transition-all duration-1000 hover:border-primary/40 ${visibleWorkflowBoxes[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{
               transitionDelay: `${index * 200}ms`
             }}>
-                  <div className="relative h-64 overflow-hidden">
-                    <OptimizedImage 
-                      src={step.img} 
-                      alt={step.title} 
-                      className="transition-transform duration-500 hover:scale-110"
-                      containerClassName="h-full"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none"></div>
-                  </div>
-                  <div className="p-6 space-y-3">
-                    <h3 className="text-xl font-bold text-foreground">{step.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm">{step.description}</p>
-                  </div>
-                </div>)}
-            </div>
+              <div className="relative h-64 overflow-hidden">
+                <OptimizedImage
+                  src={step.img}
+                  alt={step.title}
+                  className="transition-transform duration-500 hover:scale-110"
+                  containerClassName="h-full"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none"></div>
+              </div>
+              <div className="p-6 space-y-3">
+                <h3 className="text-xl font-bold text-foreground">{step.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">{step.description}</p>
+              </div>
+            </div>)}
+          </div>
 
-            {/* Video below workflow */}
-            <div className="mt-16 max-w-4xl mx-auto">
-              <div className="bg-card rounded-xl p-4 border border-border hover:border-primary/40 transition-colors duration-300">
-                <div className="aspect-video rounded-lg overflow-hidden shadow-lg bg-muted">
-                  <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                    <source src="/videos/bg-trident.mp4" type="video/mp4" />
-                  </video>
-                </div>
+          {/* Video below workflow */}
+          <div className="mt-16 max-w-4xl mx-auto">
+            <div className="bg-card rounded-xl p-4 border border-border hover:border-primary/40 transition-colors duration-300">
+              <div className="aspect-video rounded-lg overflow-hidden shadow-lg bg-muted">
+                <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                  <source src="/src/assets/imgs/How we are work/Complet.mp4 " type="video/mp4" />
+                </video>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Why Work With Us Section */}
-        <section className="relative overflow-hidden min-h-screen flex items-center bg-background">
-          <div className="relative z-10 container mx-auto px-4 py-20">
-            <div className="text-center mb-16">
-              <p className="text-primary text-xs tracking-[0.4em] uppercase font-medium mb-4">Why Choose Us</p>
-              <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-wider mb-6">
-                Why Work With Us?
-              </h2>
-              <div className="flex items-center justify-center gap-4">
-                <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/60" />
-                <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/60" />
-              </div>
+      {/* Why Work With Us Section */}
+      <section className="relative overflow-hidden min-h-screen flex items-center bg-background">
+        <div className="relative z-10 container mx-auto px-4 py-20">
+          <div className="text-center mb-16">
+            <p className="text-primary text-xs tracking-[0.4em] uppercase font-medium mb-4">Why Choose Us</p>
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-wider mb-6">
+              Why Work With Us?
+            </h2>
+            <div className="flex items-center justify-center gap-4">
+              <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/60" />
+              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+              <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/60" />
             </div>
+          </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-              {[{
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            {[{
               number: "01",
-              title: "Experience & Creativity",
-              description: "We combine experience and innovation to create jewelry designs that are unique and attractive. Every design shows perfection, elegance, and originality."
+              title: "⚡ Super Fast Delivery",
+              description: "Most designs delivered within 24 hours. Our team works with speed and accuracy to ensure your production never gets delayed. "
             }, {
               number: "02",
-              title: "Client-Focused Approach",
-              description: "Your satisfaction is our top priority. We carefully listen to your needs and provide personalized solutions tailored just for you."
+              title: "📈 Bulk Work Handling",
+              description: "Whether you need 1 design a day or 20, we can handle bulk work efficiently "
             }, {
               number: "03",
-              title: "Advanced Technology",
-              description: "From CAD modeling to realistic rendering, we use the latest technology at every step to ensure accuracy and perfection in every detail."
+              title: "💰 Fair Pricing With Premium Output",
+              description: "Affordable pricing with top-quality results"
             }, {
               number: "04",
-              title: "Transparency & Trust",
-              description: "No hidden surprises with us. You can see your design through sketches, CAD, and renders before final production begins."
+              title: "👨‍🏭 Experienced Team",
+              description: "We have a skilled and experienced design team capable of handling even the most complex jewelry designs with high precision and professionalism."
             }, {
               number: "05",
-              title: "Quality & Timely Delivery",
-              description: "We always focus on high-quality output and deliver your projects on time so you can move forward with complete confidence."
+              title: "💫 Smooth & Perfect Flow Designs",
+              description: "Our designs have a clean, natural, and perfectly balanced flow. Every curve, surface, and proportion is crafted in a way that makes the design visually appealing and flawless during manufacturing."
             }, {
               number: "06",
-              title: "100% File Guarantee",
-              description: "We have complete confidence in our work. If there's any problem in the CAD/STL file due to us, we will refund your payment – no questions asked."
+              title: "🔐 Trust & Reliability",
+              description: "The biggest reason clients work with us is trust. Your designs remain 100% secure — never leaked or shared. We always deliver on time as promised, ensuring our clients have complete confidence in our work and reliability."
             }].map((item, index) => <div key={index} ref={el => whyUsRefs.current[index] = el} className={`group bg-card rounded-xl p-6 border border-border transition-all duration-300 hover:scale-105 hover:border-primary/40 ${visibleWhyUsBoxes[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`} style={{
               transitionDelay: `${index * 150}ms`
             }}>
-                  <div className="relative mb-4">
-                    <div className="text-6xl font-bold text-primary/20 group-hover:text-primary/40 transition-colors duration-300">
-                      {item.number}
-                    </div>
-                    <div className="absolute bottom-0 left-0 w-16 h-1 bg-gradient-to-r from-primary to-gold-light rounded-full"></div>
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                    {item.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                    {item.description}
-                  </p>
-                </div>)}
+              <div className="relative mb-4">
+                <div className="text-6xl font-bold text-primary/20 group-hover:text-primary/40 transition-colors duration-300">
+                  {item.number}
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-1 bg-gradient-to-r from-primary to-gold-light rounded-full"></div>
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                {item.title}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed text-sm">
+                {item.description}
+              </p>
+            </div>)}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Counter Strip */}
+      <section className="relative overflow-hidden py-16 mb-20 bg-card border-y border-border">
+        {/* Top/bottom copper dividers */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+        <div className="relative z-10 container mx-auto px-4">
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10 tracking-widest uppercase text-sm text-primary opacity-70">
+            We Deliver Excellence Worldwide
+          </h3>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-primary">
+                <AnimatedCounter end={50} suffix="+" />
+              </div>
+              <p className="text-muted-foreground mt-2 text-sm md:text-base">Happy Clients</p>
+            </div>
+
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-primary">
+                <AnimatedCounter end={5000} suffix="+" />
+              </div>
+              <p className="text-muted-foreground mt-2 text-sm md:text-base">Designs Delivered</p>
+            </div>
+
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-primary">
+                <AnimatedCounter end={4} suffix="+" />
+              </div>
+              <p className="text-muted-foreground mt-2 text-sm md:text-base">Countries Served</p>
+            </div>
+
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold text-primary">
+                <AnimatedCounter end={3} suffix="+" />
+              </div>
+              <p className="text-muted-foreground mt-2 text-sm md:text-base">Years Experience</p>
             </div>
           </div>
-        </section>
-
-        {/* Stats Counter Strip */}
-        <section className="relative overflow-hidden py-16 mb-20 bg-card border-y border-border">
-          {/* Top/bottom copper dividers */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
-          <div className="relative z-10 container mx-auto px-4">
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10 tracking-widest uppercase text-sm text-primary opacity-70">
-              We Deliver Excellence Worldwide
-            </h3>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-primary">
-                  <AnimatedCounter end={500} suffix="+" />
-                </div>
-                <p className="text-muted-foreground mt-2 text-sm md:text-base">Happy Clients</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-primary">
-                  <AnimatedCounter end={2000} suffix="+" />
-                </div>
-                <p className="text-muted-foreground mt-2 text-sm md:text-base">Designs Delivered</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-primary">
-                  <AnimatedCounter end={15} suffix="+" />
-                </div>
-                <p className="text-muted-foreground mt-2 text-sm md:text-base">Countries Served</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-primary">
-                  <AnimatedCounter end={8} suffix="+" />
-                </div>
-                <p className="text-muted-foreground mt-2 text-sm md:text-base">Years Experience</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        </div>
+      </section>
 
 
-      </main>
+    </main>
 
-      {/* Professional Footer - End of Page */}
-      <Footer />
-    </div></PageTransition>;
+    {/* Professional Footer - End of Page */}
+    <Footer />
+  </div></PageTransition>;
 };
 export default Index;
