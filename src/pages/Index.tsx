@@ -21,6 +21,43 @@ const Index = () => {
   const [visibleImages, setVisibleImages] = useState<boolean[]>([false, false, false, false, false]);
   const [visibleWorkflowBoxes, setVisibleWorkflowBoxes] = useState<boolean[]>([false, false, false, false]);
   const [visibleWhyUsBoxes, setVisibleWhyUsBoxes] = useState<boolean[]>([false, false, false, false, false, false]);
+  const [sliderIndex, setSliderIndex] = useState(0);
+  const sliderInterval = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const galleryItems = [
+    { img: jewelryRing1, alt: "Diamond Engagement Ring" },
+    { img: jewelryNecklace1, alt: "Emerald Gold Necklace" },
+    { img: jewelryBracelet1, alt: "Sapphire Diamond Bracelet" },
+    { img: jewelryEarrings1, alt: "Ruby Drop Earrings" },
+    { img: jewelryTiara1, alt: "Pearl Diamond Tiara" },
+  ];
+
+  const startAutoPlay = () => {
+    if (sliderInterval.current) clearInterval(sliderInterval.current);
+    sliderInterval.current = setInterval(() => {
+      setSliderIndex(prev => (prev + 1) % galleryItems.length);
+    }, 3500);
+  };
+
+  useEffect(() => {
+    startAutoPlay();
+    return () => { if (sliderInterval.current) clearInterval(sliderInterval.current); };
+  }, []);
+
+  const goToSlide = (index: number) => {
+    setSliderIndex(index);
+    startAutoPlay();
+  };
+
+  const prevSlide = () => {
+    setSliderIndex(prev => (prev - 1 + galleryItems.length) % galleryItems.length);
+    startAutoPlay();
+  };
+
+  const nextSlide = () => {
+    setSliderIndex(prev => (prev + 1) % galleryItems.length);
+    startAutoPlay();
+  };
   const boxRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
   const workflowRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -175,57 +212,71 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Jewelry Gallery Section with Auto Scroll */}
-        <section className="relative overflow-hidden min-h-screen flex flex-col bg-background">
-          {/* Compact Header */}
-          <div className="py-12 flex items-center justify-center">
-            <div className="text-center space-y-4">
-              <p className="text-primary text-xs tracking-[0.4em] uppercase font-medium">Portfolio</p>
-              <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-wider">
-                Exotic Collection
-              </h2>
-              <div className="flex items-center justify-center gap-4">
-                <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/60" />
-                <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/60" />
-              </div>
+        {/* Exotic Collection Slider */}
+        <section className="relative overflow-hidden bg-background py-16 md:py-24">
+          <div className="text-center mb-12">
+            <p className="text-primary text-xs tracking-[0.4em] uppercase font-medium mb-4">Portfolio</p>
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground tracking-wider">
+              Exotic Collection
+            </h2>
+            <div className="flex items-center justify-center gap-4 mt-4">
+              <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary/60" />
+              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+              <div className="h-px w-16 bg-gradient-to-l from-transparent to-primary/60" />
             </div>
           </div>
-          
-          {/* Auto Scrolling Container */}
-          <div className="flex-1 flex items-center overflow-hidden pb-12">
-            <div className="flex animate-scroll-horizontal-fast">
-              {[...Array(2)].map((_, loopIndex) => (
-                [{
-                  img: jewelryRing1,
-                  alt: "Diamond Engagement Ring"
-                }, {
-                  img: jewelryNecklace1,
-                  alt: "Emerald Gold Necklace"
-                }, {
-                  img: jewelryBracelet1,
-                  alt: "Sapphire Diamond Bracelet"
-                }, {
-                  img: jewelryEarrings1,
-                  alt: "Ruby Drop Earrings"
-                }, {
-                  img: jewelryTiara1,
-                  alt: "Pearl Diamond Tiara"
-                }].map((item, index) => (
-                  <div key={`${loopIndex}-${index}`} className="flex-shrink-0 mx-4">
+
+          <div className="relative max-w-5xl mx-auto px-4">
+            {/* Main slider */}
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-card">
+              <div
+                className="flex transition-transform duration-700 ease-in-out"
+                style={{ transform: `translateX(-${sliderIndex * 100}%)` }}
+              >
+                {galleryItems.map((item, index) => (
+                  <div key={index} className="min-w-full">
                     <div className="relative group">
-                      <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 via-gold-light/30 to-primary/30 rounded-2xl blur-xl opacity-30 group-hover:opacity-70 transition-opacity duration-500"></div>
-                      <div className="relative rounded-2xl overflow-hidden border border-border bg-card p-6 hover:border-primary/40 transition-colors duration-300">
-                        <OptimizedImage 
-                          src={item.img} 
-                          alt={item.alt} 
-                          className="w-[60vw] md:w-[40vw] h-[50vh] group-hover:scale-105 transition-transform duration-700 ease-out rounded-lg"
-                          containerClassName="rounded-lg"
-                        />
+                      <OptimizedImage
+                        src={item.img}
+                        alt={item.alt}
+                        className="w-full h-[50vh] md:h-[65vh] object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                        containerClassName="w-full"
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/80 to-transparent p-6">
+                        <p className="text-foreground font-semibold text-lg tracking-wide">{item.alt}</p>
                       </div>
                     </div>
                   </div>
-                ))
+                ))}
+              </div>
+
+              {/* Navigation arrows */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/70 border border-border hover:border-primary/60 flex items-center justify-center text-foreground hover:text-primary transition-all duration-300 backdrop-blur-sm"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+              </button>
+              <button
+                onClick={nextSlide}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/70 border border-border hover:border-primary/60 flex items-center justify-center text-foreground hover:text-primary transition-all duration-300 backdrop-blur-sm"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              </button>
+            </div>
+
+            {/* Dots */}
+            <div className="flex justify-center gap-2 mt-6">
+              {galleryItems.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                    sliderIndex === index
+                      ? "bg-primary w-8"
+                      : "bg-muted-foreground/30 hover:bg-muted-foreground/60"
+                  }`}
+                />
               ))}
             </div>
           </div>
