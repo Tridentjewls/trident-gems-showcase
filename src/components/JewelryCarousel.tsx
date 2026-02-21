@@ -16,7 +16,6 @@ const JewelryCarousel = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  // Preload all carousel images
   useEffect(() => {
     images.forEach((src, index) => {
       const img = new Image();
@@ -32,8 +31,7 @@ const JewelryCarousel = () => {
   }, []);
 
   return (
-    <div className="w-full h-[85vh] overflow-hidden relative">
-      {/* Skeleton placeholder */}
+    <div className="w-full h-[92vh] overflow-hidden relative">
       {!imagesLoaded[0] && (
         <div className="absolute inset-0 skeleton-shimmer" />
       )}
