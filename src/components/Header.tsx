@@ -28,9 +28,9 @@ const Header = () => {
       <div className="flex items-center animate-fade-in">
         <Link to="/" className="relative group cursor-pointer">
           <img
-            src={tridentLogo}
+            src="./src/assets/imgs/trident-logo.png"
             alt="TRIDENT Jewellery Designer Logo"
-            className="h-12 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+            className="h-50 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
           />
         </Link>
       </div>
@@ -44,19 +44,17 @@ const Header = () => {
                 to={item.path}
                 className="relative transition-all duration-300 group py-2 block"
               >
-                <span className={`relative text-sm font-medium tracking-widest transition-all duration-300 ${
-                  isActive(item.path)
+                <span className={`relative text-sm font-medium tracking-widest transition-all duration-300 ${isActive(item.path)
                     ? "text-primary"
                     : "text-muted-foreground group-hover:text-primary"
-                }`}>
+                  }`}>
                   {item.label}
                 </span>
 
-                <span className={`absolute -bottom-1 left-0 h-px bg-gradient-to-r from-primary to-rose-gold transition-all duration-300 ease-out ${
-                  isActive(item.path)
+                <span className={`absolute -bottom-1 left-0 h-px bg-gradient-to-r from-primary to-rose-gold transition-all duration-300 ease-out ${isActive(item.path)
                     ? "w-full opacity-100"
                     : "w-0 group-hover:w-full opacity-0 group-hover:opacity-100"
-                }`}></span>
+                  }`}></span>
               </Link>
             </li>
           ))}
@@ -79,11 +77,10 @@ const Header = () => {
                 key={item.label}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`transition-all duration-300 px-4 py-3 block rounded-lg border ${
-                  isActive(item.path)
+                className={`transition-all duration-300 px-4 py-3 block rounded-lg border ${isActive(item.path)
                     ? "bg-primary/10 text-primary border-primary/30"
                     : "text-muted-foreground hover:bg-primary/5 hover:text-primary border-transparent"
-                }`}
+                  }`}
               >
                 <span className="text-sm font-medium tracking-widest">
                   {item.label}

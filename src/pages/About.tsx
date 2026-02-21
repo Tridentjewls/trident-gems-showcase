@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
-import tridentLogoAlt from "@/assets/trident-logo-alt.png";
 import founderPhoto from "@/assets/founder-photo.png";
 
 const About = () => {
@@ -55,7 +54,6 @@ const About = () => {
                   <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
                   <div className="flex flex-col items-center gap-2">
                     <div className="group w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-primary/40 bg-muted/40 flex items-center justify-center mb-3 transition-transform hover:scale-105 duration-300" style={{ boxShadow: '0 0 20px hsl(20 42% 58% / 0.15)' }}>
-                      <img src={tridentLogoAlt} alt="Trident Jewellery Logo" className="w-full h-full object-contain scale-[1.3] transition-transform duration-500 group-hover:scale-[1.6]" />
                     </div>
                     <p className="text-lg font-semibold text-foreground tracking-wide">Trident Jewellery</p>
                     <p className="text-muted-foreground leading-relaxed max-w-xl mt-2">

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Instagram, Facebook, Linkedin, Phone, MapPin, Mail } from "lucide-react";
-import tridentLogo from "@/assets/trident-logo.png";
+import tridentLogo from "@/assets/imgs/trident-logo.png";
 
 const Footer = () => {
   const services = [
@@ -37,7 +37,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Left Column - Company Info */}
           <div className="space-y-6 text-center sm:text-left">
-            <img src={tridentLogo} alt="Trident Logo" className="h-16 w-auto mx-auto sm:mx-0" />
+            <img src="./src/assets/imgs/trident-logo.png" alt="Trident Logo" className="h-16 w-auto mx-auto sm:mx-0" />
 
             {/* Social Media Icons */}
             <div className="flex flex-wrap gap-3 justify-center sm:justify-start">

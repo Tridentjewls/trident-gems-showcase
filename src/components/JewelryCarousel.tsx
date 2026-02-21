@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import jewelry1 from "@/assets/jewelry-1.jpg";
-import jewelry2 from "@/assets/jewelry-2.jpg";
-import jewelry3 from "@/assets/jewelry-3.jpg";
+import { useEffect, useState } from "react";  
+import jewelry1 from "@/assets/imgs/1.png";
+import jewelry2 from "@/assets/imgs/2.png";
+import jewelry3 from "@/assets/imgs/3.png";
 
 const JewelryCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
