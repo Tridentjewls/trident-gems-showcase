@@ -5,7 +5,7 @@ import PageTransition from "@/components/PageTransition";
 import OptimizedImage from "@/components/OptimizedImage";
 import { Link } from "react-router-dom";
 
-import cadImg from "@/assets/imgs/Searvices /Cad.jpg";
+import cadImg from "@/assets/imgs/Searvices /Cad.png";
 import renderingImg from "@/assets/imgs/Searvices /Rendering.png";
 import hiphopImg from "@/assets/imgs/Searvices /Hiphop.png";
 import faceImg from "@/assets/imgs/Searvices /Face.png";

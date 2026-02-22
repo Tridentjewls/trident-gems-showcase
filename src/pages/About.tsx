@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
-import tridentLogo from "@/assets/imgs/trident-logo.png";
+import tridentLogo from "@/assets/imgs/image copy.png";
 import founderPhoto from "@/assets/founder-photo.png";
 
 const About = () => {
@@ -54,8 +54,8 @@ const About = () => {
                 >
                   <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
                   <div className="flex flex-col items-center gap-2">
-                    <div className="group w-32 h-32 md:w-40 md:h-40 rounded-xl overflow-hidden border-2 border-primary/40 bg-muted/40 mb-3 transition-transform hover:scale-105 duration-300" style={{ boxShadow: '0 0 20px hsl(11 88% 67% / 0.15)' }}>
-                      <img src={tridentLogo} alt="Trident Jewellery Logo" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div className="group w-56 md:w-80 rounded-xl overflow-hidden border-2 border-primary/40 bg-muted/40 mb-4 p-4 transition-transform hover:scale-105 duration-300 flex items-center justify-center" style={{ boxShadow: '0 0 20px hsl(11 88% 67% / 0.15)' }}>
+                      <img src={tridentLogo} alt="Trident Jewellery Logo" className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" />
                     </div>
                     <p className="text-lg font-semibold text-foreground tracking-wide">Trident Jewellery</p>
                     <p className="text-muted-foreground leading-relaxed max-w-xl mt-2">
@@ -78,11 +78,10 @@ const About = () => {
                       <img src={founderPhoto} alt="Founder of Trident Jewellery" className="w-full h-full object-cover" />
                     </div>
                     <div className="text-center md:text-left">
-                      <p className="text-primary text-xs tracking-[0.3em] uppercase font-medium mb-2">About the Founder</p>
+                      <p className="text-primary text-xs tracking-[0.3em] uppercase font-medium mb-2">Founder</p>
                       <h3 className="text-2xl font-bold text-foreground mb-1">Pritesh Prajapati</h3>
                       <p className="text-primary text-sm mb-4"></p>
                       <p className="text-muted-foreground leading-relaxed text-sm">
-                        With over 3 years of experience in jewelry CAD design, Pritesh Prajapati founded Trident Jewellery Design with a passion for merging traditional craftsmanship with cutting-edge technology. His vision is to deliver world-class, production-ready jewelry designs that exceed client expectations and push the boundaries of creativity in the jewelry industry.
                       </p>
                     </div>
                   </div>

@@ -44,36 +44,35 @@ const Footer = () => {
             />
 
             {/* Social Media Icons */}
-            <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
+            <div className="flex flex-wrap gap-2 sm:gap-3 justify-center sm:justify-start">
               {socialLinks.map(social => (
                 <a
                   key={social.label}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-border flex items-center justify-center transition-all duration-300 hover:bg-primary/15 hover:border-primary/60 hover:scale-110"
+                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-border flex items-center justify-center transition-all duration-300 hover:bg-primary/15 hover:border-primary/60 hover:scale-110"
                   aria-label={social.label}
                 >
                   {social.icon
-                    ? <social.icon className="w-4 h-4 text-muted-foreground" />
-                    : <img src={social.image!} alt={social.label} className="w-4 h-4 object-contain opacity-50 invert" />
+                    ? <social.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground" />
+                    : <img src={social.image!} alt={social.label} className="w-3.5 h-3.5 sm:w-4 sm:h-4 object-contain opacity-50 invert" />
                   }
                 </a>
               ))}
             </div>
 
-            {/* Contact Info */}
-            <div className="space-y-3 text-muted-foreground">
-              <div className="flex items-start gap-3 justify-center sm:justify-start">
-                <Phone className="w-4 h-4 mt-1 flex-shrink-0 text-primary" />
-                <div className="text-center sm:text-left">
+            <div className="space-y-4 text-muted-foreground w-fit mx-auto sm:mx-0">
+              <div className="flex items-start gap-3 justify-start">
+                <Phone className="w-5 h-5 mt-0.5 flex-shrink-0 text-primary" />
+                <div className="text-left">
                   <p className="font-medium text-foreground text-sm">Mobile</p>
                   <p className="text-sm">+91 878-0532068</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3 justify-center sm:justify-start">
-                <MapPin className="w-4 h-4 mt-1 flex-shrink-0 text-primary" />
-                <div className="text-center sm:text-left">
+              <div className="flex items-start gap-3 justify-start">
+                <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-primary" />
+                <div className="text-left">
                   <p className="font-medium text-foreground text-sm">Address</p>
                   <p className="text-sm leading-relaxed">F118, ABC apartment, ABC Circle,<br />Sudama chowk, Surat, Gujarat, 394101</p>
                 </div>

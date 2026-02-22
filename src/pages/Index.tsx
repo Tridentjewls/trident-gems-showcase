@@ -1,16 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import JewelryCarousel from "@/components/JewelryCarousel";
+import heroImg from "@/assets/imgs/1.png";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import PageTransition from "@/components/PageTransition";
 import OptimizedImage from "@/components/OptimizedImage";
-import jewelryRing from "@/assets/jewelry-ring.png";
-import jewelryRing1 from "@/assets/jewelry-ring-1.jpg";
-import jewelryNecklace1 from "@/assets/jewelry-necklace-1.jpg";
-import jewelryBracelet1 from "@/assets/jewelry-bracelet-1.jpg";
-import jewelryEarrings1 from "@/assets/jewelry-earrings-1.jpg";
-import jewelryTiara1 from "@/assets/jewelry-tiara-1.jpg";
 import stepSketch from "@/assets/imgs/How we are work/0Manual.png";
 import stepCad from "@/assets/imgs/How we are work/1CAD.jpg";
 import stepRendering from "@/assets/imgs/How we are work/2Render.jpg";
@@ -23,6 +17,9 @@ import exotic4 from "@/assets/imgs/Exotik collecton/010.png";
 import exotic5 from "@/assets/imgs/Exotik collecton/011.png";
 import exotic6 from "@/assets/imgs/Exotik collecton/014.png";
 import exotic7 from "@/assets/imgs/Exotik collecton/39.png";
+
+import heroVideo from "@/assets/imgs/01.mp4";
+import workflowVideo from "@/assets/imgs/How we are work/Complet.mp4";
 
 const Index = () => {
   const [visibleBoxes, setVisibleBoxes] = useState<boolean[]>([false, false, false]);
@@ -153,7 +150,15 @@ const Index = () => {
     <main className="flex-1 relative">
 
       <section className="relative z-10 bg-background">
-        <JewelryCarousel />
+        <div className="w-full h-[92vh] overflow-hidden relative">
+          <OptimizedImage
+            src={heroImg}
+            alt="Trident Jewellery Hero"
+            className="w-full h-full object-cover"
+            containerClassName="w-full h-full"
+            priority={true}
+          />
+        </div>
       </section>
 
       {/* Three Boxes Section */}
@@ -215,7 +220,7 @@ const Index = () => {
 
               <div className="aspect-video rounded-lg overflow-hidden shadow-lg bg-muted">
                 <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                  <source src="/src/assets/imgs/01.mp4 " type="video/mp4" />
+                  <source src={heroVideo} type="video/mp4" />
                 </video>
               </div>
 
@@ -252,12 +257,9 @@ const Index = () => {
                     <OptimizedImage
                       src={item.img}
                       alt={item.alt}
-                      className="w-full h-[50vh] md:h-[65vh] object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                      containerClassName="w-full"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                      containerClassName="w-full h-[50vh] md:h-[65vh]"
                     />
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/80 to-transparent p-6">
-                      <p className="text-foreground font-semibold text-lg tracking-wide">{item.alt}</p>
-                    </div>
                   </div>
                 </div>
               ))}
@@ -336,7 +338,6 @@ const Index = () => {
                   className="transition-transform duration-500 hover:scale-110"
                   containerClassName="h-full"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none"></div>
               </div>
               <div className="p-6 space-y-3">
                 <h3 className="text-xl font-bold text-foreground">{step.title}</h3>
@@ -350,7 +351,7 @@ const Index = () => {
             <div className="bg-card rounded-xl p-4 border border-border hover:border-primary/40 transition-colors duration-300">
               <div className="aspect-video rounded-lg overflow-hidden shadow-lg bg-muted">
                 <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                  <source src="/src/assets/imgs/How we are work/Complet.mp4 " type="video/mp4" />
+                  <source src={workflowVideo} type="video/mp4" />
                 </video>
               </div>
             </div>

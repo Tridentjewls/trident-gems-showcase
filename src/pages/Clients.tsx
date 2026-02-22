@@ -98,14 +98,9 @@ const Clients = () => {
                     <img
                       src={client.logo}
                       alt={client.name || `Client Logo ${index + 1}`}
-                      className="h-16 md:h-24 w-auto max-w-full opacity-50 hover:opacity-90 transition-opacity duration-300 invert"
+                      className="h-20 md:h-28 w-auto max-w-full object-contain"
                       loading="lazy"
                     />
-                    {client.name && (
-                      <span className="text-sm md:text-base lg:text-lg font-semibold text-muted-foreground text-center mt-4 tracking-wide truncate w-full">
-                        {client.name}
-                      </span>
-                    )}
                   </div>
                 ))}
               </div>
