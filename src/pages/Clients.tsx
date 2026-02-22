@@ -92,7 +92,7 @@ const Clients = () => {
                   <div
                     key={index}
                     className="bg-card border border-border rounded-xl p-4 md:p-6 flex flex-col items-center justify-center transition-all duration-300 hover:border-primary/40 hover:scale-105"
-                    onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 0 30px hsl(20 42% 58% / 0.12)')}
+                    onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 0 30px hsl(11 88% 67% / 0.12)')}
                     onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}
                   >
                     <img

@@ -1,4 +1,4 @@
-import tridentLogo from "@/assets/trident-logo.png";
+import tridentLogo from "@/assets/imgs/trident-logo.png";
 import { Link, useLocation } from "react-router-dom";
 import { Menu } from "lucide-react";
 import { useState } from "react";
@@ -23,14 +23,14 @@ const Header = () => {
   };
 
   return (
-    <header className="py-4 px-6 flex justify-between items-center bg-background border-b border-border sticky top-0 z-50 backdrop-blur-sm" style={{ boxShadow: '0 1px 30px hsl(20 42% 58% / 0.08)' }}>
+    <header className="py-4 px-6 flex justify-between items-center bg-background border-b border-border sticky top-0 z-50 backdrop-blur-sm" style={{ boxShadow: '0 1px 30px hsl(11 88% 67% / 0.08)' }}>
 
       <div className="flex items-center animate-fade-in">
         <Link to="/" className="relative group cursor-pointer">
           <img
-            src="./src/assets/imgs/trident-logo.png"
+            src={tridentLogo}
             alt="TRIDENT Jewellery Designer Logo"
-            className="h-50 md:h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+            className="h-24 md:h-24 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
           />
         </Link>
       </div>
@@ -45,15 +45,15 @@ const Header = () => {
                 className="relative transition-all duration-300 group py-2 block"
               >
                 <span className={`relative text-sm font-medium tracking-widest transition-all duration-300 ${isActive(item.path)
-                    ? "text-primary"
-                    : "text-muted-foreground group-hover:text-primary"
+                  ? "text-primary"
+                  : "text-muted-foreground group-hover:text-primary"
                   }`}>
                   {item.label}
                 </span>
 
                 <span className={`absolute -bottom-1 left-0 h-px bg-gradient-to-r from-primary to-rose-gold transition-all duration-300 ease-out ${isActive(item.path)
-                    ? "w-full opacity-100"
-                    : "w-0 group-hover:w-full opacity-0 group-hover:opacity-100"
+                  ? "w-full opacity-100"
+                  : "w-0 group-hover:w-full opacity-0 group-hover:opacity-100"
                   }`}></span>
               </Link>
             </li>
@@ -78,8 +78,8 @@ const Header = () => {
                 to={item.path}
                 onClick={() => setIsOpen(false)}
                 className={`transition-all duration-300 px-4 py-3 block rounded-lg border ${isActive(item.path)
-                    ? "bg-primary/10 text-primary border-primary/30"
-                    : "text-muted-foreground hover:bg-primary/5 hover:text-primary border-transparent"
+                  ? "bg-primary/10 text-primary border-primary/30"
+                  : "text-muted-foreground hover:bg-primary/5 hover:text-primary border-transparent"
                   }`}
               >
                 <span className="text-sm font-medium tracking-widest">

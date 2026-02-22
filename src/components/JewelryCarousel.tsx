@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";  
+import { useEffect, useState, useRef } from "react";  
 import jewelry1 from "@/assets/imgs/1.png";
 import jewelry2 from "@/assets/imgs/2.png";
 import jewelry3 from "@/assets/imgs/3.png";
@@ -6,32 +6,89 @@ import jewelry3 from "@/assets/imgs/3.png";
 const JewelryCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([false, false, false]);
+  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
   const images = [jewelry1, jewelry2, jewelry3];
 
+  // Preload first image immediately
   useEffect(() => {
-    images.forEach((src, index) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = () => {
-        setImagesLoaded(prev => {
-          const newState = [...prev];
-          newState[index] = true;
-          return newState;
-        });
-      };
-    });
+    const firstImg = new Image();
+    firstImg.src = images[0];
+    firstImg.onload = () => {
+      setImagesLoaded(prev => {
+        const newState = [...prev];
+        newState[0] = true;
+        return newState;
+      });
+    };
+
+    // Preload next images after first one loads
+    const timer = setTimeout(() => {
+      images.forEach((src, index) => {
+        if (index > 0) {
+          const img = new Image();
+          img.src = src;
+          img.onload = () => {
+            setImagesLoaded(prev => {
+              const newState = [...prev];
+              newState[index] = true;
+              return newState;
+            });
+          };
+        }
+      });
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Auto-play carousel
+  useEffect(() => {
+    const startAutoPlay = () => {
+      autoPlayRef.current = setInterval(() => {
+        setCurrentIndex(prev => (prev + 1) % images.length);
+      }, 5000); // Change slide every 5 seconds
+    };
+
+    startAutoPlay();
+
+    return () => {
+      if (autoPlayRef.current) {
+        clearInterval(autoPlayRef.current);
+      }
+    };
   }, []);
 
   const prevSlide = () => {
     setCurrentIndex(prev => (prev - 1 + images.length) % images.length);
+    // Reset autoplay timer
+    if (autoPlayRef.current) {
+      clearInterval(autoPlayRef.current);
+      autoPlayRef.current = setInterval(() => {
+        setCurrentIndex(prev => (prev + 1) % images.length);
+      }, 5000);
+    }
   };
 
   const nextSlide = () => {
     setCurrentIndex(prev => (prev + 1) % images.length);
+    // Reset autoplay timer
+    if (autoPlayRef.current) {
+      clearInterval(autoPlayRef.current);
+      autoPlayRef.current = setInterval(() => {
+        setCurrentIndex(prev => (prev + 1) % images.length);
+      }, 5000);
+    }
   };
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
+    // Reset autoplay timer
+    if (autoPlayRef.current) {
+      clearInterval(autoPlayRef.current);
+      autoPlayRef.current = setInterval(() => {
+        setCurrentIndex(prev => (prev + 1) % images.length);
+      }, 5000);
+    }
   };
 
   return (

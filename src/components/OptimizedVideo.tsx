@@ -1,48 +1,31 @@
 import { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
-interface OptimizedImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+interface OptimizedVideoProps extends React.VideoHTMLAttributes<HTMLVideoElement> {
   src: string;
-  alt: string;
+  poster?: string;
   priority?: boolean;
   aspectRatio?: "square" | "video" | "portrait" | "auto";
-  sizes?: string;
-  className?: string;
   containerClassName?: string;
-  webpSrc?: string;
-  quality?: "high" | "medium" | "low";
 }
 
-const OptimizedImage = ({
+const OptimizedVideo = ({
   src,
-  alt,
+  poster,
   priority = false,
   aspectRatio = "auto",
-  sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw",
   className,
   containerClassName,
-  webpSrc,
-  quality = "high",
+  autoPlay = true,
+  loop = true,
+  muted = true,
+  playsInline = true,
   ...props
-}: OptimizedImageProps) => {
+}: OptimizedVideoProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
-  const [supportsWebp, setSupportsWebp] = useState(false);
-  const imgRef = useRef<HTMLImageElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  // Check WebP support
-  useEffect(() => {
-    const canvas = document.createElement("canvas");
-    canvas.width = 1;
-    canvas.height = 1;
-    const context = canvas.getContext("2d");
-    if (context) {
-      context.fillStyle = "rgb(0,0,0)";
-      context.fillRect(0, 0, 1, 1);
-      setSupportsWebp(canvas.toDataURL("image/webp").startsWith("data:image/webp"));
-    }
-  }, []);
 
   // Intersection Observer for lazy loading
   useEffect(() => {
@@ -55,12 +38,21 @@ const OptimizedImage = ({
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsInView(true);
+          // Start playing once in view
+          if (videoRef.current && autoPlay) {
+            videoRef.current.play();
+          }
           observer.disconnect();
+        } else {
+          // Pause when out of view to save resources
+          if (videoRef.current) {
+            videoRef.current.pause();
+          }
         }
       },
       {
-        rootMargin: "200px", // Start loading 200px before entering viewport
-        threshold: 0,
+        rootMargin: "200px",
+        threshold: 0.1,
       }
     );
 
@@ -69,23 +61,22 @@ const OptimizedImage = ({
     }
 
     return () => observer.disconnect();
-  }, [priority]);
+  }, [priority, autoPlay]);
 
-  // Preload priority images
+  // Preload priority videos
   useEffect(() => {
     if (priority && src) {
-      const imageToPreload = supportsWebp && webpSrc ? webpSrc : src;
       const link = document.createElement("link");
       link.rel = "preload";
-      link.as = "image";
-      link.href = imageToPreload;
+      link.as = "video";
+      link.href = src;
       document.head.appendChild(link);
 
       return () => {
         document.head.removeChild(link);
       };
     }
-  }, [priority, src, webpSrc, supportsWebp]);
+  }, [priority, src]);
 
   const aspectClasses = {
     square: "aspect-square",
@@ -93,9 +84,6 @@ const OptimizedImage = ({
     portrait: "aspect-[3/4]",
     auto: "",
   };
-
-  // Select image source based on WebP support
-  const imageSrc = supportsWebp && webpSrc ? webpSrc : src;
 
   return (
     <div
@@ -111,23 +99,19 @@ const OptimizedImage = ({
         <div className="absolute inset-0 skeleton-shimmer z-10" />
       )}
 
-      {/* Actual image */}
+      {/* Actual video */}
       {isInView && (
-        <img
-          ref={imgRef}
-          src={imageSrc}
-          alt={alt}
-          sizes={sizes}
-          loading={priority ? "eager" : "lazy"}
-          decoding={priority ? "sync" : "async"}
-          fetchPriority={priority ? "high" : "auto"}
-          onLoad={() => setIsLoaded(true)}
-          onError={() => {
-            // Fallback to original format if WebP fails
-            if (imgRef.current && imageSrc !== src) {
-              imgRef.current.src = src;
-            }
-          }}
+        <video
+          ref={videoRef}
+          src={src}
+          poster={poster}
+          autoPlay={autoPlay}
+          loop={loop}
+          muted={muted}
+          playsInline={playsInline}
+          preload={priority ? "auto" : "metadata"}
+          onLoadedData={() => setIsLoaded(true)}
+          onCanPlayThrough={() => setIsLoaded(true)}
           className={cn(
             "w-full h-full object-cover transition-opacity duration-500",
             isLoaded ? "opacity-100" : "opacity-0",
@@ -140,4 +124,4 @@ const OptimizedImage = ({
   );
 };
 
-export default OptimizedImage;
+export default OptimizedVideo;

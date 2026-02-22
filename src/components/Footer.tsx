@@ -37,7 +37,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Left Column - Company Info */}
           <div className="space-y-6 text-center sm:text-left">
-            <img src="./src/assets/imgs/trident-logo.png" alt="Trident Logo" className="h-16 w-auto mx-auto sm:mx-0" />
+            <img
+              src={tridentLogo}
+              alt="Trident Logo"
+              className="h-24 w-auto mx-auto sm:mx-0 hover:scale-105 transition-transform duration-300"
+            />
 
             {/* Social Media Icons */}
             <div className="flex flex-wrap gap-3 justify-center sm:justify-start">

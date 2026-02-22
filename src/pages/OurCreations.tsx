@@ -7,29 +7,45 @@ const mediaModules = import.meta.glob("@/assets/imgs/Our creation/*.{png,jpg,jpe
 const mediaPaths = Object.values(mediaModules).map(m => m.default);
 
 const categories = ["All", "Rings", "Necklaces", "Bracelets", "Earrings", "Tiaras", "Collections"];
-const aspectRatios = ["1/1", "3/4", "4/3", "9/16", "16/9", "4/5", "5/4"];
+const imageAspectRatios = ["1/1", "3/4", "4/3", "4/5", "5/4", "3/4", "4/5"];
+const videoAspectRatios = ["9/16", "2/3", "3/5", "9/16"];
 
 function pseudoRandom(seed: number) {
   const x = Math.sin(seed) * 10000;
   return x - Math.floor(x);
 }
 
-const allItems = mediaPaths.map((path, i) => {
-  const hash = path.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) + i;
-  const catIndex = hash % (categories.length - 1);
-  const isVideo = path.endsWith(".mp4");
-  const aspectIndex = hash % aspectRatios.length;
+// Fisher-Yates shuffle with a seed for deterministic but random-looking order
+function seededShuffle<T>(arr: T[], seed: number): T[] {
+  const shuffled = [...arr];
+  let s = seed;
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    s = (s * 9301 + 49297) % 233280;
+    const j = Math.floor((s / 233280) * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
 
-  return {
-    id: i,
-    src: path,
-    alt: `Creation Design ${i + 1}`,
-    category: categories[catIndex + 1],
-    isVideo,
-    aspectRatio: aspectRatios[aspectIndex],
-    order: pseudoRandom(hash)
-  };
-}).sort((a, b) => a.order - b.order);
+const allItems = seededShuffle(
+  mediaPaths.map((path, i) => {
+    const hash = path.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) + i;
+    const isVideo = path.endsWith(".mp4");
+    const aspectRatio = isVideo
+      ? videoAspectRatios[hash % videoAspectRatios.length]
+      : imageAspectRatios[hash % imageAspectRatios.length];
+
+    return {
+      id: i,
+      src: path,
+      alt: `Creation Design ${i + 1}`,
+      category: categories[hash % (categories.length - 1) + 1],
+      isVideo,
+      aspectRatio,
+    };
+  }),
+  42
+);
 
 const OurCreations = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -80,7 +96,7 @@ const OurCreations = () => {
                 </p>
               </div>
 
-              
+
 
               {/* Pinterest Masonry Grid */}
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 items-start">
@@ -127,7 +143,7 @@ const CreationCard = ({ item }: { item: CreationItem }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
-        boxShadow: hovered ? '0 0 30px hsl(20 42% 58% / 0.15)' : 'none',
+        boxShadow: hovered ? '0 0 30px hsl(11 88% 67% / 0.15)' : 'none',
         aspectRatio: item.aspectRatio
       }}
     >
