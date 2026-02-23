@@ -18,8 +18,6 @@ import exotic5 from "@/assets/imgs/Exotik collecton/011.png";
 import exotic6 from "@/assets/imgs/Exotik collecton/014.png";
 import exotic7 from "@/assets/imgs/Exotik collecton/39.png";
 
-import heroVideo from "@/assets/imgs/01.mp4";
-import workflowVideo from "@/assets/imgs/How we are work/Complet.mp4";
 
 const Index = () => {
   const [visibleBoxes, setVisibleBoxes] = useState<boolean[]>([false, false, false]);
@@ -220,7 +218,7 @@ const Index = () => {
 
               <div className="aspect-video rounded-lg overflow-hidden shadow-lg bg-muted">
                 <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                  <source src={heroVideo} type="video/mp4" />
+                  <source src="/01.mp4" type="video/mp4" />
                 </video>
               </div>
 
@@ -351,7 +349,7 @@ const Index = () => {
             <div className="bg-card rounded-xl p-4 border border-border hover:border-primary/40 transition-colors duration-300">
               <div className="aspect-video rounded-lg overflow-hidden shadow-lg bg-muted">
                 <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                  <source src={workflowVideo} type="video/mp4" />
+                  <source src="/Complet.mp4" type="video/mp4" />
                 </video>
               </div>
             </div>
