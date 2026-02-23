@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const mediaModules = import.meta.glob("@/assets/imgs/Our creation/*.{png,jpg,jpeg,mp4,webp}", { eager: true }) as Record<string, { default: string }>;
 const mediaPaths = Object.values(mediaModules).map(m => m.default);
@@ -158,12 +159,12 @@ const CreationCard = ({ item }: { item: CreationItem }) => {
             }`}
         />
       ) : (
-        <img
+        <OptimizedImage
           src={item.src}
           alt={item.alt}
-          className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 scale-100 ${hovered ? "!scale-110 !brightness-110" : ""
+          containerClassName="absolute inset-0 w-full h-full"
+          className={`w-full h-full object-cover transition-all duration-500 scale-100 ${hovered ? "!scale-110 !brightness-110" : ""
             }`}
-          loading="lazy"
         />
       )}
 

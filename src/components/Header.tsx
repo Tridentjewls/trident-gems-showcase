@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu } from "lucide-react";
 import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,10 +28,11 @@ const Header = () => {
 
       <div className="flex items-center animate-fade-in">
         <Link to="/" className="relative group cursor-pointer">
-          <img
+          <OptimizedImage
             src={tridentLogo}
             alt="TRIDENT Jewellery Designer Logo"
             className="h-24 md:h-24 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+            containerClassName="w-auto h-24"
           />
         </Link>
       </div>

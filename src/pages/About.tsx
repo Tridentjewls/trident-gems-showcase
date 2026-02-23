@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
+import OptimizedImage from "@/components/OptimizedImage";
 import tridentLogo from "@/assets/imgs/image copy.png";
 import founderPhoto from "@/assets/founder-photo.png";
 
@@ -55,7 +56,7 @@ const About = () => {
                   <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
                   <div className="flex flex-col items-center gap-2">
                     <div className="group w-56 md:w-80 rounded-xl overflow-hidden border-2 border-primary/40 bg-muted/40 mb-4 p-4 transition-transform hover:scale-105 duration-300 flex items-center justify-center" style={{ boxShadow: '0 0 20px hsl(11 88% 67% / 0.15)' }}>
-                      <img src={tridentLogo} alt="Trident Jewellery Logo" className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" />
+                      <OptimizedImage src={tridentLogo} alt="Trident Jewellery Logo" className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105" />
                     </div>
                     <p className="text-lg font-semibold text-foreground tracking-wide">Trident Jewellery</p>
                     <p className="text-muted-foreground leading-relaxed max-w-xl mt-2">
@@ -75,7 +76,7 @@ const About = () => {
                   <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
                   <div className="flex flex-col md:flex-row items-center gap-8">
                     <div className="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-2 border-primary/40 flex-shrink-0" style={{ boxShadow: '0 0 30px hsl(11 88% 67% / 0.15)' }}>
-                      <img src={founderPhoto} alt="Founder of Trident Jewellery" className="w-full h-full object-cover" />
+                      <OptimizedImage src={founderPhoto} alt="Founder of Trident Jewellery" className="w-full h-full object-cover" />
                     </div>
                     <div className="text-center md:text-left">
                       <p className="text-primary text-xs tracking-[0.3em] uppercase font-medium mb-2">Founder</p>

@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
+import OptimizedImage from "@/components/OptimizedImage";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -64,7 +65,7 @@ const RenderMedia = ({ src, alt, className }: { src: string; alt: string; classN
   if (src.endsWith(".mp4")) {
     return <video src={src} autoPlay loop muted playsInline className={className} />;
   }
-  return <img src={src} alt={alt} className={className} loading="lazy" />;
+  return <OptimizedImage src={src} alt={alt} className={className} />;
 };
 
 const Rendering = () => {

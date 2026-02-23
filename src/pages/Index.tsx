@@ -5,6 +5,7 @@ import heroImg from "@/assets/imgs/1.png";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import PageTransition from "@/components/PageTransition";
 import OptimizedImage from "@/components/OptimizedImage";
+import OptimizedVideo from "@/components/OptimizedVideo";
 import stepSketch from "@/assets/imgs/How we are work/0Manual.png";
 import stepCad from "@/assets/imgs/How we are work/1CAD.jpg";
 import stepRendering from "@/assets/imgs/How we are work/2Render.jpg";
@@ -217,9 +218,7 @@ const Index = () => {
             <div ref={el => boxRefs.current[2] = el} className={`bg-card rounded-xl p-6 border border-border transition-all duration-1000 delay-600 hover:border-primary/40 ${visibleBoxes[2] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'} max-w-3xl mx-auto`}>
 
               <div className="aspect-video rounded-lg overflow-hidden shadow-lg bg-muted">
-                <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                  <source src="/01.mp4" type="video/mp4" />
-                </video>
+                <OptimizedVideo className="w-full h-full object-cover" src="/01.mp4" />
               </div>
 
             </div>
@@ -348,9 +347,7 @@ const Index = () => {
           <div className="mt-16 max-w-4xl mx-auto">
             <div className="bg-card rounded-xl p-4 border border-border hover:border-primary/40 transition-colors duration-300">
               <div className="aspect-video rounded-lg overflow-hidden shadow-lg bg-muted">
-                <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                  <source src="/Complet.mp4" type="video/mp4" />
-                </video>
+                <OptimizedVideo className="w-full h-full object-cover" src="/Complet.mp4" />
               </div>
             </div>
           </div>

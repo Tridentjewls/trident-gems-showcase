@@ -101,7 +101,7 @@ const OptimizedImage = ({
     <div
       ref={containerRef}
       className={cn(
-        "relative overflow-hidden bg-muted",
+        "relative overflow-hidden bg-muted flex items-center justify-center w-full h-full",
         aspectClasses[aspectRatio],
         containerClassName
       )}

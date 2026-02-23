@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
+import OptimizedImage from "@/components/OptimizedImage";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -72,13 +73,13 @@ const CadDesigning = () => {
                 <div className="w-full md:w-1/2">
                   <div className="grid grid-cols-2 gap-3 max-w-lg mx-auto">
                     <div className="col-span-2 aspect-video overflow-hidden rounded-2xl border border-border hover:border-primary/40 transition-colors duration-300">
-                      <img src={section.images[0]} alt={section.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+                      <OptimizedImage src={section.images[0]} alt={section.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
                     </div>
                     <div className="aspect-square overflow-hidden rounded-xl border border-border hover:border-primary/40 transition-colors duration-300">
-                      <img src={section.images[1]} alt={`${section.title} detail 1`} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+                      <OptimizedImage src={section.images[1]} alt={`${section.title} detail 1`} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
                     </div>
                     <div className="aspect-square overflow-hidden rounded-xl border border-border hover:border-primary/40 transition-colors duration-300">
-                      <img src={section.images[2]} alt={`${section.title} detail 2`} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
+                      <OptimizedImage src={section.images[2]} alt={`${section.title} detail 2`} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
                     </div>
                   </div>
                 </div>
