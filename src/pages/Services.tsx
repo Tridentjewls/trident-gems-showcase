@@ -47,6 +47,8 @@ const Services = () => {
             </p>
           </div>
 
+
+
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full max-w-4xl">
             {services.map((service, index) => (
               <Link
@@ -63,15 +65,19 @@ const Services = () => {
                   priority={index < 4}
                   aspectRatio="square"
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  className="transition-transform duration-500 group-hover:scale-110"
+                  className="transition-transform duration-700 group-hover:scale-110"
                 />
-                {/* Overlay gradient on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                <div className="p-4 text-center relative z-10">
-                  <span className="text-foreground font-semibold text-sm md:text-base group-hover:text-primary transition-colors tracking-wide">
+
+                {/* Minimalist Name Overlay - Blends with UI */}
+                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-background/90 via-background/40 to-transparent pt-12">
+                  <span className="block text-foreground font-medium text-xs md:text-sm tracking-[0.2em] uppercase text-center group-hover:text-primary transition-colors duration-300">
                     {service.name}
                   </span>
+                  <div className="w-0 h-px bg-primary mx-auto mt-2 transition-all duration-500 group-hover:w-12" />
                 </div>
+
+                {/* Subtle Border Glow on Hover */}
+                <div className="absolute inset-0 border border-primary/0 group-hover:border-primary/30 rounded-xl transition-colors duration-500 pointer-events-none" />
               </Link>
             ))}
           </div>
